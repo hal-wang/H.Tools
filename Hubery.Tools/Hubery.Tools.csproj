@@ -9,6 +9,7 @@
     <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/hbrwang/Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hbrwang/Tools</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
