@@ -7,8 +7,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company></Company>
     <PackageIcon>logo.png</PackageIcon>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/hbrwang/Tools</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hbrwang/Tools</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="LICENSE" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
