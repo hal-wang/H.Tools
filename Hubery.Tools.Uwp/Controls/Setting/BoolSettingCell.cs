@@ -5,7 +5,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
     /// <summary>
     /// 
     /// </summary>
-    public class BoolSettingCell : BaseSettingCell
+    public sealed class BoolSettingCell : BaseSettingCell
     {
         /// <summary>
         /// 
@@ -19,7 +19,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public static readonly DependencyProperty ValueProperty =
+        internal static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(bool), typeof(BaseSettingCell), new PropertyMetadata(false));
     }
 }

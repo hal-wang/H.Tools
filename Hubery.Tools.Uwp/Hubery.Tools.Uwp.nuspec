@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>Hubery.Tools.Uwp</id>
-    <version>1.0.5</version>
-    <title>Hubery.Tools.Uwp</title>
-    <authors>h.wang</authors>
-    <owners>h.wang</owners>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$id$</title>
+    <authors>$authors$</authors>
+    <owners>$authors$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/hbrwang/Tools</projectUrl>
     <icon>logo.png</icon>
-    <description>UWP基本帮助类和常用控件</description>
+    <description>$description$</description>
     <releaseNotes>First release</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>hubery hbrwang uwp</tags>

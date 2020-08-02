@@ -5,7 +5,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
     /// <summary>
     /// 
     /// </summary>
-    public class TextSettingCell : BaseSettingCell
+    public sealed class TextSettingCell : BaseSettingCell
     {
         /// <summary>
         /// 
@@ -19,7 +19,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public static readonly DependencyProperty ValueProperty =
+        internal static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(string), typeof(TextSettingCell), new PropertyMetadata(string.Empty));
     }
 }

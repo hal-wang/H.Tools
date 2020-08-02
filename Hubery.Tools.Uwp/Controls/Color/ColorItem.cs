@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ColorItem
+    public sealed class ColorItem
     {
         /// <summary>
         /// 

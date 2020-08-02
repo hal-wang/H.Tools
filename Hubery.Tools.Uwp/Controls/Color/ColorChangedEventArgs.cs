@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ColorChangedEventArgs
+    public sealed class ColorChangedEventArgs
     {
         /// <summary>
         /// 

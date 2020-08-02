@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class FontChangedEventArgs
+    public sealed class FontChangedEventArgs
     {
         /// <summary>
         /// 
