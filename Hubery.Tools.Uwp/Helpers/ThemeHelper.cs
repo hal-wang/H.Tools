@@ -7,10 +7,21 @@ using Windows.UI.Xaml.Media;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ThemeHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static Action ThemeChanged;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="isThemeDark"></param>
         public static void SetTheme(string color, bool isThemeDark)
         {
             SetAccentColor(GetThemeColor(color));
@@ -72,6 +83,9 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static ElementTheme ElementTheme
         {
             get

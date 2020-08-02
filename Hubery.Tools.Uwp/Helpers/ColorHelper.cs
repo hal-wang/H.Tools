@@ -5,25 +5,28 @@ using Windows.UI.Xaml.Media;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ColorHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static Color GetColor(string str)
         {
             if (str[0] == '#')
             {
-                switch (str.Length)
+                return str.Length switch
                 {
-                    case 4:
-                        return Color.FromArgb(0xff, Convert.ToByte("0x" + str[1] + str[1], 16), Convert.ToByte("0x" + str[2] + str[2], 16), Convert.ToByte("0x" + str[3].ToString() + str[3], 16));
-                    case 5:
-                        return Color.FromArgb(Convert.ToByte("0x" + str[1] + str[1], 16), Convert.ToByte("0x" + str[2] + str[2], 16), Convert.ToByte("0x" + str[3] + str[3], 16), Convert.ToByte("0x" + str[4] + str[4], 16));
-                    case 7:
-                        return Color.FromArgb(0xff, Convert.ToByte("0x" + str[1] + str[2], 16), Convert.ToByte("0x" + str[3] + str[4], 16), Convert.ToByte("0x" + str[5] + str[6], 16));
-                    case 9:
-                        return Color.FromArgb(Convert.ToByte("0x" + str[1] + str[2], 16), Convert.ToByte("0x" + str[3] + str[4], 16), Convert.ToByte("0x" + str[5] + str[6], 16), Convert.ToByte("0x" + str[7] + str[8], 16));
-                    default:
-                        throw new Exception();
-                }
+                    4 => Color.FromArgb(0xff, Convert.ToByte("0x" + str[1] + str[1], 16), Convert.ToByte("0x" + str[2] + str[2], 16), Convert.ToByte("0x" + str[3].ToString() + str[3], 16)),
+                    5 => Color.FromArgb(Convert.ToByte("0x" + str[1] + str[1], 16), Convert.ToByte("0x" + str[2] + str[2], 16), Convert.ToByte("0x" + str[3] + str[3], 16), Convert.ToByte("0x" + str[4] + str[4], 16)),
+                    7 => Color.FromArgb(0xff, Convert.ToByte("0x" + str[1] + str[2], 16), Convert.ToByte("0x" + str[3] + str[4], 16), Convert.ToByte("0x" + str[5] + str[6], 16)),
+                    9 => Color.FromArgb(Convert.ToByte("0x" + str[1] + str[2], 16), Convert.ToByte("0x" + str[3] + str[4], 16), Convert.ToByte("0x" + str[5] + str[6], 16), Convert.ToByte("0x" + str[7] + str[8], 16)),
+                    _ => throw new Exception(),
+                };
             }
             else
             {
@@ -43,6 +46,13 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="sensory"></param>
+        /// <param name="backColor"></param>
+        /// <returns></returns>
         public static bool IsDarkColor(Color color, int sensory = 192, Color? backColor = null)
         {
             if (color.A < 255)
@@ -60,6 +70,11 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static Brush GetBrush(string str)
         {
             if (str[0] == '#')
@@ -84,6 +99,12 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="alphaColor"></param>
+        /// <param name="backColor"></param>
+        /// <returns></returns>
         public static Color MergeAlpha(Color alphaColor, Color? backColor = null)
         {
             if (alphaColor.A == 255) // 半透明
@@ -106,6 +127,10 @@ namespace Hubery.Tools.Uwp.Helpers
             return alphaColor;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static Color GetBackColor()
         {
             return ThemeHelper.ElementTheme == ElementTheme.Dark ? Colors.Black : Colors.White;

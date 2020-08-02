@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hubery.Tools.Uwp.Helpers.Graph
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class OneDriveHelper
     {
         //private readonly string[] _scopes = new string[] { "Files.ReadWrite.All" };

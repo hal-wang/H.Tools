@@ -3,8 +3,14 @@ using Windows.UI.Xaml.Controls;
 
 namespace Hubery.Tools.Uwp.Controls
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed partial class TitleBar : ContentControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public TitleBar()
         {
             this.InitializeComponent();
@@ -17,6 +23,9 @@ namespace Hubery.Tools.Uwp.Controls
             Set();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Set()
         {
             Window.Current.SetTitleBar(this);

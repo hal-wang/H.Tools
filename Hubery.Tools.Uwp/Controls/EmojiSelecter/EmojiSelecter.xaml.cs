@@ -4,15 +4,24 @@ using Windows.UI.Xaml.Controls;
 
 namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed partial class EmojiSelecter : UserControl
     {
         internal IncrementalLoadingCollection<EmojiSource, string> Emojis { get; } = new IncrementalLoadingCollection<EmojiSource, string>();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public EmojiSelecter()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public event TypedEventHandler<EmojiSelecter, EmojiChangedEventArgs> Changed;
 
         private string _old = null;

@@ -12,13 +12,26 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ImgHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="base64"></param>
+        /// <returns></returns>
         public static async Task<BitmapImage> GetImg(string base64)
         {
             return await GetImg(System.Convert.FromBase64String(base64).AsBuffer());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public static async Task<BitmapImage> GetImg(IBuffer data)
         {
             InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream();
@@ -43,6 +56,11 @@ namespace Hubery.Tools.Uwp.Helpers
             return bitmapImage;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pathMarkup"></param>
+        /// <returns></returns>
         public static Geometry PathMarkupToGeometry(string pathMarkup)
         {
             var path = PathMarkupToPath(pathMarkup);
@@ -51,6 +69,11 @@ namespace Hubery.Tools.Uwp.Helpers
             return geometry;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pathMarkup"></param>
+        /// <returns></returns>
         public static Path PathMarkupToPath(string pathMarkup)
         {
             string path;

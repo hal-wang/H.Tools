@@ -8,6 +8,9 @@ namespace Hubery.Tools.Uwp.Controls.Setting
     /// </summary>
     public class BaseSettingCell : ContentControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public BaseSettingCell()
         {
             HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -16,26 +19,35 @@ namespace Hubery.Tools.Uwp.Controls.Setting
             VerticalContentAlignment = VerticalAlignment.Stretch;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Label
         {
             get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Label.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty LabelProperty =
             DependencyProperty.Register("Label", typeof(string), typeof(BaseSettingCell), new PropertyMetadata(string.Empty));
 
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Visibility NextVisible
         {
             get { return (Visibility)GetValue(NextVisibleProperty); }
             set { SetValue(NextVisibleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for NextVisible.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty NextVisibleProperty =
             DependencyProperty.Register("NextVisible", typeof(Visibility), typeof(BaseSettingCell), new PropertyMetadata(Visibility.Visible));
 

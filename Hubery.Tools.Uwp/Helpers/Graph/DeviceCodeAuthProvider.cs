@@ -9,17 +9,29 @@ using System.Threading.Tasks;
 
 namespace Hubery.Tools.Uwp.Helpers.Graph
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DeviceCodeAuthProvider : IAuthenticationProvider
     {
         private readonly string _appId;
         private readonly string[] _scopes;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="scopes"></param>
         public DeviceCodeAuthProvider(string appId, string[] scopes)
         {
             _scopes = scopes;
             _appId = appId;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetAccessToken()
         {
             try
@@ -45,6 +57,11 @@ namespace Hubery.Tools.Uwp.Helpers.Graph
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
         public async Task AuthenticateRequestAsync(HttpRequestMessage requestMessage)
         {
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", await GetAccessToken());

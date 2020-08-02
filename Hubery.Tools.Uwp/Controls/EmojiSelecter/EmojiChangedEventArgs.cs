@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
+﻿namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class EmojiChangedEventArgs
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string New { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Old { get; set; }
     }
 }

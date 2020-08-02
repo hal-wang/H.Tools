@@ -1,5 +1,4 @@
-﻿using Hubery.Tools;
-using Microsoft.Toolkit.Uwp.Helpers;
+﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,22 +8,41 @@ using Windows.Storage;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class LogHelper : BaseLogHelper
     {
         private static readonly string _path = Path.Combine(ApplicationData.Current.LocalFolder.Path, SystemInformation.ApplicationName + ExtendName);
+        /// <summary>
+        /// 
+        /// </summary>
         public static LogHelper Instance = new LogHelper();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static string ExtendName { get; set; } = ".log";
 
         private LogHelper() :
             base(_path)
         { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <param name="source"></param>
         public void Log(Exception ex, [CallerMemberName] string source = null)
         {
             Log(ex?.ToString(), source);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="source"></param>
         public void Log(string content, [CallerMemberName] string source = null)
         {
             Log(new Log()
@@ -40,6 +58,10 @@ namespace Hubery.Tools.Uwp.Helpers
             });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task Export()
         {
             var savePicker = new Windows.Storage.Pickers.FileSavePicker

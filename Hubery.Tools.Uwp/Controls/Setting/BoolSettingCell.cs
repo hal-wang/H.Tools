@@ -2,15 +2,23 @@
 
 namespace Hubery.Tools.Uwp.Controls.Setting
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BoolSettingCell : BaseSettingCell
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Value
         {
             get { return (bool)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(bool), typeof(BaseSettingCell), new PropertyMetadata(false));
     }

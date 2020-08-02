@@ -2,22 +2,24 @@
 
 namespace Hubery.Tools.Uwp.Controls.Setting
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class TextSettingCell : BaseSettingCell
     {
-
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Value
         {
             get { return (string)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(string), typeof(TextSettingCell), new PropertyMetadata(string.Empty));
-
-
-
-
     }
 }

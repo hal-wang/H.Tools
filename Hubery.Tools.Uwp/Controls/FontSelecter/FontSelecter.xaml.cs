@@ -1,18 +1,23 @@
 ﻿using Microsoft.Toolkit.Uwp;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
 using Windows.Foundation;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Hubery.Tools.Uwp.Controls.FontSelecter
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed partial class FontSelecter : UserControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public event TypedEventHandler<FontSelecter, FontChangedEventArgs> Changed;
         internal IncrementalLoadingCollection<FontSource, string> Fonts { get; } = new IncrementalLoadingCollection<FontSource, string>();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public FontSelecter()
         {
             this.InitializeComponent();

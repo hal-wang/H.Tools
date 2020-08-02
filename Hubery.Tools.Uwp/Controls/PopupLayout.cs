@@ -4,42 +4,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
-/**
- *                   /88888888888888888888888888\
- *                   |88888888888888888888888888/
- *                    |~~____~~~~~~~~~"""""""""|
- *                   / \_________/"""""""""""""\
- *                  /  |              \         \
- *                 /   |  88    88     \         \
- *                /    |  88    88      \         \
- *               /    /                  \        |
- *              /     |   ________        \       |                            好用的弹出层
- *              \     |   \______/        /       |
- *   /"\         \     \____________     /        |
- *   | |__________\_        |  |        /        /
- * /""""\           \_------'  '-------/       --
- * \____/,___________\                 -------/
- * ------*            |                    \
- *   ||               |                     \
- *   ||               |                 ^    \
- *   ||               |                | \    \
- *   ||               |                |  \    \
- *   ||               |                |   \    \
- *   \|              /                /"""\/    /
- *      -------------                |    |    /
- *      |\--_                        \____/___/
- *      |   |\-_                       |
- *      |   |   \_                     |
- *      |   |     \                    |
- *      |   |      \_                  |
- *      |   |        ----___           |
- *      |   |               \----------|
- *      /   |                     |     ----------""\
- * /"\--"--_|                     |               |  \
- * |_______/                      \______________/    )
- *                                               \___/
- */
-
 namespace Hubery.Tools.Uwp.Controls
 {
     /// <summary>
@@ -48,6 +12,9 @@ namespace Hubery.Tools.Uwp.Controls
     public class PopupLayout : ContentControl
     {
         private readonly Popup _popup;
+        /// <summary>
+        /// 
+        /// </summary>
         public PopupLayout()
         {
             RequestedTheme = ThemeHelper.ElementTheme;
@@ -73,13 +40,18 @@ namespace Hubery.Tools.Uwp.Controls
             this.Height = Window.Current.Bounds.Height;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }
             set { SetValue(IsOpenProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsOpen.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty IsOpenProperty =
             DependencyProperty.Register("IsOpen", typeof(bool), typeof(PopupLayout), new PropertyMetadata(false, OnIsOpenChanged));
 
@@ -89,19 +61,29 @@ namespace Hubery.Tools.Uwp.Controls
             (d as PopupLayout).IsOpenChanged?.Invoke((bool)e.NewValue);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Action<bool> IsOpenChanged;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsLoading
         {
             get { return (bool)GetValue(IsLoadingProperty); }
             set { SetValue(IsLoadingProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsLoading.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty IsLoadingProperty =
             DependencyProperty.Register("IsLoading", typeof(bool), typeof(PopupLayout), new PropertyMetadata(false, (d, e) => (d as PopupLayout).IsLoadingChanged?.Invoke((bool)e.NewValue)));
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Action<bool> IsLoadingChanged;
     }
 }

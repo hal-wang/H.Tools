@@ -6,8 +6,14 @@ using Windows.UI.Xaml.Controls;
 
 namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed partial class ColorSelecter : UserControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public ColorSelecter()
         {
             this.InitializeComponent();
@@ -16,13 +22,18 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 
         #region DependencyProperty
         #region Default
+        /// <summary>
+        /// 
+        /// </summary>
         public Color Default
         {
             get { return (Color)GetValue(DefaultProperty); }
             set { SetValue(DefaultProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Default.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty DefaultProperty =
             DependencyProperty.Register("Default", typeof(Color), typeof(ColorSelecter), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"], DefaultChanged));
 
@@ -35,6 +46,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 
 
         #region SelectedColor
+        /// <summary>
+        /// 
+        /// </summary>
         public Color SelectedColor
         {
             get { return (Color)GetValue(SelectedColorProperty); }
@@ -48,7 +62,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
             }
         }
 
-        // Using a DependencyProperty as the backing store for SelectedColor.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty SelectedColorProperty =
             DependencyProperty.Register("SelectedColor", typeof(Color), typeof(ColorSelecter), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"]));
         #endregion
@@ -71,13 +87,18 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 
 
         #region IsAlphaEnabled
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsAlphaEnabled
         {
             get { return (bool)GetValue(IsAlphaEnabledProperty); }
             set { SetValue(IsAlphaEnabledProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsAlphaEnabled.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty IsAlphaEnabledProperty =
             DependencyProperty.Register("IsAlphaEnabled", typeof(bool), typeof(ColorSelecter), new PropertyMetadata(false));
         #endregion
@@ -93,7 +114,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
             set { SetValue(PresetOpacityProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for PresetOpacity.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty PresetOpacityProperty =
             DependencyProperty.Register("PresetOpacity", typeof(double), typeof(ColorSelecter), new PropertyMetadata(1.0, PresetOpacityChanged));
 
@@ -119,19 +142,26 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 
 
         #region Resetable
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Resetable
         {
             get { return (bool)GetValue(ResetableProperty); }
             set { SetValue(ResetableProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Resetable.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty ResetableProperty =
             DependencyProperty.Register("Resetable", typeof(bool), typeof(ColorSelecter), new PropertyMetadata(false));
         #endregion
         #endregion
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public ObservableCollection<ColorItem> DefaultColors = new ObservableCollection<ColorItem>()
         {
             new ColorItem(Colors.Black, "黑"),
@@ -156,22 +186,36 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 
         private Color? _old = null;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public event TypedEventHandler<ColorSelecter, ColorChangedEventArgs> Changed;
 
 
         #region Handle
+        /// <summary>
+        /// 
+        /// </summary>
         public void HandleAccept()
         {
             LastColor = SelectedColor;
             ChangeColor();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void HandleLastColorClicked()
         {
             SelectedColor = LastColor;
             ChangeColor();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void HandleColorClicked(object sender, ItemClickEventArgs e)
         {
             var color = (e.ClickedItem as ColorItem).Color;
@@ -195,6 +239,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
             _old = SelectedColor;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void HandleReset()
         {
             Changed?.Invoke(this, new ColorChangedEventArgs()

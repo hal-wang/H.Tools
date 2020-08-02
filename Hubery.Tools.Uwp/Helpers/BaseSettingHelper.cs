@@ -4,10 +4,20 @@ using Windows.Storage;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class BaseSettingHelper
     {
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="defaultValue"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         protected T Get<T>(T defaultValue = default, [CallerMemberName] string propertyName = null)
         {
             if (string.IsNullOrEmpty(propertyName))
@@ -26,6 +36,12 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="propertyName"></param>
         protected void Set<T>(T value, [CallerMemberName] string propertyName = null)
         {
             _localSettings.Values[propertyName] = value;

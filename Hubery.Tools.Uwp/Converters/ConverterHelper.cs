@@ -7,8 +7,19 @@ using Windows.UI.Xaml.Media;
 
 namespace Hubery.Tools.Uwp.Converters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ConverterHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isTrue"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public static object BoolToValue(object value, bool isTrue, Type targetType, string parameter)
         {
             string[] strs = parameter.Split(':');
@@ -69,6 +80,13 @@ namespace Hubery.Tools.Uwp.Converters
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isTrue"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public static object BoolTo(bool isTrue, Type targetType, string parameter = null)
         {
             if (string.Equals(parameter, "true", StringComparison.InvariantCultureIgnoreCase) || string.Equals(parameter, "T", StringComparison.InvariantCultureIgnoreCase))
@@ -90,6 +108,12 @@ namespace Hubery.Tools.Uwp.Converters
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public static object TimeToStr(object value, string parameter)
         {
             if (value == null)

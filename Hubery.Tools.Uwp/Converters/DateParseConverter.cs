@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Hubery.Tools.Uwp.Converters
 {
-    public class DateParseConverter : IValueConverter
+    internal class DateParseConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

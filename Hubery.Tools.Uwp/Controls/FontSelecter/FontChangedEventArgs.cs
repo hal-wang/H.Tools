@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hubery.Tools.Uwp.Controls.FontSelecter
+﻿namespace Hubery.Tools.Uwp.Controls.FontSelecter
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FontChangedEventArgs
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string New { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Old { get; set; }
     }
 }

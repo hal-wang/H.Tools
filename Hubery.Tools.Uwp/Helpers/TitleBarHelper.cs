@@ -5,10 +5,20 @@ using Windows.UI.ViewManagement;
 
 namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class TitleBarHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static Action<Color?> TitleBarColorChanging;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="titlebarColor"></param>
         public static void SetTitleBar(Color? titlebarColor = null)
         {
             bool isBtnTransparent = titlebarColor == null || titlebarColor.Value.R == 0;
