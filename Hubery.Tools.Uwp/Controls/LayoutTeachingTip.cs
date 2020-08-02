@@ -6,7 +6,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.LayoutTeachingTip
+namespace Hubery.Tools.Uwp.Controls
 {
     internal class LayoutTeachingTip : PopupLayout
     {
@@ -92,12 +92,11 @@ namespace Hubery.Tools.Uwp.Controls.LayoutTeachingTip
 
         public LayoutTeachingTip()
         {
-            //this.DefaultStyleResourceUri = new Uri("./Style.xaml", UriKind.Relative);
-            //this.DefaultStyleKey = typeof(LayoutTeachingTip);
-            if (Style == null)
-            {
-                Style = ResourcesHelper.GetResource<Style>("LayoutTeachingTip");
-            }
+            this.DefaultStyleKey = typeof(LayoutTeachingTip);
+            //if (Style == null)
+            //{
+            //    Style = ResourcesHelper.GetResource<Style>("LayoutTeachingTip");
+            //}
         }
 
         protected TeachingTip TeachingTip = null;

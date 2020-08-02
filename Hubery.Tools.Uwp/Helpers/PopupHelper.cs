@@ -1,5 +1,5 @@
-﻿using Hubery.Tools.Uwp.Controls.LayoutDialog;
-using Hubery.Tools.Uwp.Controls.LayoutTeachingTip;
+﻿using Hubery.Tools.Uwp.Controls;
+using Hubery.Tools.Uwp.Controls.Dialog;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Controls.LayoutDialog
+﻿namespace Hubery.Tools.Uwp.Controls.Dialog
 {
     /// <summary>
     /// 

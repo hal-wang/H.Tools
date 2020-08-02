@@ -152,12 +152,12 @@
       <DependentUpon>FontSelecter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FontSelecter\FontSource.cs" />
-    <Compile Include="Controls\LayoutDialog\LayoutDialog.cs" />
-    <Compile Include="Controls\LayoutDialog\LayoutDialogButtonClickEventArgs.cs" />
-    <Compile Include="Controls\LayoutTeachingTip\LayoutTeachingTip.cs" />
+    <Compile Include="Controls\Dialog\LayoutDialog.cs" />
+    <Compile Include="Controls\Dialog\LayoutDialogButtonClickEventArgs.cs" />
+    <Compile Include="Controls\LayoutTeachingTip.cs" />
     <Compile Include="Controls\Loading\ILoading.cs" />
-    <Compile Include="Controls\Loading\Loading.xaml.cs">
-      <DependentUpon>Loading.xaml</DependentUpon>
+    <Compile Include="Controls\Loading\LayoutLoading.xaml.cs">
+      <DependentUpon>LayoutLoading.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Loading\PartialLoading.xaml.cs">
       <DependentUpon>PartialLoading.xaml</DependentUpon>
@@ -208,7 +208,6 @@
     <Compile Include="Converters\TestConverter.cs" />
     <Compile Include="Converters\ThicknessConverter.cs" />
     <Compile Include="Converters\TimestampConverter.cs" />
-    <Compile Include="HbrUwpResources.cs" />
     <Compile Include="Helpers\BaseSettingHelper.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\Graph\DeviceCodeAuthProvider.cs" />
@@ -263,15 +262,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\LayoutDialog\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\LayoutTeachingTip\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Loading\Loading.xaml">
+    <Page Include="Controls\Loading\LayoutLoading.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -299,15 +290,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Setting\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Controls\TitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Converters\ConvertersDict.xaml">
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

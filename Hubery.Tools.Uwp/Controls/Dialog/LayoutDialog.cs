@@ -6,7 +6,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.LayoutDialog
+namespace Hubery.Tools.Uwp.Controls.Dialog
 {
     /// <summary>
     /// ConentDialog虽好，但不能多用哦！ 
@@ -278,12 +278,12 @@ namespace Hubery.Tools.Uwp.Controls.LayoutDialog
         /// </summary>
         public LayoutDialog()
         {
-            if (Style == null)
-            {
-                Style = ResourcesHelper.GetResource<Style>("LayoutDialog");
-            }
+            //if (Style == null)
+            //{
+            //    Style = ResourcesHelper.GetResource<Style>("LayoutDialog");
+            //}
 
-            //this.DefaultStyleKey = typeof(LayoutDialog);
+            this.DefaultStyleKey = typeof(LayoutDialog);
 
             //IsOpenChanged += OnIsOpenChanged;
             Loaded += LayoutDialog_Loaded;

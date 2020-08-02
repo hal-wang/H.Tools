@@ -2,9 +2,9 @@
 
 namespace Hubery.Tools.Uwp.Controls.Loading
 {
-    internal sealed partial class Loading : PopupLayout, ILoading
+    internal sealed partial class LayoutLoading : PopupLayout, ILoading
     {
-        public Loading()
+        public LayoutLoading()
         {
             this.InitializeComponent();
         }

@@ -28,7 +28,7 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
-        private static Loading _loading = null;
+        private static LayoutLoading _loading = null;
         /// <summary>
         /// 
         /// </summary>
@@ -40,7 +40,7 @@ namespace Hubery.Tools.Uwp.Helpers
         {
             if (_loading == null)
             {
-                _loading = new Loading();
+                _loading = new LayoutLoading();
             }
 
             _loading.Show(loadingStr, clickable, backgroundOpacity, paneOpacity);
