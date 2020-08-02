@@ -1,4 +1,4 @@
-﻿using Hubery.Common.Uwp.Helpers;
+﻿using Hubery.Tools.Uwp.Helpers;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -43,7 +43,7 @@ using System.Threading.Tasks;
  *                         .,::iiirsssssssssrri;;:.                      
  */
 
-namespace Hubery.Common.Uwp
+namespace Hubery.Tools.Uwp
 {
     public static class ApiExtend
     {

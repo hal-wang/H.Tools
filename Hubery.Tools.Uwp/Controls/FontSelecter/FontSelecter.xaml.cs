@@ -6,7 +6,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls.FontSelecter
+namespace Hubery.Tools.Uwp.Controls.FontSelecter
 {
     public sealed partial class FontSelecter : UserControl
     {

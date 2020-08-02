@@ -1,7 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls
+namespace Hubery.Tools.Uwp.Controls
 {
     public sealed partial class TitleBar : ContentControl
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hubery.Common.Uwp.Controls.EmojiSelecter
+namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
 {
     internal class EmojiSource : IIncrementalSource<string>
     {

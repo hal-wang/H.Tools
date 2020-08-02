@@ -1,4 +1,4 @@
-﻿namespace Hubery.Common.Uwp.Controls.Loading
+﻿namespace Hubery.Tools.Uwp.Controls.Loading
 {
     public interface ILoading
     {

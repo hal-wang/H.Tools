@@ -2,7 +2,7 @@
 using System;
 using Windows.UI.Xaml.Data;
 
-namespace Hubery.Common.Uwp.Converters
+namespace Hubery.Tools.Uwp.Converters
 {
     /// <summary>
     /// 用于绑定测试

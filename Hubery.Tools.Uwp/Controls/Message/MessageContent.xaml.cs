@@ -1,7 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls.Message
+namespace Hubery.Tools.Uwp.Controls.Message
 {
     internal sealed partial class MessageContent : UserControl, IMessage
     {

@@ -1,4 +1,4 @@
-﻿using Hubery.Common.Uwp.Helpers;
+﻿using Hubery.Tools.Uwp.Helpers;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -40,7 +40,7 @@ using Windows.UI.Xaml.Controls.Primitives;
  *                                               \___/
  */
 
-namespace Hubery.Common.Uwp.Controls
+namespace Hubery.Tools.Uwp.Controls
 {
     /// <summary>
     /// 好用的弹出层

@@ -1,11 +1,11 @@
-﻿using Hubery.Common.Uwp.Controls.Message;
+﻿using Hubery.Tools.Uwp.Controls.Message;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 
-namespace Hubery.Common.Uwp.Helpers
+namespace Hubery.Tools.Uwp.Helpers
 {
     public static class MessageHelper
     {

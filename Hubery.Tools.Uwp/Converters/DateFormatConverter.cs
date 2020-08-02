@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace Hubery.Common.Uwp.Converters
+namespace Hubery.Tools.Uwp.Converters
 {
     /// <summary>
     /// 末尾有L表示Local

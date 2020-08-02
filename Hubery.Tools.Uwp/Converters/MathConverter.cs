@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Data;
 
-namespace Hubery.Common.Uwp.Converters
+namespace Hubery.Tools.Uwp.Converters
 {
     internal class MathConverter : IValueConverter
     {

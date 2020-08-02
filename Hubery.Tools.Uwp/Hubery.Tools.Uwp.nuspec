@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Hubery.Tools.Uwp</id>
+    <version>1.0.1</version>
+    <title>Hubery.Tools.Uwp</title>
+    <authors>h.wang</authors>
+    <owners>h.wang</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/hbrwang/Tools</projectUrl>
+    <icon>logo.png</icon>
+    <description>UWP基本帮助类和常用控件</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>hubery hbrwang uwp</tags>
+  </metadata>
+
+  <files>
+    <file src="..\logo.png" target="" />
+
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-x64\lib\uap10.0"/>
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x64\lib\uap10.0"/>
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.XML" target="runtimes\win10-x64\lib\uap10.0"/>
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.pri" target="runtimes\win10-x64\lib\uap10.0"/>
+
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-x86\lib\uap10.0"/>
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x86\lib\uap10.0"/>
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.XML" target="runtimes\win10-x86\lib\uap10.0"/>
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.pri" target="runtimes\win10-x86\lib\uap10.0"/>
+
+    <file src="bin\arm\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm\lib\uap10.0"/>
+    <file src="bin\arm\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm\lib\uap10.0"/>
+    <file src="bin\arm\Release\Hubery.Tools.Uwp.XML" target="runtimes\win10-arm\lib\uap10.0"/>
+    <file src="bin\arm\Release\Hubery.Tools.Uwp.pri" target="runtimes\win10-arm\lib\uap10.0"/>
+
+    <file src="bin\arm64\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm64\lib\uap10.0"/>
+    <file src="bin\arm64\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm64\lib\uap10.0"/>
+    <file src="bin\arm64\Release\Hubery.Tools.Uwp.XML" target="runtimes\win10-arm64\lib\uap10.0"/>
+    <file src="bin\arm64\Release\Hubery.Tools.Uwp.pri" target="runtimes\win10-arm64\lib\uap10.0"/>
+
+    <file src="bin\Release\Hubery.Tools.Uwp.pri" target="ref\uap10.0"/>
+  </files>
+</package>

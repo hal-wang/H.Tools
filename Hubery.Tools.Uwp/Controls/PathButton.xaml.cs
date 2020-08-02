@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Common.Uwp.Controls
+namespace Hubery.Tools.Uwp.Controls
 {
     public sealed partial class PathButton : Button
     {

@@ -37,7 +37,7 @@
  *                    $               $
  */
 
-namespace Hubery.Common.Uwp
+namespace Hubery.Tools.Uwp
 {
     /// <summary>
     /// 用于向VM传递View，建议少见，不符合MVVM设计思想

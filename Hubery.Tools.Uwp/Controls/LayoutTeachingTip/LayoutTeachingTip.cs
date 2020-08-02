@@ -1,5 +1,5 @@
 ﻿using Hubery.Common.Base;
-using Hubery.Common.Uwp.Helpers;
+using Hubery.Tools.Uwp.Helpers;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -8,7 +8,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls.LayoutTeachingTip
+namespace Hubery.Tools.Uwp.Controls.LayoutTeachingTip
 {
     internal class LayoutTeachingTip : PopupLayout
     {

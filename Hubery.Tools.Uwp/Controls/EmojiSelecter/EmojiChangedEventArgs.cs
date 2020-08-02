@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hubery.Common.Uwp.Controls.EmojiSelecter
+namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
 {
     public class EmojiChangedEventArgs
     {

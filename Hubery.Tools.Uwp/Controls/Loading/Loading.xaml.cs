@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 
-namespace Hubery.Common.Uwp.Controls.Loading
+namespace Hubery.Tools.Uwp.Controls.Loading
 {
     internal sealed partial class Loading : PopupLayout, ILoading
     {

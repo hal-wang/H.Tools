@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hubery.Common.Uwp.Controls.FontSelecter
+namespace Hubery.Tools.Uwp.Controls.FontSelecter
 {
     public class FontChangedEventArgs
     {

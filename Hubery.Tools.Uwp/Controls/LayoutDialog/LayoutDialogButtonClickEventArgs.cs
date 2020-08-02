@@ -1,4 +1,4 @@
-﻿namespace Hubery.Common.Uwp.Controls.LayoutDialog
+﻿namespace Hubery.Tools.Uwp.Controls.LayoutDialog
 {
     public class LayoutDialogButtonClickEventArgs
     {

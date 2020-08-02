@@ -42,14 +42,14 @@ using Windows.UI.Xaml;
  */
 
 
-namespace Hubery.Common.Uwp
+namespace Hubery.Tools.Uwp
 {
     public class HbrUwpResources : ResourceDictionary
     {
         private readonly string[] _paths =
         {
-            "ms-appx:///Hubery.Common.Uwp/Converters/ConvertersDict.xaml",
-            "ms-appx:///Hubery.Common.Uwp/Styles/Resources.xaml",
+            "ms-appx:///Hubery.Tools.Uwp/Converters/ConvertersDict.xaml",
+            "ms-appx:///Hubery.Tools.Uwp/Styles/Resources.xaml",
         };
 
         public HbrUwpResources()

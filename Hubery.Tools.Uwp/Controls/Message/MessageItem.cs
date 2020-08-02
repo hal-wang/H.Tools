@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hubery.Common.Uwp.Controls.Message
+namespace Hubery.Tools.Uwp.Controls.Message
 {
     internal class MessageItem : IMessage
     {

@@ -1,7 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls.Setting
+namespace Hubery.Tools.Uwp.Controls.Setting
 {
     /// <summary>
     /// 为什么不用泛型：UWP暂不支持 x:TypeArguments

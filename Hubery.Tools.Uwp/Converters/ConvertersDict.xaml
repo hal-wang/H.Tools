@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Hubery.Common.Uwp.Converters">
+    xmlns:converters="using:Hubery.Tools.Uwp.Converters">
 
     <converters:BooleanConverter x:Key="BooleanConverter"/>
     <converters:DateFormatConverter x:Key="DateFormatConverter"/>

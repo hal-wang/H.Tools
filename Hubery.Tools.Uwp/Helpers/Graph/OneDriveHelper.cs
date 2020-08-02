@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Hubery.Common.Base;
 using System.Threading.Tasks;
 
-namespace Hubery.Common.Uwp.Helpers.Graph
+namespace Hubery.Tools.Uwp.Helpers.Graph
 {
     public class OneDriveHelper
     {

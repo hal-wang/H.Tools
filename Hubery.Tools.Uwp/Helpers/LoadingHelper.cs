@@ -1,7 +1,7 @@
-﻿using Hubery.Common.Uwp.Controls.Loading;
+﻿using Hubery.Tools.Uwp.Controls.Loading;
 using System;
 
-namespace Hubery.Common.Uwp.Helpers
+namespace Hubery.Tools.Uwp.Helpers
 {
     public static class LoadingHelper
     {

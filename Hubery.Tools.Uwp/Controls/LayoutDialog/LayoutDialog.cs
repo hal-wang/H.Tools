@@ -1,5 +1,5 @@
 ﻿using Hubery.Common.Base;
-using Hubery.Common.Uwp.Helpers;
+using Hubery.Tools.Uwp.Helpers;
 using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -7,35 +7,11 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-/**
- **************************************************************
- *                                                            *
- *   .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.       *
- *    |                     ______                     |      *
- *    |                  .-"      "-.                  |      *
- *    |                 /            \                 |      *
- *    |     _          |              |          _     |      *
- *    |    ( \         |,  .-.  .-.  ,|         / )    |      *
- *    |     > "=._     | )(__/  \__)( |     _.=" <     |      *
- *    |    (_/"=._"=._ |/     /\     \| _.="_.="\_)    |      *
- *    |           "=._"(_     ^^     _)"_.="           |      *
- *    |               "=\__|IIIIII|__/="               |      *
- *    |              _.="| \IIIIII/ |"=._              |      *
- *    |    _     _.="_.="\          /"=._"=._     _    |      *
- *    |   ( \_.="_.="     `--------`     "=._"=._/ )   |      *
- *    |    > _.="                            "=._ <    |      *
- *    |   (_/                                    \_)   |      *
- *    |                                                |      *
- *    '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='      *
- *                                                            *
- *           ConentDialog虽好，但不能多用哦！                 *
- *                  用LayoutDialog吧！                        *
- **************************************************************
- */
-
-namespace Hubery.Common.Uwp.Controls.LayoutDialog
+namespace Hubery.Tools.Uwp.Controls.LayoutDialog
 {
     /// <summary>
+    /// ConentDialog虽好，但不能多用哦！ 
+    /// 用LayoutDialog吧！ 
     /// 可以无限叠加调用的对话框。与StickyMessage不冲突。
     /// 设置IsOpen=false即关闭对话框并返回Result。
     /// 可以自由控制对话框关闭时机。
@@ -43,78 +19,106 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
     public class LayoutDialog : PopupLayout
     {
         #region DependencyProperty
+        /// <summary>
+        /// 
+        /// </summary>
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Title.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty TitleProperty =
             DependencyProperty.Register("Title", typeof(string), typeof(LayoutDialog), new PropertyMetadata(string.Empty));
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public double TitleFontSize
         {
             get { return (double)GetValue(TitleFontSizeProperty); }
             set { SetValue(TitleFontSizeProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for TitleFontSize.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty TitleFontSizeProperty =
             DependencyProperty.Register("TitleFontSize", typeof(double), typeof(LayoutDialog), new PropertyMetadata(18));
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsExitButtonVisible
         {
             get { return (bool)GetValue(IsExitButtonVisibleProperty); }
             set { SetValue(IsExitButtonVisibleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsExitButtonVisible.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty IsExitButtonVisibleProperty =
             DependencyProperty.Register("IsExitButtonVisible", typeof(bool), typeof(LayoutDialog), new PropertyMetadata(false));
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public bool CloseButtonVisible
         {
             get { return (bool)GetValue(CloseButtonVisibleProperty); }
             set { SetValue(CloseButtonVisibleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for CloseButtonVisible.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty CloseButtonVisibleProperty =
             DependencyProperty.Register("CloseButtonVisible", typeof(bool), typeof(LayoutDialog), new PropertyMetadata(false));
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string PrimaryButtonText
         {
             get { return (string)GetValue(PrimaryButtonTextProperty); }
             set { SetValue(PrimaryButtonTextProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for PrimaryButtonText.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty PrimaryButtonTextProperty =
             DependencyProperty.Register("PrimaryButtonText", typeof(string), typeof(LayoutDialog), new PropertyMetadata(null, (d, e) => (d as LayoutDialog).SetBtnVisible()));
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string SecondaryButtonText
         {
             get { return (string)GetValue(SecondaryButtonTextProperty); }
             set { SetValue(SecondaryButtonTextProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for SecondaryButtonText.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty SecondaryButtonTextProperty =
             DependencyProperty.Register("SecondaryButtonText", typeof(string), typeof(LayoutDialog), new PropertyMetadata(null, (d, e) => (d as LayoutDialog).SetBtnVisible()));
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string CloseButtonText
         {
             get { return (string)GetValue(CloseButtonTextProperty); }
             set { SetValue(CloseButtonTextProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for CloseButtonText.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty CloseButtonTextProperty =
             DependencyProperty.Register("CloseButtonText", typeof(string), typeof(LayoutDialog), new PropertyMetadata(null, (d, e) => (d as LayoutDialog).SetBtnVisible()));
 
@@ -154,13 +158,18 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public ContentDialogButton DefaultButton
         {
             get { return (ContentDialogButton)GetValue(DefaultButtonProperty); }
             set { SetValue(DefaultButtonProperty, value); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         // Using a DependencyProperty as the backing store for DefaultButton.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DefaultButtonProperty =
             DependencyProperty.Register("DefaultButton", typeof(ContentDialogButton), typeof(LayoutDialog), new PropertyMetadata(ContentDialogButton.None, (d, e) => (d as LayoutDialog).SetBtnStyle()));
@@ -187,13 +196,18 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public object TitleExtension
         {
             get { return (object)GetValue(TitleExtensionProperty); }
             set { SetValue(TitleExtensionProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for TitleExtension.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty TitleExtensionProperty =
             DependencyProperty.Register("TitleExtension", typeof(object), typeof(LayoutDialog), new PropertyMetadata(null));
         #endregion
@@ -260,6 +274,9 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
         //}
 
         private AppViewBackButtonVisibility _backButtonVisibility;
+        /// <summary>
+        /// 
+        /// </summary>
         public LayoutDialog()
         {
             if (Style == null)
@@ -298,12 +315,26 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
                     break;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected Button PrimaryButton = null;
+        /// <summary>
+        /// 
+        /// </summary>
         protected Button SecondaryButton = null;
+        /// <summary>
+        /// 
+        /// </summary>
         protected Button CloseButton = null;
+        /// <summary>
+        /// 
+        /// </summary>
         protected Button ExitButton = null;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ContentDialogResult Result { get; set; } = ContentDialogResult.None;
 
         /// <summary>
@@ -346,9 +377,20 @@ namespace Hubery.Common.Uwp.Controls.LayoutDialog
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public event TypedEventHandler<LayoutDialog, LayoutDialogButtonClickEventArgs> PrimaryButtonClick;
 
+        /// <summary>
+        /// 
+        /// </summary>
+
         public event TypedEventHandler<LayoutDialog, LayoutDialogButtonClickEventArgs> SecondaryButtonClick;
+
+        /// <summary>
+        /// 
+        /// </summary>
 
         public event TypedEventHandler<LayoutDialog, LayoutDialogButtonClickEventArgs> CloseButtonClick;
 

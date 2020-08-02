@@ -3,7 +3,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Common.Uwp.Helpers
+namespace Hubery.Tools.Uwp.Helpers
 {
     public static class ColorHelper
     {

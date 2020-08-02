@@ -3,7 +3,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Common.Uwp.Converters
+namespace Hubery.Tools.Uwp.Converters
 {
     internal class IsDarkColorToValueConverter : IValueConverter
     {

@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:hcucl="using:Hubery.Common.Uwp.Controls.LayoutDialog"
-    xmlns:loading="using:Hubery.Common.Uwp.Controls.Loading"
+    xmlns:hcucl="using:Hubery.Tools.Uwp.Controls.LayoutDialog"
+    xmlns:loading="using:Hubery.Tools.Uwp.Controls.Loading"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:hcuc="using:Hubery.Common.Uwp.Controls">
+    xmlns:hcuc="using:Hubery.Tools.Uwp.Controls">
 
     <Style TargetType="Button" x:Key="DialogPrimaryButtonStyle" BasedOn="{StaticResource AccentButtonStyle}"/>
     <Style TargetType="Button" x:Key="DialogSecondaryButtonStyle" BasedOn="{StaticResource ButtonRevealStyle}"/>

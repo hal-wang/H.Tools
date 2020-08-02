@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Windows.Storage;
 
-namespace Hubery.Common.Uwp.Helpers
+namespace Hubery.Tools.Uwp.Helpers
 {
     public abstract class BaseSettingHelper
     {

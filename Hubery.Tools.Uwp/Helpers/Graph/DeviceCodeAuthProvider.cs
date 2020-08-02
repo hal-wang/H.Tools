@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Hubery.Common.Uwp.Helpers.Graph
+namespace Hubery.Tools.Uwp.Helpers.Graph
 {
     public class DeviceCodeAuthProvider : IAuthenticationProvider
     {

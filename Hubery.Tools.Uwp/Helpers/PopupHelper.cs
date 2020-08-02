@@ -1,5 +1,5 @@
-﻿using Hubery.Common.Uwp.Controls.LayoutDialog;
-using Hubery.Common.Uwp.Controls.LayoutTeachingTip;
+﻿using Hubery.Tools.Uwp.Controls.LayoutDialog;
+using Hubery.Tools.Uwp.Controls.LayoutTeachingTip;
 using Microsoft.Services.Store.Engagement;
 using Microsoft.UI.Xaml.Controls;
 using System;
@@ -10,10 +10,23 @@ using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Helpers
+namespace Hubery.Tools.Uwp.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class PopupHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        /// <param name="placement"></param>
+        /// <param name="clickable"></param>
+        /// <param name="backgroundOpacity"></param>
+        /// <returns></returns>
         public async static Task<TeachingTipClosedEventArgs> ShowTeachingTip(FrameworkElement target, string title, object content = null, TeachingTipPlacementMode placement = TeachingTipPlacementMode.Auto, bool clickable = false, double backgroundOpacity = 0.4)
         {
             return await new LayoutTeachingTip(title, content)
@@ -24,6 +37,16 @@ namespace Hubery.Common.Uwp.Helpers
             }.ShowAt(target);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="title"></param>
+        /// <param name="primaryButtonText"></param>
+        /// <param name="secondButtonText"></param>
+        /// <param name="isPrimaryDefault"></param>
+        /// <param name="closeButtonText"></param>
+        /// <returns></returns>
         public async static Task<ContentDialogResult> ShowDialog(string content, string title = "提示", string primaryButtonText = "确定", string secondButtonText = null, bool? isPrimaryDefault = true, string closeButtonText = null)
         {
             LayoutDialog layoutDialog = new LayoutDialog()
@@ -63,10 +86,24 @@ namespace Hubery.Common.Uwp.Helpers
             return await layoutDialog.ShowAsync();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async static Task ShowRating() => await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, string.Empty);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async static Task ShowFeedback() => await StoreServicesFeedbackLauncher.GetDefault().LaunchAsync();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <param name="str3"></param>
         public static void ShowHint(string str1, string str2, string str3)
         {
             ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText04;

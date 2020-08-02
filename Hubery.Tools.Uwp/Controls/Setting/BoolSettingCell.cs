@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 
-namespace Hubery.Common.Uwp.Controls.Setting
+namespace Hubery.Tools.Uwp.Controls.Setting
 {
     public class BoolSettingCell : BaseSettingCell
     {

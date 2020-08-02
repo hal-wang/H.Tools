@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 
-namespace Hubery.Common.Uwp.Controls.Message
+namespace Hubery.Tools.Uwp.Controls.Message
 {
     internal sealed partial class MessageList : PopupLayout
     {

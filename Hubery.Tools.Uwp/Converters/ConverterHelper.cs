@@ -1,11 +1,11 @@
-﻿using Hubery.Common.Uwp.Helpers;
+﻿using Hubery.Tools.Uwp.Helpers;
 using Hubery.Tools;
 using System;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Common.Uwp.Converters
+namespace Hubery.Tools.Uwp.Converters
 {
     public static class ConverterHelper
     {

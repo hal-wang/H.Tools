@@ -1,6 +1,6 @@
 ﻿using Windows.UI;
 
-namespace Hubery.Common.Uwp.Controls.ColorSelecter
+namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 {
     public class ColorItem
     {

@@ -4,7 +4,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Common.Uwp.Controls.ColorSelecter
+namespace Hubery.Tools.Uwp.Controls.ColorSelecter
 {
     public sealed partial class ColorSelecter : UserControl
     {
