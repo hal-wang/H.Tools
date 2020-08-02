@@ -1,5 +1,4 @@
-﻿using Hubery.Common.Base;
-using Hubery.Tools.Uwp.Helpers;
+﻿using Hubery.Tools.Uwp.Helpers;
 using System;
 using System.Threading.Tasks;
 using Windows.Foundation;

@@ -1,10 +1,4 @@
-﻿using Microsoft.Graph;
-using System;
-using System.Diagnostics;
-using Hubery.Common.Base;
-using System.Threading.Tasks;
-
-namespace Hubery.Tools.Uwp.Helpers.Graph
+﻿namespace Hubery.Tools.Uwp.Helpers.Graph
 {
     /// <summary>
     /// 

@@ -1,8 +1,6 @@
-﻿using Hubery.Common.Base;
-using Hubery.Tools.Uwp.Helpers;
+﻿using Hubery.Tools.Uwp.Helpers;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml;

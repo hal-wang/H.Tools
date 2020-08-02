@@ -10,6 +10,8 @@
     <PackageProjectUrl>https://github.com/hbrwang/Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hbrwang/Tools</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
+    <Description>基本帮助类</Description>
   </PropertyGroup>
 
   <ItemGroup>

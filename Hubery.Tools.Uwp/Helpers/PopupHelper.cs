@@ -1,6 +1,5 @@
 ﻿using Hubery.Tools.Uwp.Controls.LayoutDialog;
 using Hubery.Tools.Uwp.Controls.LayoutTeachingTip;
-using Microsoft.Services.Store.Engagement;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;
@@ -92,11 +91,11 @@ namespace Hubery.Tools.Uwp.Helpers
         /// <returns></returns>
         public async static Task ShowRating() => await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, string.Empty);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public async static Task ShowFeedback() => await StoreServicesFeedbackLauncher.GetDefault().LaunchAsync();
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public async static Task ShowFeedback() => await StoreServicesFeedbackLauncher.GetDefault().LaunchAsync();
 
         /// <summary>
         /// 
