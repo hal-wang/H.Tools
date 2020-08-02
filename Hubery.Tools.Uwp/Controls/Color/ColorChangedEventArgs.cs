@@ -1,6 +1,4 @@
-﻿using Windows.UI;
-
-namespace Hubery.Tools.Uwp.Controls.ColorSelecter
+﻿namespace Hubery.Tools.Uwp.Controls.Color
 {
     /// <summary>
     /// 
@@ -10,11 +8,11 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <summary>
         /// 
         /// </summary>
-        public Color? Old { get; set; }
+        public Windows.UI.Color? Old { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Color? New { get; set; }
+        public Windows.UI.Color? New { get; set; }
     }
 }

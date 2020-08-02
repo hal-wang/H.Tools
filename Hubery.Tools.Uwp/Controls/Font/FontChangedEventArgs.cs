@@ -1,9 +1,9 @@
-﻿namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
+﻿namespace Hubery.Tools.Uwp.Controls.Font
 {
     /// <summary>
     /// 
     /// </summary>
-    public class EmojiChangedEventArgs
+    public class FontChangedEventArgs
     {
         /// <summary>
         /// 

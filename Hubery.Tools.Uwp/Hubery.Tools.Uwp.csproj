@@ -137,21 +137,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApiExtend.cs" />
-    <Compile Include="Controls\ColorSelecter\ColorChangedEventArgs.cs" />
-    <Compile Include="Controls\ColorSelecter\ColorItem.cs" />
-    <Compile Include="Controls\ColorSelecter\ColorSelecter.xaml.cs">
+    <Compile Include="Controls\Color\ColorChangedEventArgs.cs" />
+    <Compile Include="Controls\Color\ColorItem.cs" />
+    <Compile Include="Controls\Color\ColorSelecter.xaml.cs">
       <DependentUpon>ColorSelecter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EmojiSelecter\EmojiChangedEventArgs.cs" />
-    <Compile Include="Controls\EmojiSelecter\EmojiSelecter.xaml.cs">
+    <Compile Include="Controls\Emoji\EmojiChangedEventArgs.cs" />
+    <Compile Include="Controls\Emoji\EmojiSelecter.xaml.cs">
       <DependentUpon>EmojiSelecter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EmojiSelecter\EmojiSource.cs" />
-    <Compile Include="Controls\FontSelecter\FontChangedEventArgs.cs" />
-    <Compile Include="Controls\FontSelecter\FontSelecter.xaml.cs">
+    <Compile Include="Controls\Emoji\EmojiSource.cs" />
+    <Compile Include="Controls\Font\FontChangedEventArgs.cs" />
+    <Compile Include="Controls\Font\FontSelecter.xaml.cs">
       <DependentUpon>FontSelecter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FontSelecter\FontSource.cs" />
+    <Compile Include="Controls\Font\FontSource.cs" />
     <Compile Include="Controls\Dialog\LayoutDialog.cs" />
     <Compile Include="Controls\Dialog\LayoutDialogButtonClickEventArgs.cs" />
     <Compile Include="Controls\LayoutTeachingTip.cs" />
@@ -250,15 +250,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\ColorSelecter\ColorSelecter.xaml">
+    <Page Include="Controls\Color\ColorSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\EmojiSelecter\EmojiSelecter.xaml">
+    <Page Include="Controls\Emoji\EmojiSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\FontSelecter\FontSelecter.xaml">
+    <Page Include="Controls\Font\FontSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

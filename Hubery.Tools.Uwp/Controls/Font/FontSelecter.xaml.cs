@@ -2,7 +2,7 @@
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.FontSelecter
+namespace Hubery.Tools.Uwp.Controls.Font
 {
     /// <summary>
     /// 

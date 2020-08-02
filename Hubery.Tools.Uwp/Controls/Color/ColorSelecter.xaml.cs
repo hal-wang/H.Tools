@@ -4,7 +4,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.ColorSelecter
+namespace Hubery.Tools.Uwp.Controls.Color
 {
     /// <summary>
     /// 
@@ -25,9 +25,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <summary>
         /// 
         /// </summary>
-        public Color Default
+        public Windows.UI.Color Default
         {
-            get { return (Color)GetValue(DefaultProperty); }
+            get { return (Windows.UI.Color)GetValue(DefaultProperty); }
             set { SetValue(DefaultProperty, value); }
         }
 
@@ -35,7 +35,7 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// 
         /// </summary>
         public static readonly DependencyProperty DefaultProperty =
-            DependencyProperty.Register("Default", typeof(Color), typeof(ColorSelecter), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"], DefaultChanged));
+            DependencyProperty.Register("Default", typeof(Windows.UI.Color), typeof(ColorSelecter), new PropertyMetadata((Windows.UI.Color)Application.Current.Resources["SystemAccentColor"], DefaultChanged));
 
         private static void DefaultChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -49,9 +49,9 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <summary>
         /// 
         /// </summary>
-        public Color SelectedColor
+        public Windows.UI.Color SelectedColor
         {
-            get { return (Color)GetValue(SelectedColorProperty); }
+            get { return (Windows.UI.Color)GetValue(SelectedColorProperty); }
             set
             {
                 if (SelectedColor == value)
@@ -66,7 +66,7 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// 
         /// </summary>
         public static readonly DependencyProperty SelectedColorProperty =
-            DependencyProperty.Register("SelectedColor", typeof(Color), typeof(ColorSelecter), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"]));
+            DependencyProperty.Register("SelectedColor", typeof(Windows.UI.Color), typeof(ColorSelecter), new PropertyMetadata((Windows.UI.Color)Application.Current.Resources["SystemAccentColor"]));
         #endregion
 
 
@@ -74,15 +74,15 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <summary>
         /// 上次选择的颜色
         /// </summary>
-        internal Color LastColor
+        internal Windows.UI.Color LastColor
         {
-            get { return (Color)GetValue(LastColorProperty); }
+            get { return (Windows.UI.Color)GetValue(LastColorProperty); }
             set { SetValue(LastColorProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for LastColor.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty LastColorProperty =
-            DependencyProperty.Register("LastColor", typeof(Color), typeof(ColorSelecter), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"]));
+            DependencyProperty.Register("LastColor", typeof(Windows.UI.Color), typeof(ColorSelecter), new PropertyMetadata((Windows.UI.Color)Application.Current.Resources["SystemAccentColor"]));
         #endregion
 
 
@@ -184,7 +184,7 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
                 new ColorItem(Colors.Purple, "紫"),
         };
 
-        private Color? _old = null;
+        private Windows.UI.Color? _old = null;
 
         /// <summary>
         /// 

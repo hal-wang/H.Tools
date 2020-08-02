@@ -2,7 +2,7 @@
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.EmojiSelecter
+namespace Hubery.Tools.Uwp.Controls.Emoji
 {
     /// <summary>
     /// 

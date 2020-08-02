@@ -1,6 +1,4 @@
-﻿using Windows.UI;
-
-namespace Hubery.Tools.Uwp.Controls.ColorSelecter
+﻿namespace Hubery.Tools.Uwp.Controls.Color
 {
     /// <summary>
     /// 
@@ -13,7 +11,7 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <param name="color"></param>
         /// <param name="name"></param>
         /// <param name="isDark"></param>
-        public ColorItem(Color color, string name, bool isDark = false)
+        public ColorItem(Windows.UI.Color color, string name, bool isDark = false)
         {
             Color = color;
             Name = name;
@@ -28,7 +26,7 @@ namespace Hubery.Tools.Uwp.Controls.ColorSelecter
         /// <summary>
         /// 
         /// </summary>
-        public Color Color { get; set; }
+        public Windows.UI.Color Color { get; set; }
 
         /// <summary>
         /// 
