@@ -1,4 +1,4 @@
-﻿namespace Hubery.Common.Base
+﻿namespace Hubery.Tools
 {
     /// <summary>
     /// 对象复制
