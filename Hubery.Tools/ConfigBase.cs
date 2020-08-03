@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Hubery.Tools
 {
-    public class ConfigHelper
+    public class ConfigBase
     {
         public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
         {

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Hubery.Tools
 {
-    public class RequestHelper
+    public class RequestBase
     {
         private readonly string _url;
         private readonly string _controller;
 
         public int Timeout { get; set; } = 20;
 
-        public RequestHelper(string url, string controller = null)
+        public RequestBase(string url, string controller = null)
         {
             _url = url;
             _controller = controller;
