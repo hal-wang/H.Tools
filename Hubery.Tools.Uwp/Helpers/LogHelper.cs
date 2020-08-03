@@ -1,8 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.Storage;
 
@@ -11,9 +9,9 @@ namespace Hubery.Tools.Uwp.Helpers
     /// <summary>
     /// 
     /// </summary>
-    public class LogHelper : BaseLogHelper
+    public class LogHelper : LogBase
     {
-        private static readonly string _path = Path.Combine(ApplicationData.Current.LocalFolder.Path, SystemInformation.ApplicationName + ExtendName);
+        private static readonly string _path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, SystemInformation.ApplicationName + ExtendName);
         /// <summary>
         /// 
         /// </summary>
@@ -25,38 +23,13 @@ namespace Hubery.Tools.Uwp.Helpers
         public static string ExtendName { get; set; } = ".log";
 
         private LogHelper() :
-            base(_path)
+            base(_path,
+                $"{SystemInformation.ApplicationVersion.Major}.{SystemInformation.ApplicationVersion.Minor}.{SystemInformation.ApplicationVersion.Build}",
+                SystemInformation.OperatingSystemVersion.ToString(),
+                SystemInformation.DeviceModel,
+                SystemInformation.ApplicationName,
+                "UWP")
         { }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ex"></param>
-        /// <param name="source"></param>
-        public void Log(Exception ex, [CallerMemberName] string source = null)
-        {
-            Log(ex?.ToString(), source);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="content"></param>
-        /// <param name="source"></param>
-        public void Log(string content, [CallerMemberName] string source = null)
-        {
-            Log(new Log()
-            {
-                Source = source,
-                Content = content,
-                Time = DateTime.Now,
-                Version = $"{SystemInformation.ApplicationVersion.Major}.{SystemInformation.ApplicationVersion.Minor}.{SystemInformation.ApplicationVersion.Build}",
-                OperatingSystemVersion = SystemInformation.OperatingSystemVersion.ToString(),
-                DeviceModel = SystemInformation.DeviceModel,
-                AppName = SystemInformation.ApplicationName,
-                Platform = "UWP",
-            });
-        }
 
         /// <summary>
         /// 
