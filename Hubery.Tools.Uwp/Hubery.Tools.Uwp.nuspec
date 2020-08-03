@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$id$</title>
-    <authors>$authors$</authors>
-    <owners>$authors$</owners>
+    <id>Hubery.Tools.Uwp</id>
+    <version>1.0.5.0</version>
+    <title>Hubery.Tools.Uwp</title>
+    <authors>h.wang</authors>
+    <owners>h.wang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/hbrwang/Tools</projectUrl>
     <icon>logo.png</icon>
-    <description>$description$</description>
+    <description>UWP基本帮助类和常用控件</description>
     <releaseNotes>First release</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>hubery hbrwang uwp</tags>
     <dependencies>
       <group targetFramework="uap10.0">
-        <dependency id="Hubery.Tools" version="1.0.2" />
+        <dependency id="System.Diagnostics.Debug" version="4.0.10" />
+        <dependency id="System.Runtime" version="4.0.20" />
+        <dependency id="System.Runtime.WindowsRuntime" version="4.0.10" />
+        <dependency id="System.Threading.Tasks" version="4.0.10" />
       </group>
     </dependencies>
+    <references>
+      <group  targetFramework="uap10.0">
+        <reference file="Hubery.Tools.Uwp.dll" />
+        <reference file="Hubery.Tools.Uwp.pri" />
+        <reference file="Generic.xaml" />
+      </group>
+    </references>
   </metadata>
-
   <files>
     <file src="..\logo.png" target="" />
-
-    <!-- <file src="bin\x64\Debug\Hubery.Tools.Uwp.dll" target="runtimes\win10-x64\lib\uap10.0"/>
-    <file src="bin\x64\Debug\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x64\lib\uap10.0"/>
-    <file src="bin\x64\Debug\Hubery.Tools.Uwp.XML" target="runtimes\win10-x64\lib\uap10.0"/>
-    <file src="bin\x64\Debug\Hubery.Tools.Uwp.pri" target="runtimes\win10-x64\lib\uap10.0"/>
-
-    <file src="bin\x86\Debug\Hubery.Tools.Uwp.dll" target="runtimes\win10-x86\lib\uap10.0"/>
-    <file src="bin\x86\Debug\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x86\lib\uap10.0"/>
-    <file src="bin\x86\Debug\Hubery.Tools.Uwp.XML" target="runtimes\win10-x86\lib\uap10.0"/>
-    <file src="bin\x86\Debug\Hubery.Tools.Uwp.pri" target="runtimes\win10-x86\lib\uap10.0"/>
-
-    <file src="bin\arm\Debug\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm\lib\uap10.0"/>
-    <file src="bin\arm\Debug\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm\lib\uap10.0"/>
-    <file src="bin\arm\Debug\Hubery.Tools.Uwp.XML" target="runtimes\win10-arm\lib\uap10.0"/>
-    <file src="bin\arm\Debug\Hubery.Tools.Uwp.pri" target="runtimes\win10-arm\lib\uap10.0"/>
-
-    <file src="bin\arm64\Debug\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm64\lib\uap10.0"/>
-    <file src="bin\arm64\Debug\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm64\lib\uap10.0"/>
-    <file src="bin\arm64\Debug\Hubery.Tools.Uwp.XML" target="runtimes\win10-arm64\lib\uap10.0"/>
-    <file src="bin\arm64\Debug\Hubery.Tools.Uwp.pri" target="runtimes\win10-arm64\lib\uap10.0"/> -->
-
-    <file src="bin\Release\Hubery.Tools.Uwp.dll" target="lib\uap10.0"/>
-    <file src="bin\Release\Hubery.Tools.Uwp.pdb" target="lib\uap10.0"/>
-    <file src="bin\Release\Hubery.Tools.Uwp.pri" target="lib\uap10.0"/>
-    <file src="bin\Release\Hubery.Tools.Uwp.XML" target="lib\uap10.0"/>
+    <file src="bin\Release\Hubery.Tools.Uwp.pri" target="lib/UAP10.0"/>
+    <file src="bin\Release\Hubery.Tools.Uwp.dll" target="lib/UAP10.0"/>
+    <file src="Themes\Generic.xaml" target="lib\uap10.0\Themes"/>
+    <file src="bin\Release\Hubery.Tools.Uwp.pri" target="ref/UAP10.0"/>
+    <file src="bin\Release\Hubery.Tools.Uwp.dll" target="ref/UAP10.0"/>
+    <file src="Themes\Generic.xaml" target="ref\uap10.0\Themes"/>
+    <file src="bin\Release\Hubery.Tools.Uwp.pri" target="ref/UAP10.0"/>
+    <file src="bin\ARM\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm\lib\uap10.0"/>
+    <file src="bin\ARM\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm\lib\uap10.0"/>
+    <file src="bin\ARM64\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-arm64\lib\uap10.0"/>
+    <file src="bin\ARM64\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-arm64\lib\uap10.0"/>
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-x64\lib\uap10.0"/>
+    <file src="bin\x64\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x64\lib\uap10.0"/>
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.dll" target="runtimes\win10-x86\lib\uap10.0"/>
+    <file src="bin\x86\Release\Hubery.Tools.Uwp.pdb" target="runtimes\win10-x86\lib\uap10.0"/>
   </files>
 </package>

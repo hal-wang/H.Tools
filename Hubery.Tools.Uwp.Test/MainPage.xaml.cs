@@ -24,7 +24,7 @@ namespace Hubery.Tools.Uwp.Test
             MessageHelper.ShowInfo("ShowInfo", 0);
             MessageHelper.ShowWarning("ShowWarning", 0);
 
-            LoadingHelper.Show();
+            //LoadingHelper.Show();
         }
     }
 }

@@ -151,10 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hubery.Tools">
-      <Version>1.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Hubery.Tools.Uwp">
-      <Version>1.0.5</Version>
+      <Version>1.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
@@ -165,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hubery.Tools.Uwp\Hubery.Tools.Uwp.csproj">
+      <Project>{088b5847-8ec8-4670-b9f2-7ac68cd9c55b}</Project>
+      <Name>Hubery.Tools.Uwp</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

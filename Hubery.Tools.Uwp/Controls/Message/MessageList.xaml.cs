@@ -71,7 +71,7 @@ namespace Hubery.Tools.Uwp.Controls.Message
 
         // Using a DependencyProperty as the backing store for MessageCornerRadius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MessageCornerRadiusProperty =
-            DependencyProperty.Register("MessageCornerRadius", typeof(Thickness), typeof(MessageList), new PropertyMetadata(new Thickness(3)));
+            DependencyProperty.Register("MessageCornerRadius", typeof(Thickness), typeof(MessageList), new PropertyMetadata(new Thickness(3,3,3,3)));
 
 
 

@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <TargetFramework>uwp</TargetFramework>
     <PackageId>Hubery.Tools.Uwp</PackageId>
+    <Title>Hubery.Tools.Uwp</Title>
     <Version>1.0.5</Version>
     <Authors>h.wang</Authors>
     <Company>h.wang</Company>
     <Description>UWP基本帮助类和常用控件</Description>
+    <PackageTags>hbrwang;hubery;uwp</PackageTags>
   </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -220,6 +221,7 @@
     <Compile Include="Converters\TestConverter.cs" />
     <Compile Include="Converters\ThicknessConverter.cs" />
     <Compile Include="Converters\TimestampConverter.cs" />
+    <Compile Include="HbrUwpResources.cs" />
     <Compile Include="Helpers\BaseSettingHelper.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\Graph\DeviceCodeAuthProvider.cs" />
