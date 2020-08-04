@@ -25,6 +25,8 @@ namespace Hubery.Tools.Uwp.Test
             MessageHelper.ShowWarning("ShowWarning", 0);
 
             //LoadingHelper.Show();
+
+            TitleBarHelper.SetTitleBar();
         }
     }
 }

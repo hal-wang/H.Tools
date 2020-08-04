@@ -11,6 +11,7 @@
 
     <Grid>
         <controls:TitleBar VerticalAlignment="Top"
+                           x:Name="TitleBar"
                            Height="32"/>
     </Grid>
 </Page>

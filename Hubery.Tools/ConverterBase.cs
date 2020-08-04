@@ -5,7 +5,7 @@ namespace Hubery.Tools
     /// <summary>
     /// 
     /// </summary>
-    public class ConverterHelper
+    public class ConverterBase
     {
         /// <summary>
         /// 
