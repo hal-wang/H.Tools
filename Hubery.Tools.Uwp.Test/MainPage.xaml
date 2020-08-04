@@ -12,6 +12,8 @@
     <Grid>
         <controls:TitleBar VerticalAlignment="Top"
                            x:Name="TitleBar"
-                           Height="32"/>
+                           Height="32">
+            <TextBlock Text="测试"/>
+        </controls:TitleBar>
     </Grid>
 </Page>

@@ -16,24 +16,21 @@
     <tags>hubery hbrwang uwp</tags>
     <dependencies>
       <group targetFramework="uap10.0">
-        <dependency id="System.Diagnostics.Debug" version="4.0.10" />
-        <dependency id="System.Runtime" version="4.0.20" />
-        <dependency id="System.Runtime.WindowsRuntime" version="4.0.10" />
-        <dependency id="System.Threading.Tasks" version="4.0.10" />
-        <dependency id="Hubery.Tools" version="1.0.2" />
+        <dependency id="Hubery.Tools"          version = "1.0.3" />
+        <dependency id="Microsoft.Graph.Core"          version = "1.21.0" />
+        <dependency id="Microsoft.Identity.Client"          version = "4.17.0" />
+        <dependency id="Microsoft.NETCore.UniversalWindowsPlatform"          version = "6.2.10" />
+        <dependency id="Microsoft.Toolkit.Uwp"          version = "6.1.0" />
+        <dependency id="Microsoft.Toolkit.Uwp.UI.Controls"          version = "6.1.0" />
+        <dependency id="Microsoft.UI.Xaml"          version = "2.4.2" />
+        <dependency id="SharpDX.Direct2D1"          version = "4.2.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\logo.png" target="" />    
+    <file src="..\logo.png" target="" />
     <file src="bin\Release\" target="ref/uap10.0"/>
 
-    <!--<file src="bin\Release\Hubery.Tools.Uwp\Hubery.Tools.Uwp.xr.xml" target="ref/uap10.0/Hubery.Tools.Uwp"/>-->
-
-
-    <file src="bin\Release\Hubery.Tools.Uwp.dll" target="ref/uap10.0"/>
-    <file src="bin\Release\Hubery.Tools.Uwp.XML" target="ref/uap10.0"/>
-    
     <file src="bin\ARM\Release\" target="runtimes\win10-arm\lib\uap10.0"/>
     <file src="bin\ARM64\Release\" target="runtimes\win10-arm64\lib\uap10.0"/>
     <file src="bin\x64\Release\" target="runtimes\win10-x64\lib\uap10.0"/>
