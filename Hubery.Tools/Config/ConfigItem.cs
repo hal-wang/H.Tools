@@ -1,8 +1,9 @@
 ﻿using SQLite;
 
-namespace Hubery.Common.Base.Models
+namespace Hubery.Tools.Config
 {
-    public class SettingItem
+    [Table("Config")]
+    internal class ConfigItem
     {
         [PrimaryKey]
         public string Key { get; set; }
