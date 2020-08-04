@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Uwp.Helpers;
+﻿using Hubery.Tools.Log;
+using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,16 +12,12 @@ namespace Hubery.Tools.Uwp.Helpers
     /// </summary>
     public class LogHelper : LogBase
     {
-        private static readonly string _path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, SystemInformation.ApplicationName + ExtendName);
+        private static readonly string _fileName = SystemInformation.ApplicationName + ".log";
+        private static readonly string _path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, _fileName);
         /// <summary>
         /// 
         /// </summary>
         public static LogHelper Instance = new LogHelper();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static string ExtendName { get; set; } = ".log";
 
         private LogHelper() :
             base(_path,
@@ -49,7 +46,7 @@ namespace Hubery.Tools.Uwp.Helpers
                 return;
             }
 
-            StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(SystemInformation.ApplicationName + ExtendName, CreationCollisionOption.OpenIfExists);
+            StorageFile storageFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(_fileName, CreationCollisionOption.OpenIfExists);
             await storageFile.CopyAndReplaceAsync(targetFile);
         }
     }

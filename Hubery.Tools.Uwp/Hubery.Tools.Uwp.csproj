@@ -222,7 +222,7 @@
     <Compile Include="Converters\ThicknessConverter.cs" />
     <Compile Include="Converters\TimestampConverter.cs" />
     <Compile Include="HbrUwpResources.cs" />
-    <Compile Include="Helpers\BaseSettingHelper.cs" />
+    <Compile Include="Helpers\SettingConfigBase.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\Graph\DeviceCodeAuthProvider.cs" />
     <Compile Include="Helpers\Graph\OneDriveHelper.cs" />
@@ -239,7 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hubery.Tools">
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Graph.Core">
       <Version>1.21.0</Version>

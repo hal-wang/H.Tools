@@ -7,7 +7,7 @@ namespace Hubery.Tools.Uwp.Helpers
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseSettingHelper
+    public abstract class SettingConfigBase
     {
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
