@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hubery.Tools.Uwp.Controls.Message">
+
+    <Style TargetType="local:MessageContent">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MessageContent">
+                    <Grid>
+                        <Grid Opacity="{TemplateBinding BackgroundOpacity}">
+                            <Border Background="{ThemeResource ApplicationForegroundThemeBrush}"
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Info}"/>
+                            <Border Background="{ThemeResource SystemAccentBrush}"
+                                    x:Name="PrimaryBackBorder"
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Primary}"/>
+                            <Border Background="#e6a23c"
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Warning}"/>
+                            <Border Background="#f56c6c"
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Danger}"/>
+                        </Grid>
+                        <Grid Margin="{TemplateBinding TextMargin}"
+                              Opacity="{TemplateBinding ForegroundOpacity}">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="{TemplateBinding Text}"
+                                       Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Info}"/>
+                            <TextBlock Text="{TemplateBinding Text}"
+                                       Foreground="{Binding ElementName=PrimaryBackBorder,Path=Background,Converter={StaticResource IsDarkColorToValueConverter},ConverterParameter=#fff:#000}"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Primary}"/>
+                            <TextBlock Text="{TemplateBinding Text}"
+                                       Foreground="White"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Warning}"/>
+                            <TextBlock Text="{TemplateBinding Text}"
+                                       Foreground="White"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Danger}"/>
+                        </Grid>
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:MessageList">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MessageList">
+                    <ListView ItemsSource="{TemplateBinding Messages}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              IsItemClickEnabled="False"
+                              SelectionMode="None"
+                              x:Name="listView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0 10 0 0"
+                                        Width="600"
+                                        CornerRadius="3">
+                                    <Grid >
+                                        <local:MessageContent Text="{Binding Text}"
+                                                              MessageType="{Binding MessageType}"/>
+                                        <Button Style="{ThemeResource TextBlockButtonStyle}"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top"
+                                                Visibility="{Binding AutoHide,Converter={StaticResource BooleanConverter},ConverterParameter=true}"
+                                                Command="{Binding CloseCommand}">
+                                            <TextBlock FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                                       Text="&#xE711;"/>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

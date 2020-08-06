@@ -151,7 +151,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ApiExtend.cs" />
+    <Compile Include="Helpers\ApiExtend.cs" />
     <Compile Include="Controls\Color\ColorChangedEventArgs.cs" />
     <Compile Include="Controls\Color\ColorItem.cs" />
     <Compile Include="Controls\Color\ColorSelecter.xaml.cs">
@@ -178,13 +178,9 @@
       <DependentUpon>PartialLoading.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Message\IMessage.cs" />
-    <Compile Include="Controls\Message\MessageContent.xaml.cs">
-      <DependentUpon>MessageContent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Message\MessageItem.cs" />
-    <Compile Include="Controls\Message\MessageList.xaml.cs">
-      <DependentUpon>MessageList.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controls\Message\MessageContent.cs" />
+    <Compile Include="Controls\Message\MessageListItem.cs" />
+    <Compile Include="Controls\Message\MessageList.cs" />
     <Compile Include="Controls\Message\MessageType.cs" />
     <Compile Include="Controls\Message\NotifyPopup.xaml.cs">
       <DependentUpon>NotifyPopup.xaml</DependentUpon>
@@ -198,9 +194,10 @@
     <Compile Include="Controls\PopupLayout.cs" />
     <Compile Include="Controls\Setting\BaseSettingCell.cs" />
     <Compile Include="Controls\Setting\BoolSettingCell.cs" />
+    <Compile Include="Controls\Setting\SettingSplitView.cs" />
     <Compile Include="Controls\Setting\TextSettingCell.cs" />
     <Compile Include="Controls\TitleBar.cs" />
-    <Compile Include="Converters\AncestorConverter.cs" />
+    <Compile Include="Converters\ParentConverter.cs" />
     <Compile Include="Converters\BackColorToForeColorConverter.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="Converters\BooleanToValueConverter.cs" />
@@ -234,12 +231,14 @@
     <Compile Include="Helpers\ResourcesHelper.cs" />
     <Compile Include="Helpers\ThemeHelper.cs" />
     <Compile Include="Helpers\TitleBarHelper.cs" />
+    <Compile Include="Helpers\VisualExtend.cs" />
     <Compile Include="IElementViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelativeSourceBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hubery.Tools">
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Graph.Core">
       <Version>1.21.0</Version>
@@ -268,6 +267,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\Dialog\DialogStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Emoji\EmojiSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -284,13 +287,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Message\MessageContent.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Controls\Message\MessageStyle.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Message\MessageList.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Message\NotifyPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -303,6 +302,22 @@
     <Page Include="Controls\PathButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Setting\SettingStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Converters\ConvertersDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>

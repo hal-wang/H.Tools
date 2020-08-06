@@ -1,4 +1,4 @@
-﻿using Hubery.Tools.Log;
+﻿using Hubery.Tools.HLog;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace Hubery.Tools.Uwp.Helpers
     /// <summary>
     /// 
     /// </summary>
-    public class LogHelper : LogBase
+    public class LogHelper : HLogBase
     {
         private static readonly string _fileName = SystemInformation.ApplicationName + ".log";
         private static readonly string _path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, _fileName);

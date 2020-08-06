@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <!--<Color x:Key="SystemAccentColor">#2090e0</Color>-->
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <SolidColorBrush x:Key="ThemeForeground" Color="Black"></SolidColorBrush>
+
+
+    <SolidColorBrush x:Key="SystemAccentBrush" Color="{ThemeResource SystemAccentColor}"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush9" Color="{ThemeResource SystemAccentColor}" Opacity="0.9"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush8" Color="{ThemeResource SystemAccentColor}" Opacity="0.8"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush7" Color="{ThemeResource SystemAccentColor}" Opacity="0.7"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush6" Color="{ThemeResource SystemAccentColor}" Opacity="0.6"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush5" Color="{ThemeResource SystemAccentColor}" Opacity="0.5"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush4" Color="{ThemeResource SystemAccentColor}" Opacity="0.4"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush3" Color="{ThemeResource SystemAccentColor}" Opacity="0.3"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush2" Color="{ThemeResource SystemAccentColor}" Opacity="0.2"></SolidColorBrush>
+    <SolidColorBrush x:Key="SystemAccentBrush1" Color="{ThemeResource SystemAccentColor}" Opacity="0.1"></SolidColorBrush>
+</ResourceDictionary>

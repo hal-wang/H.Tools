@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Hubery.Tools.Uwp
+namespace Hubery.Tools.Uwp.Helpers
 {
     /// <summary>
     /// 

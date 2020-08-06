@@ -239,40 +239,8 @@ namespace Hubery.Tools.Uwp.Controls.Dialog
             return Result;
         }
 
-        //private async Task<Promise<ContentDialogResult>> GetResult()
-        //{
-        //    _promise = new Promise<ContentDialogResult>();
-
-        //    var cancellationToken = new CancellationTokenSource();
-
-        //    await Task.Run(() =>
-        //    {
-        //        while (true) ;
-        //    }, cancellationToken.Token);
-
-        //    _promise.Done(() =>
-        //    {
-        //        cancellationToken.Cancel();
-        //    });
-
-        //    Action action = new Action();
-
-        //    return _promise.Done()
-        //}
-
-        //private void OnIsOpenChanged(bool isOpen)
-        //{
-        //    _isDialogOpen = isOpen;
-
-        //    DialogOpenChanged?.Invoke(this, IsOpen);
-
-        //    if (!isOpen)
-        //    {
-        //        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = _backButtonVisibility;
-        //    }
-        //}
-
         private AppViewBackButtonVisibility _backButtonVisibility;
+
         /// <summary>
         /// 
         /// </summary>

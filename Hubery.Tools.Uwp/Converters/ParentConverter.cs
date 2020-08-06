@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.UI.Extensions;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
 
 namespace Hubery.Tools.Uwp.Converters
 {
-    internal class AncestorConverter : IValueConverter
+    internal class ParentConverter : IValueConverter
     {
         /// <summary>
         /// 
@@ -18,28 +18,31 @@ namespace Hubery.Tools.Uwp.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             FrameworkElement element = value as FrameworkElement;
-
-            if (int.TryParse(parameter as string, out int num))
+            if (parameter is string)
             {
-                for (int i = 0; i < num; i++)
+                var result = element.FindParentByName(parameter as string);
+                if (result != null)
                 {
-                    element = element.Parent as FrameworkElement;
+                    return result;
                 }
+            }
+
+            Type type;
+            if (parameter is Type t)
+            {
+                type = t;
+            }
+            else if (parameter is string str)
+            {
+                type = Type.GetType(str);
             }
             else
             {
-                while (true)
-                {
-                    if (element.Tag as string == parameter as string)
-                    {
-                        return element.DataContext;
-                    }
-
-                    element = (FrameworkElement)VisualTreeHelper.GetParent(element);
-                }
+                throw new NotSupportedException();
             }
 
-            return element;
+            var mi = typeof(LogicalTree).GetMethod("FindParent").MakeGenericMethod(type);
+            return mi.Invoke(null, new object[] { element });
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
