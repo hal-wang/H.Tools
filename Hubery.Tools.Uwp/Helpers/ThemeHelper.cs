@@ -101,5 +101,7 @@ namespace Hubery.Tools.Uwp.Helpers
                 return new ThemeListener().CurrentTheme == ApplicationTheme.Dark ? ElementTheme.Dark : ElementTheme.Light;
             }
         }
+
+        public static Color ThemeForegroundColor => ColorHelper.IsDarkColor(ResourcesHelper.GetResource<Color>("SystemAccentColor")) ? Colors.White : Colors.Black;
     }
 }

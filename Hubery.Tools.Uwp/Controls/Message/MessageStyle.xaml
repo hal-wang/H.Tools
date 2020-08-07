@@ -31,7 +31,7 @@
                                        Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                                        Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Info}"/>
                             <TextBlock Text="{TemplateBinding Text}"
-                                       Foreground="{Binding ElementName=PrimaryBackBorder,Path=Background,Converter={StaticResource IsDarkColorToValueConverter},ConverterParameter=#fff:#000}"
+                                       Foreground="{ThemeResource ThemeForegroundBrush}"
                                        Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Primary}"/>
                             <TextBlock Text="{TemplateBinding Text}"
                                        Foreground="White"
@@ -81,7 +81,7 @@
                                                 
                                                 <TextBlock Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                                                            Visibility="{Binding MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Info}"/>
-                                                <TextBlock Foreground="{Binding ElementName=PrimaryBackBorder,Path=Background,Converter={StaticResource IsDarkColorToValueConverter},ConverterParameter=#fff:#000}"
+                                                <TextBlock Foreground="{ThemeResource ThemeForegroundBrush}"
                                                            Visibility="{Binding MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Primary}"/>
                                                 <TextBlock FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                                            Visibility="{Binding MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Warning}"/>
