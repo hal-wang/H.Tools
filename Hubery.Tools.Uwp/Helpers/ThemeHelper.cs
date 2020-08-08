@@ -102,6 +102,9 @@ namespace Hubery.Tools.Uwp.Helpers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static Color ThemeForegroundColor => ColorHelper.IsDarkColor(ResourcesHelper.GetResource<Color>("SystemAccentColor")) ? Colors.White : Colors.Black;
     }
 }
