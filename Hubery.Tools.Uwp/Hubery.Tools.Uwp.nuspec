@@ -16,13 +16,13 @@
     <tags>hubery hbrwang uwp</tags>
     <dependencies>
       <group targetFramework="uap10.0">
-        <dependency id="Hubery.Tools"          version = "1.0.4" />
+        <dependency id="Hubery.Tools"          version = "1.0.7" />
         <dependency id="Microsoft.Graph.Core"          version = "1.21.0" />
-        <dependency id="Microsoft.Identity.Client"          version = "4.17.0" />
+        <dependency id="Microsoft.Identity.Client"          version = "4.17.1" />
         <dependency id="Microsoft.NETCore.UniversalWindowsPlatform"          version = "6.2.10" />
-        <dependency id="Microsoft.Toolkit.Uwp"          version = "6.1.0" />
-        <dependency id="Microsoft.Toolkit.Uwp.UI.Controls"          version = "6.1.0" />
-        <dependency id="Microsoft.UI.Xaml"          version = "2.4.2" />
+        <dependency id="Microsoft.Toolkit.Uwp"          version = "6.1.1" />
+        <dependency id="Microsoft.Toolkit.Uwp.UI.Controls"          version = "6.1.1" />
+        <dependency id="Microsoft.UI.Xaml"          version = "2.4.3" />
         <dependency id="SharpDX.Direct2D1"          version = "4.2.0" />
       </group>
     </dependencies>
