@@ -151,6 +151,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\Setting\SettingSplitViewModel.cs" />
     <Compile Include="Helpers\ApiExtend.cs" />
     <Compile Include="Controls\Color\ColorChangedEventArgs.cs" />
     <Compile Include="Controls\Color\ColorItem.cs" />

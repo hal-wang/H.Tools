@@ -5,9 +5,9 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/Button.xaml"/>
-        
         <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Converters/ConvertersDict.xaml"/>
+        
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/Button.xaml"/>
 
         <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Controls/Message/MessageStyle.xaml"/>
         <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Controls/Dialog/DialogStyle.xaml"/>
@@ -36,6 +36,10 @@
 
 
     <Style TargetType="htuc:TitleBar">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Height" Value="32" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="htuc:TitleBar">

@@ -20,7 +20,7 @@ namespace Hubery.Tools.Uwp.Helpers
         {
             if (httpResponse.IsSuccessStatusCode)
             {
-                return true;
+                return false;
             }
 
             var content = await httpResponse.Content.ReadAsStringAsync();
@@ -38,7 +38,7 @@ namespace Hubery.Tools.Uwp.Helpers
             }
             Debug.WriteLine("Error：" + content);
             MessageHelper.ShowDanger(content);
-            return false;
+            return true;
         }
     }
 }

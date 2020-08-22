@@ -19,7 +19,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        internal static readonly DependencyProperty ValueProperty =
+        public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(bool), typeof(BaseSettingCell), new PropertyMetadata(false));
     }
 }

@@ -1,7 +1,7 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Hubery.Tools.Uwp.Controls.Setting">
+﻿<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:loading="using:Hubery.Tools.Uwp.Controls.Loading"
+                     xmlns:local="using:Hubery.Tools.Uwp.Controls.Setting">
 
     <Style TargetType="Border" x:Key="SettingSeparator">
         <Setter Property="Height" Value="1" />
@@ -85,39 +85,41 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingSplitView">
-                    <SplitView Grid.RowSpan="2"
-                               CompactPaneLength="0"
-                   OpenPaneLength="340"
-                   PanePlacement="Right"
-                   IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
-                   PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                        <SplitView.Pane>
-                            <Grid BorderBrush="{ThemeResource SystemAccentBrush7}"
-                                  BorderThickness="1 0 0 0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                    <Grid>
+                        <SplitView  CompactPaneLength="0"
+                                    OpenPaneLength="340"
+                                    PanePlacement="Right"
+                                    IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
+                                    PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <SplitView.Pane>
+                                <Grid BorderBrush="{ThemeResource SystemAccentBrush7}"
+                                      BorderThickness="1 0 0 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
 
-                                <Button Command="{TemplateBinding CloseCommand}" Style="{ThemeResource LightButton}" Padding="10 20 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE76B;" VerticalAlignment="Center" FontSize="22" Foreground="{ThemeResource ApplicationForegroundThemeBrush}"/>
-                                        <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" FontSize="22" Foreground="{ThemeResource ApplicationForegroundThemeBrush}"/>
-                                    </StackPanel>
-                                </Button>
-                                
-                                <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                              Grid.Row="1">
-                                    <ContentControl Content="{TemplateBinding Content}" Padding="12 20 15 0"
-                                                    HorizontalContentAlignment="Stretch"
-                                                    HorizontalAlignment="Stretch"
-                                                    VerticalAlignment="Stretch"
-                                                    VerticalContentAlignment="Stretch"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </SplitView.Pane>
-                    </SplitView>
+                                    <Border Background="{TemplateBinding HeaderBackground}"/>
 
+                                    <Button Command="{TemplateBinding CloseCommand}" Style="{ThemeResource LightButton}" Padding="10 20 0 10" HorizontalAlignment="Left">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE76B;" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>
+                                            <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <ContentControl Content="{TemplateBinding Content}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                                        Padding="{TemplateBinding ContentPadding}"/>
+                                    </ScrollViewer>
+
+                                    <loading:PartialLoading IsLoading="{TemplateBinding IsLoading}" Grid.RowSpan="2"/>
+                                </Grid>
+                            </SplitView.Pane>
+                        </SplitView>
+
+                        <Border Background="Transparent" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsLoading,Converter={StaticResource BooleanConverter}}"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

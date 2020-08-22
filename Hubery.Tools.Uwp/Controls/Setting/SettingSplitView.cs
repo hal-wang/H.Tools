@@ -1,6 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Hubery.Tools.Uwp.Helpers;
 using System.Windows.Input;
+using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace Hubery.Tools.Uwp.Controls.Setting
 {
@@ -14,6 +17,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// </summary>
         public SettingSplitView()
         {
+            DefaultStyleKey = typeof(SettingSplitView);
             CloseCommand = new RelayCommand(() => IsPaneOpen = false);
             RequestedTheme = !(Window.Current.Content is FrameworkElement element) ? ElementTheme.Light : element.RequestedTheme;
         }
@@ -33,6 +37,53 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         public static readonly DependencyProperty HeaderProperty =
             DependencyProperty.Register("Header", typeof(string), typeof(SettingSplitView), new PropertyMetadata(string.Empty));
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Thickness ContentPadding
+        {
+            get { return (Thickness)GetValue(ContentPaddingProperty); }
+            set { SetValue(ContentPaddingProperty, value); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DependencyProperty ContentPaddingProperty =
+            DependencyProperty.Register("ContentPadding", typeof(Thickness), typeof(SettingSplitView), new PropertyMetadata(new Thickness(12, 20, 15, 0)));
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Brush HeaderBackground
+        {
+            get { return (Brush)GetValue(HeaderBackgroundProperty); }
+            set { SetValue(HeaderBackgroundProperty, value); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DependencyProperty HeaderBackgroundProperty =
+            DependencyProperty.Register("HeaderBackground", typeof(Brush), typeof(SettingSplitView), new PropertyMetadata(new SolidColorBrush(Colors.Transparent)));
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Brush HeaderForeground
+        {
+            get { return (Brush)GetValue(HeaderForegroundProperty); }
+            set { SetValue(HeaderForegroundProperty, value); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DependencyProperty HeaderForegroundProperty =
+            DependencyProperty.Register("HeaderForeground", typeof(Brush), typeof(SettingSplitView), new PropertyMetadata(ResourcesHelper.GetResource<SolidColorBrush>("ApplicationForegroundThemeBrush")));
 
 
         internal ICommand CloseCommand

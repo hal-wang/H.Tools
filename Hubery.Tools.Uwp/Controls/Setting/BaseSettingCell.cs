@@ -31,7 +31,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        internal static readonly DependencyProperty LabelProperty =
+        public static readonly DependencyProperty LabelProperty =
             DependencyProperty.Register("Label", typeof(string), typeof(BaseSettingCell), new PropertyMetadata(string.Empty));
 
 
@@ -48,7 +48,7 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        internal static readonly DependencyProperty NextVisibleProperty =
+        public static readonly DependencyProperty NextVisibleProperty =
             DependencyProperty.Register("NextVisible", typeof(Visibility), typeof(BaseSettingCell), new PropertyMetadata(Visibility.Visible));
 
 
