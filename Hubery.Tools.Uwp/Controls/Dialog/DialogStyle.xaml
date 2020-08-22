@@ -5,8 +5,12 @@
 
     <Style TargetType="Button" x:Key="DialogPrimaryButtonStyle" BasedOn="{StaticResource LightButtonStyle}">
         <Setter Property="Background" Value="{ThemeResource SystemAccentBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource ThemeForegroundBrush}" />
     </Style>
-    <Style TargetType="Button" x:Key="DialogSecondaryButtonStyle" BasedOn="{StaticResource ButtonRevealStyle}"/>
+    <Style TargetType="Button" x:Key="DialogSecondaryButtonStyle" BasedOn="{StaticResource LightButtonStyle}">
+        <Setter Property="Background" Value="{ThemeResource ButtonBackgroundThemeBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource ButtonForegroundThemeBrush}" />
+    </Style>
 
     <Style TargetType="local:LayoutDialog">
         <Setter Property="Padding" Value="0 10 0 14" />
