@@ -79,18 +79,19 @@ namespace Hubery.Tools.Uwp.Helpers
         /// 
         /// </summary>
         /// <param name="ex"></param>
+        /// <param name="duration"></param>
         /// <param name="source"></param>
-        public static void ShowError(Exception ex, [CallerMemberName] string source = null)
+        public static void ShowError(Exception ex, int duration = 5000, [CallerMemberName] string source = null)
         {
             try
             {
                 Debug.WriteLine(ex);
                 LogHelper.Instance.Log(ex, source);
-                ShowDanger(ex.Message, 5000);
+                ShowDanger(ex.Message, duration);
             }
             catch (Exception exc)
             {
-                LogHelper.Instance.Log(exc, "ShowError，" + source);
+                Debug.WriteLine(exc);
             }
         }
 

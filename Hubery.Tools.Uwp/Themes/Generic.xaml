@@ -21,7 +21,7 @@
                     <Grid>
                         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                                 Opacity="{TemplateBinding BackgroundOpacity}"
-                                IsHitTestVisible="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Clickable,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=true}"/>
+                                IsHitTestVisible="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Clickable,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=T}"/>
 
                         <muxc:TeachingTip PreferredPlacement="{TemplateBinding PreferredPlacement}"
                                           Target="{TemplateBinding Target}"

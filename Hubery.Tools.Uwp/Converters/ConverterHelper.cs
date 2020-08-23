@@ -1,5 +1,4 @@
 ﻿using Hubery.Tools.Uwp.Helpers;
-using Hubery.Tools;
 using System;
 using System.ComponentModel;
 using Windows.UI.Xaml;
@@ -89,7 +88,7 @@ namespace Hubery.Tools.Uwp.Converters
         /// <returns></returns>
         public static object BoolTo(bool isTrue, Type targetType, string parameter = null)
         {
-            if (string.Equals(parameter, "true", StringComparison.InvariantCultureIgnoreCase) || string.Equals(parameter, "T", StringComparison.InvariantCultureIgnoreCase))
+            if (!string.IsNullOrEmpty(parameter) && parameter.Contains("T", StringComparison.InvariantCultureIgnoreCase))
             {
                 isTrue = !isTrue;
             }

@@ -69,7 +69,7 @@
                                                 extensions:Mouse.Cursor="Hand"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
-                                                Visibility="{Binding AutoHide,Converter={StaticResource BooleanConverter},ConverterParameter=true}"
+                                                Visibility="{Binding AutoHide,Converter={StaticResource BooleanConverter},ConverterParameter=T}"
                                                 Command="{Binding CloseCommand}">
                                             <Grid>
                                                 <Grid.Resources>
