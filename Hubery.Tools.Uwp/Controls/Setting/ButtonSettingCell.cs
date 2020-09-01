@@ -5,8 +5,16 @@ namespace Hubery.Tools.Uwp.Controls.Setting
     /// <summary>
     /// 
     /// </summary>
-    public sealed class TextSettingCell : BaseSettingCell
+    public sealed class ButtonSettingCell : BaseSettingCell
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public ButtonSettingCell()
+        {
+            DefaultStyleKey = typeof(ButtonSettingCell);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -20,6 +28,6 @@ namespace Hubery.Tools.Uwp.Controls.Setting
         /// 
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(string), typeof(TextSettingCell), new PropertyMetadata(string.Empty));
+            DependencyProperty.Register("Value", typeof(string), typeof(ButtonSettingCell), new PropertyMetadata(string.Empty));
     }
 }

@@ -77,10 +77,7 @@ namespace Hubery.Tools.Uwp.Helpers
         {
             Application.Current.Resources["SystemAccentColor"] = themeColor;
 
-            if (Application.Current.Resources.ContainsKey("ThemeForeground"))
-            {
-                Application.Current.Resources["ThemeForeground"] = ColorHelper.IsDarkColor(themeColor) ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.Black);
-            }
+            Application.Current.Resources["ThemeForegroundColor"] = ColorHelper.IsDarkColor(themeColor) ? Colors.White : Colors.Black;
         }
 
         /// <summary>

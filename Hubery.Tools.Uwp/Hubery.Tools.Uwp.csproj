@@ -151,6 +151,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\Setting\ExpandSettingCell.cs" />
+    <Compile Include="Controls\Setting\SelectSettingCell.cs" />
     <Compile Include="Controls\Setting\SettingSplitViewModel.cs" />
     <Compile Include="Helpers\ApiExtend.cs" />
     <Compile Include="Controls\Color\ColorChangedEventArgs.cs" />
@@ -194,9 +196,9 @@
     </Compile>
     <Compile Include="Controls\PopupLayout.cs" />
     <Compile Include="Controls\Setting\BaseSettingCell.cs" />
-    <Compile Include="Controls\Setting\BoolSettingCell.cs" />
+    <Compile Include="Controls\Setting\SwitchSettingCell.cs" />
     <Compile Include="Controls\Setting\SettingSplitView.cs" />
-    <Compile Include="Controls\Setting\TextSettingCell.cs" />
+    <Compile Include="Controls\Setting\ButtonSettingCell.cs" />
     <Compile Include="Controls\TitleBar.cs" />
     <Compile Include="Converters\ParentConverter.cs" />
     <Compile Include="Converters\BackColorToForeColorConverter.cs" />
@@ -321,6 +323,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

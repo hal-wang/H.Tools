@@ -16,11 +16,11 @@
         <Setter Property="Padding" Value="10 0" />
     </Style>
 
-    <Style TargetType="local:BoolSettingCell" x:Key="SwitchSettingCell" BasedOn="{StaticResource BaseSettingCell}">
+    <Style TargetType="local:SwitchSettingCell" BasedOn="{StaticResource BaseSettingCell}">
         <Setter Property="NextVisible" Value="Collapsed" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:BoolSettingCell">
+                <ControlTemplate TargetType="local:SwitchSettingCell">
                     <Grid Margin="{TemplateBinding Padding}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -41,11 +41,11 @@
         </Setter>
     </Style>
 
-    <Style TargetType="local:TextSettingCell" x:Key="ButtonSettingCell" BasedOn="{StaticResource BaseSettingCell}">
+    <Style TargetType="local:ButtonSettingCell" BasedOn="{StaticResource BaseSettingCell}">
         <Setter Property="NextVisible" Value="Visible" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:TextSettingCell">
+                <ControlTemplate TargetType="local:ButtonSettingCell">
                     <Button Style="{ThemeResource LightButtonStyle}"
                             Padding="{TemplateBinding Padding}"
                             HorizontalContentAlignment="Stretch"
@@ -77,6 +77,126 @@
         </Setter>
     </Style>
 
+    <Style TargetType="local:SelectSettingCell" BasedOn="{StaticResource BaseSettingCell}">
+        <Setter Property="NextVisible" Value="Visible" />
+        <Setter Property="Height" Value="auto" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:SelectSettingCell">
+                    <StackPanel>
+                        <Button Style="{ThemeResource LightButtonStyle}"
+                                Height="40"
+                                x:Name="ButtonElement"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{TemplateBinding Label}"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock Text="{TemplateBinding Value}"
+                                       Grid.Column="1"
+                                       VerticalAlignment="Center"/>
+
+                                <Grid Grid.Column="2" Visibility="{TemplateBinding NextVisible}" VerticalAlignment="Center" Margin="4 0 0 0">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=T}"
+                                          Glyph="&#xE76C;"/>
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}"
+                                          Glyph="&#xE70D;"/>
+                                </Grid>
+                            </Grid>
+                        </Button>
+
+                        <ListView SelectionMode="None" IsItemClickEnabled="True" x:Name="ListViewElement" ItemsSource="{TemplateBinding Items}"
+                                  Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid BorderThickness="0 1 0 0">
+                                        <Grid.BorderBrush>
+                                            <SolidColorBrush Color="{ThemeResource SystemBaseHighColor}" Opacity="0.2"/>
+                                        </Grid.BorderBrush>
+                                        <ContentControl Content="{Binding}" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="10 0" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Setter Property="Margin" Value="20 0" />
+                                    <Setter Property="Padding" Value="0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ExpandSettingCell" BasedOn="{StaticResource BaseSettingCell}">
+        <Setter Property="NextVisible" Value="Visible" />
+        <Setter Property="Height" Value="auto" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ExpandSettingCell">
+                    <StackPanel>
+                        <Button Style="{ThemeResource LightButtonStyle}"
+                                Height="40"
+                                x:Name="ButtonElement"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{TemplateBinding Label}"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock Text="{TemplateBinding Value}"
+                                       Grid.Column="1"
+                                       VerticalAlignment="Center"/>
+
+                                <Grid Grid.Column="2" Visibility="{TemplateBinding NextVisible}" VerticalAlignment="Center" Margin="4 0 0 0">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=T}"
+                                          Glyph="&#xE76C;"/>
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}"
+                                          Glyph="&#xE70D;"/>
+                                </Grid>
+                            </Grid>
+                        </Button>
+
+                        <ContentControl Content="{TemplateBinding Content}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                        Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="local:SettingSplitView">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -101,7 +221,7 @@
 
                                     <Border Background="{TemplateBinding HeaderBackground}"/>
 
-                                    <Button Command="{TemplateBinding CloseCommand}" Style="{ThemeResource LightButton}" Padding="10 20 0 10" HorizontalAlignment="Left">
+                                    <Button Command="{TemplateBinding CloseCommand}" Style="{ThemeResource LightButtonStyle}" Padding="10 20 0 10" HorizontalAlignment="Left">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE76B;" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>
                                             <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>

@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
     
-    <Style x:Key="LightButton" TargetType="Button">
+    <Style x:Key="LightButtonStyle" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="CornerRadius" Value="2" />
         <Setter Property="Background" Value="Transparent"/>
@@ -60,5 +60,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+
+    <Style x:Key="AccentButtonStyle" TargetType="Button" BasedOn="{StaticResource LightButtonStyle}">
+        <Setter Property="Background" Value="{ThemeResource SystemAccentBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource ThemeForegroundBrush}" />
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource LightButtonStyle}">
+        <Setter Property="Background" Value="{ThemeResource ButtonRevealBackground}" />
+        <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
     </Style>
 </ResourceDictionary>

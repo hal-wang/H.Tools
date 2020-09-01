@@ -18,6 +18,7 @@ namespace Hubery.Tools.Uwp.Controls
         public PopupLayout()
         {
             RequestedTheme = ThemeHelper.ElementTheme;
+            ThemeHelper.ThemeChanged += () => RequestedTheme = ThemeHelper.ElementTheme;
 
             HorizontalAlignment = HorizontalAlignment.Stretch;
             HorizontalContentAlignment = HorizontalAlignment.Stretch;

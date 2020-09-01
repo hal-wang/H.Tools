@@ -5,8 +5,16 @@ namespace Hubery.Tools.Uwp.Controls.Setting
     /// <summary>
     /// 
     /// </summary>
-    public sealed class BoolSettingCell : BaseSettingCell
+    public sealed class SwitchSettingCell : BaseSettingCell
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public SwitchSettingCell()
+        {
+            DefaultStyleKey = typeof(SwitchSettingCell);
+        }
+
         /// <summary>
         /// 
         /// </summary>
