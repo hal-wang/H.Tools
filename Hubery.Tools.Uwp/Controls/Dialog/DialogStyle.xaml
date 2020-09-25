@@ -162,7 +162,7 @@
                                                          x:Name="ExitButton"
                                                          Foreground="Red"
                                                          VerticalAlignment="Top"
-                                                         ToolTipService.ToolTip="�˳�"
+                                                         ToolTipService.ToolTip="关闭"
                                                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsExitButtonVisible,Mode=OneWay,Converter={StaticResource BooleanConverter}}"
                                                          Data="M571.904 501.76L885.76 187.904c15.872-15.872 15.872-41.984 0-57.856l-1.536-1.536c-15.872-15.872-41.984-15.872-57.856 0L512 442.368 198.144 128c-15.872-15.872-41.984-15.872-57.856 0l-1.536 1.536a40.192 40.192 0 0 0 0 57.856L452.608 501.76 138.752 815.616c-15.872 15.872-15.872 41.984 0 57.856l1.536 1.536c15.872 15.872 41.984 15.872 57.856 0L512 561.152l313.856 313.856c15.872 15.872 41.984 15.872 57.856 0l1.536-1.536c15.872-15.872 15.872-41.984 0-57.856L571.904 501.76z"/>
                                     </Grid>
