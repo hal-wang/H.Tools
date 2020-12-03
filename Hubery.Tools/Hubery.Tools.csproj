@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--netstandard2.0;net452;-->
-    <TargetFrameworks>net452;</TargetFrameworks>
+    <!--netstandard2.0;net452;uap10.0.18362;-->
+    <TargetFrameworks>netstandard2.0;net452;</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Authors>h.wang</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/hbrwang/Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hbrwang/Tools</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Description>工具库</Description>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>2.0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,14 +28,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows" />
