@@ -10,7 +10,7 @@ namespace Hubery.Tools
     /// <summary>
     /// 
     /// </summary>
-    public class ConverterBase
+    public static class ConverterHelper
     {
         /// <summary>
         /// 
@@ -20,7 +20,7 @@ namespace Hubery.Tools
         /// <param name="targetType"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object BoolToValue(object value, bool isTrue, Type targetType, string parameter)
+        public static object BoolToValue(object value, bool isTrue, Type targetType, string parameter)
         {
             string[] strs = parameter.Split(':');
             string value1 = strs[0];
@@ -96,7 +96,7 @@ namespace Hubery.Tools
         /// <param name="targetType"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object BoolTo(bool isTrue, Type targetType, string parameter = null)
+        public static object BoolTo(bool isTrue, Type targetType, string parameter = null)
         {
             if (string.Equals(parameter, "true", StringComparison.InvariantCultureIgnoreCase) || string.Equals(parameter, "T", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -125,7 +125,7 @@ namespace Hubery.Tools
         /// <param name="value"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object TimeToStr(object value, string parameter)
+        public static object TimeToStr(object value, string parameter)
         {
             if (value == null)
             {
