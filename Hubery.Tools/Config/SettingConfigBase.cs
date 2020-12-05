@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Hubery.Tools.Config
 {
-    public class SettingConfigBase
+    public abstract class SettingConfigBase
     {
         public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
         {
@@ -32,6 +32,12 @@ namespace Hubery.Tools.Config
             cfa.AppSettings.Settings.Add(key, value?.ToString());
             cfa.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        public string this[string key]
+        {
+            get => Get<string>(null, key);
+            set => Set(value, key);
         }
     }
 }

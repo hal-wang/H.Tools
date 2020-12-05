@@ -5,82 +5,51 @@ using System.Runtime.CompilerServices;
 
 namespace Hubery.Tools.Config
 {
-    public class SqliteConfigBase
+    public abstract class SqliteConfigBase : IDisposable
     {
-        public abstract class SettingHelper : IDisposable
+        private readonly SqliteBase<ConfigItem> _sqliteConnection;
+
+        public SqliteConfigBase(string path = null)
         {
-            private readonly SqliteBase<ConfigItem> _sqliteConnection;
+            _sqliteConnection = new SqliteBase<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
+        }
 
-            public SettingHelper(string path = null)
+        public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
+        {
+            if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+
+            var value = _sqliteConnection.Find<ConfigItem>(key);
+            if (value == null)
             {
-                _sqliteConnection = new SqliteBase<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
+                Set(defaultValue, key);
+                return defaultValue;
             }
-
-            public string this[string key]
+            else
             {
-                get
-                {
-                    if (string.IsNullOrEmpty(key))
-                    {
-                        throw new NoNullAllowedException();
-                    }
-
-                    var result = _sqliteConnection.Find<ConfigItem>(key);
-                    if (result == null)
-                        return "";
-                    else
-                        return result.Value;
-                }
-                set
-                {
-                    if (string.IsNullOrEmpty(key))
-                    {
-                        throw new NoNullAllowedException();
-                    }
-
-                    if (value == null)
-                        value = "";
-
-                    _sqliteConnection.InsertOrReplace(new ConfigItem()
-                    {
-                        Key = key,
-                        Value = value
-                    });
-                }
+                return (T)Convert.ChangeType(value, typeof(T));
             }
+        }
 
+        public void Set(object value, [CallerMemberName] string key = null)
+        {
+            if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
-            public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
+            _sqliteConnection.InsertOrReplace(new ConfigItem()
             {
-                if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+                Key = key,
+                Value = value.ToString()
+            });
+        }
 
-                var value = _sqliteConnection.Find<ConfigItem>(key);
-                if (value == null)
-                {
-                    Set(defaultValue, key);
-                    return defaultValue;
-                }
-                else
-                {
-                    return (T)Convert.ChangeType(value, typeof(T));
-                }
-            }
+        public string this[string key]
+        {
+            get => Get<string>(null, key);
+            set => Set(value, key);
+        }
 
-            public void Set(object value, [CallerMemberName] string key = null)
-            {
-                if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
-
-                _sqliteConnection.InsertOrReplace(new ConfigItem()
-                {
-                    Key = key,
-                    Value = value.ToString()
-                });
-            }
-
-            public void Dispose()
-            {
-                _sqliteConnection.Dispose();
-            }
+        public void Dispose()
+        {
+            _sqliteConnection.Dispose();
         }
     }
 }
