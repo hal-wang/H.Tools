@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Hubery.Tools.Uwp</id>
-    <version>1.0.11.0</version>
+    <version>1.0.13.0</version>
     <title>Hubery.Tools.Uwp</title>
     <authors>h.wang</authors>
     <owners>h.wang</owners>
@@ -18,7 +18,7 @@
       <group targetFramework="uap10.0">
         <dependency id="Hubery.Tools"          version = "1.0.8" />
         <dependency id="Microsoft.Graph.Core"          version = "1.21.0" />
-        <dependency id="Microsoft.Identity.Client"          version = "4.17.1" />
+        <dependency id="Microsoft.Identity.Client"          version = "4.18.0" />
         <dependency id="Microsoft.NETCore.UniversalWindowsPlatform"          version = "6.2.10" />
         <dependency id="Microsoft.Toolkit.Uwp"          version = "6.1.1" />
         <dependency id="Microsoft.Toolkit.Uwp.UI.Controls"          version = "6.1.1" />

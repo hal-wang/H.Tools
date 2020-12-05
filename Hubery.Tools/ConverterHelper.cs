@@ -1,11 +1,16 @@
 ﻿using System;
 
+#if NET452
+using System.Windows;
+using System.Windows.Media;
+#endif
+
 namespace Hubery.Tools
 {
     /// <summary>
     /// 
     /// </summary>
-    public class ConverterBase
+    public static class ConverterHelper
     {
         /// <summary>
         /// 
@@ -15,7 +20,7 @@ namespace Hubery.Tools
         /// <param name="targetType"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object BoolToValue(object value, bool isTrue, Type targetType, string parameter)
+        public static object BoolToValue(object value, bool isTrue, Type targetType, string parameter)
         {
             string[] strs = parameter.Split(':');
             string value1 = strs[0];
@@ -53,6 +58,27 @@ namespace Hubery.Tools
             {
                 return isTrue ? double.Parse(value1) : double.Parse(value2);
             }
+#if NET452
+            else if (targetType == typeof(Color) || targetType == typeof(Brush) || targetType == typeof(SolidColorBrush))
+            {
+                if (value1[0] == '#')
+                {
+                    var color = isTrue ? (Color)ColorConverter.ConvertFromString(value1) : (Color)ColorConverter.ConvertFromString(value2);
+                    if (targetType == typeof(Color))
+                    {
+                        return color;
+                    }
+                    else
+                    {
+                        return new SolidColorBrush(color);
+                    }
+                }
+                else
+                {
+                    return isTrue ? Application.Current.Resources[value1] : Application.Current.Resources[value1];
+                }
+            }
+#endif
             else if (targetType.IsEnum)
             {
                 return isTrue ? Enum.Parse(targetType, value1) : Enum.Parse(targetType, value2);
@@ -70,7 +96,7 @@ namespace Hubery.Tools
         /// <param name="targetType"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object BoolTo(bool isTrue, Type targetType, string parameter = null)
+        public static object BoolTo(bool isTrue, Type targetType, string parameter = null)
         {
             if (string.Equals(parameter, "true", StringComparison.InvariantCultureIgnoreCase) || string.Equals(parameter, "T", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -81,6 +107,12 @@ namespace Hubery.Tools
             {
                 return isTrue;
             }
+#if NET452
+            else if (targetType == typeof(Visibility))
+            {
+                return isTrue ? Visibility.Visible : Visibility.Collapsed;
+            }
+#endif
             else
             {
                 throw new NotSupportedException();
@@ -93,7 +125,7 @@ namespace Hubery.Tools
         /// <param name="value"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public object TimeToStr(object value, string parameter)
+        public static object TimeToStr(object value, string parameter)
         {
             if (value == null)
             {
