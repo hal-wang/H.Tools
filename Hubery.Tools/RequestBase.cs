@@ -13,7 +13,7 @@ namespace Hubery.Tools
         private readonly string _url;
         private readonly string _controller;
 
-        public int Timeout { get; set; } = 20;
+        public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(20);
 
         public RequestBase(string url, string controller = null)
         {
@@ -30,7 +30,7 @@ namespace Hubery.Tools
         {
             HttpClient client = new HttpClient()
             {
-                Timeout = TimeSpan.FromSeconds(Timeout)
+                Timeout = Timeout
             };
             if (header != null)
             {
