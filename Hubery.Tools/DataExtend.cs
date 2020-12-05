@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
+using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Linq;
 
@@ -126,6 +127,16 @@ namespace Hubery.Tools
                 sb.Append(data[i].ToString("x2"));
             }
             return sb.ToString();
+        }
+
+        public static byte[] Sha256(byte[] data)
+        {
+            return SHA256.Create().ComputeHash(data);
+        }
+
+        public static string Sha256(string str)
+        {
+            return Sha256(Encoding.UTF8.GetBytes(str)).ToX2();
         }
     }
 }
