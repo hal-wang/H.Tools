@@ -11,7 +11,7 @@ namespace Hubery.Tools
 
         public static bool IsPhone(string phoneNumber)
         {
-            return Regex.IsMatch(phoneNumber, @"^(12|13|14|15|16|17|18|19)\d{9}$", RegexOptions.IgnoreCase);
+            return Regex.IsMatch(phoneNumber, @"^1\d{10}$", RegexOptions.IgnoreCase);
         }
 
         public static bool IsCaptcha(string captcha, int length = 6)
