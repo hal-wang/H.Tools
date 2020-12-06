@@ -4,16 +4,16 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Converters/ConvertersDict.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Converters/ConvertersDict.xaml"/>
 
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/Button.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/TextBox.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Themes/PasswordBox.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Themes/Button.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Themes/TextBox.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Themes/PasswordBox.xaml"/>
 
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Controls/Message/MessageStyle.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Controls/Dialog/DialogStyle.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Hubery.Tools.Uwp/Controls/Setting/SettingStyle.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Controls/Message/MessageStyle.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Controls/Dialog/DialogStyle.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Hubery.Tools/Uwp/Controls/Setting/SettingStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="htuc:LayoutTeachingTip">

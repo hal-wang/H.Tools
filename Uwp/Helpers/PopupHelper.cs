@@ -114,7 +114,7 @@ namespace Hubery.Tools.Uwp.Helpers
             toastTextElements[2].AppendChild(toastXml.CreateTextNode(str3));
 
             XmlNodeList toastImageAttributes = toastXml.GetElementsByTagName("image");
-            ((XmlElement)toastImageAttributes[0]).SetAttribute("src", $"ms-appx:/Assets/StoreLogo.scale-400.png");
+            ((XmlElement)toastImageAttributes[0]).SetAttribute("src", $"ms-appx:///Assets/StoreLogo.scale-400.png");
 
             IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
             ((XmlElement)toastNode).SetAttribute("duration", "long");
