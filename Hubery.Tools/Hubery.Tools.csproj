@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
     <!--netstandard2.0;net452;uap10.0.18362;-->
-    <TargetFrameworks>netstandard2.0;net452;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net452;uap10.0.18362;</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Authors>h.wang</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,6 +19,17 @@
 
   <ItemGroup>
     <None Remove="LICENSE" />
+    <None Remove="Uwp\Controls\Color\ColorSelecter.xaml" />
+    <None Remove="Uwp\Controls\Dialog\DialogStyle.xaml" />
+    <None Remove="Uwp\Controls\Emoji\EmojiSelecter.xaml" />
+    <None Remove="Uwp\Controls\Font\FontSelecter.xaml" />
+    <None Remove="Uwp\Controls\Loading\LayoutLoading.xaml" />
+    <None Remove="Uwp\Controls\Loading\PartialLoading.xaml" />
+    <None Remove="Uwp\Controls\Message\MessageStyle.xaml" />
+    <None Remove="Uwp\Controls\Message\NotifyPopup.xaml" />
+    <None Remove="Uwp\Controls\Message\StickyMessage.xaml" />
+    <None Remove="Uwp\Controls\PathButton.xaml" />
+    <None Remove="Uwp\Controls\Setting\SettingStyle.xaml" />
     <None Include="../logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -34,6 +45,10 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
@@ -45,5 +60,79 @@
     <Reference Include="WindowsBase" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <Compile Remove="Uwp\**" />
+    <EmbeddedResource Remove="Uwp\**" />
+    <None Remove="Uwp\**" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Uwp\**" />
+    <EmbeddedResource Remove="Uwp\**" />
+    <None Remove="Uwp\**" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <Page Include="Uwp\Controls\Color\ColorSelecter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Dialog\DialogStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Emoji\EmojiSelecter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Font\FontSelecter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Loading\LayoutLoading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Loading\PartialLoading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Message\MessageStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Message\NotifyPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Message\StickyMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\PathButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Controls\Setting\SettingStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <Compile Update="Uwp\Controls\Color\ColorSelecter.xaml.cs">
+      <DependentUpon>ColorSelecter.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Emoji\EmojiSelecter.xaml.cs">
+      <DependentUpon>EmojiSelecter.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Font\FontSelecter.xaml.cs">
+      <DependentUpon>FontSelecter.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Loading\LayoutLoading.xaml.cs">
+      <DependentUpon>LayoutLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Loading\PartialLoading.xaml.cs">
+      <DependentUpon>PartialLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Message\NotifyPopup.xaml.cs">
+      <DependentUpon>NotifyPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\Message\StickyMessage.xaml.cs">
+      <DependentUpon>StickyMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Uwp\Controls\PathButton.xaml.cs">
+      <DependentUpon>PathButton.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
