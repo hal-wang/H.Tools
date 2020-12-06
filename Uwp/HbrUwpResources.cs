@@ -13,7 +13,7 @@ namespace Hubery.Tools.Uwp
     {
         private readonly string[] _paths =
         {
-            "ms-appx:///Hubery.Tools/Uwp/Themes/Generic.xaml",
+            "ms-appx:///Hubery.Tools/Themes/Generic.xaml",
         };
 
         /// <summary>

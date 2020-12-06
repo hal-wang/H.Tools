@@ -146,7 +146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Uwp\Themes\Generic.xaml">
+    <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,7 +170,7 @@
     <None Update="Uwp\Themes\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
-    <None Update="Uwp\Themes\Generic.xaml">
+    <None Update="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Uwp\Themes\PasswordBox.xaml">
