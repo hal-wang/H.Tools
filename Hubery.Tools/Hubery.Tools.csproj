@@ -18,25 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="LICENSE" />
-    <None Remove="Uwp\Controls\Color\ColorSelecter.xaml" />
-    <None Remove="Uwp\Controls\Dialog\DialogStyle.xaml" />
-    <None Remove="Uwp\Controls\Emoji\EmojiSelecter.xaml" />
-    <None Remove="Uwp\Controls\Font\FontSelecter.xaml" />
-    <None Remove="Uwp\Controls\Loading\LayoutLoading.xaml" />
-    <None Remove="Uwp\Controls\Loading\PartialLoading.xaml" />
-    <None Remove="Uwp\Controls\Message\MessageStyle.xaml" />
-    <None Remove="Uwp\Controls\Message\NotifyPopup.xaml" />
-    <None Remove="Uwp\Controls\Message\StickyMessage.xaml" />
-    <None Remove="Uwp\Controls\PathButton.xaml" />
-    <None Remove="Uwp\Controls\Setting\SettingStyle.xaml" />
-    <None Remove="Uwp\Converters\ConvertersDict.xaml" />
-    <None Remove="Uwp\Themes\Button.xaml" />
-    <None Remove="Uwp\Themes\Colors.xaml" />
-    <None Remove="Uwp\Themes\Generic.xaml" />
-    <None Remove="Uwp\Themes\PasswordBox.xaml" />
-    <None Remove="Uwp\Themes\TextBox.xaml" />
-    <None Include="../logo.png">
+    <None Remove="logo.png" />
+    <None Include="..\logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
@@ -166,7 +149,7 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
     <Page Include="Uwp\Converters\ConvertersDict.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,5 +174,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <None Update="Uwp\Converters\ConvertersDict.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>
