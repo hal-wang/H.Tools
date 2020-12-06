@@ -160,12 +160,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Hubery.Tools.Uwp\Hubery.Tools.Uwp.csproj">
-      <Project>{088b5847-8ec8-4670-b9f2-7ac68cd9c55b}</Project>
-      <Name>Hubery.Tools.Uwp</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
