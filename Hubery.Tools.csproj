@@ -7,7 +7,7 @@
     <Authors>h.wang</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company></Company>
-    <PackageIcon>https://blog.hubery.wang/imgs/h/h_mini.png</PackageIcon>
+    <PackageIcon>https:\blog.hubery.wang\imgs\h\logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/hbrwang/Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hbrwang/Tools</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -186,6 +186,13 @@
     </None>
     <None Update="Uwp\Themes\TextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 </Project>
