@@ -1,10 +1,10 @@
-﻿using Hubery.Tools.Uwp.Helpers;
+﻿using HTools.Uwp.Helpers;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

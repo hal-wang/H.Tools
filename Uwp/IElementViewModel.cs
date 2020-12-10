@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp
+namespace HTools.Uwp
 {
     /// <summary>
     /// 用于向VM传递View，建议少见，不符合MVVM设计思想

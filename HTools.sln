@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hubery.Tools", "Hubery.Tools.csproj", "{69FC1E39-09F3-4750-8683-44390A3AF3C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTools", "HTools.csproj", "{69FC1E39-09F3-4750-8683-44390A3AF3C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

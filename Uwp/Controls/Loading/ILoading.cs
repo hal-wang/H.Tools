@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Controls.Loading
+﻿namespace HTools.Uwp.Controls.Loading
 {
     /// <summary>
     /// 

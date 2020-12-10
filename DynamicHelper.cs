@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Dynamic;
 
-namespace Hubery.Tools
+namespace HTools
 {
     public static class DynamicHelper
     {

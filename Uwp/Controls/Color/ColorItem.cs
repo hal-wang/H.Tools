@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Controls.Color
+﻿namespace HTools.Uwp.Controls.Color
 {
     /// <summary>
     /// 

@@ -1,10 +1,10 @@
-﻿using Hubery.Tools;
+﻿using HTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Data;
 
-namespace Hubery.Tools.Uwp.Converters
+namespace HTools.Uwp.Converters
 {
     internal class MathConverter : IValueConverter
     {

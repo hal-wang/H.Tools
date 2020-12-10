@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Controls.Font
+﻿namespace HTools.Uwp.Controls.Font
 {
     /// <summary>
     /// 

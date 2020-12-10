@@ -1,7 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.Setting
+namespace HTools.Uwp.Controls.Setting
 {
     /// <summary>
     /// 

@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Controls.Emoji
+﻿namespace HTools.Uwp.Controls.Emoji
 {
     /// <summary>
     /// 

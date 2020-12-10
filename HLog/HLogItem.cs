@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace Hubery.Tools.HLog
+namespace HTools.HLog
 {
     public class HLogItem
     {

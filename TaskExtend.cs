@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hubery.Tools
+namespace HTools
 {
     public static class TaskExtend
     {

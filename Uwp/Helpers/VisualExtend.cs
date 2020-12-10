@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Runtime.CompilerServices;
 
-namespace Hubery.Tools.Config
+namespace HTools.Config
 {
     public abstract class SettingConfigBase
     {

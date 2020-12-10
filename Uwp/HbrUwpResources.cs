@@ -1,10 +1,10 @@
-﻿using Hubery.Tools.Uwp.Helpers;
+﻿using HTools.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using Windows.UI;
 using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp
+namespace HTools.Uwp
 {
     /// <summary>
     /// 
@@ -13,7 +13,7 @@ namespace Hubery.Tools.Uwp
     {
         private readonly string[] _paths =
         {
-            "ms-appx:///Hubery.Tools/Themes/Generic.xaml",
+            "ms-appx:///HTools/Themes/Generic.xaml",
         };
 
         /// <summary>

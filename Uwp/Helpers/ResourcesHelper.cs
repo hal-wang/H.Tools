@@ -1,7 +1,7 @@
 ﻿using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

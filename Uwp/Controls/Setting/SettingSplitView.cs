@@ -1,11 +1,11 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using Hubery.Tools.Uwp.Helpers;
+using HTools.Uwp.Helpers;
 using System.Windows.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace Hubery.Tools.Uwp.Controls.Setting
+namespace HTools.Uwp.Controls.Setting
 {
     /// <summary>
     /// 

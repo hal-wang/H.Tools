@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp.Controls.Message
+namespace HTools.Uwp.Controls.Message
 {
     /// <summary>
     /// 

@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

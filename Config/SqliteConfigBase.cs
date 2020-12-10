@@ -3,7 +3,7 @@ using System.Data;
 using System.IO;
 using System.Runtime.CompilerServices;
 
-namespace Hubery.Tools.Config
+namespace HTools.Config
 {
     public abstract class SqliteConfigBase : IDisposable
     {

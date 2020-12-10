@@ -1,7 +1,7 @@
-﻿using Hubery.Tools.Uwp.Controls.Loading;
+﻿using HTools.Uwp.Controls.Loading;
 using System;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

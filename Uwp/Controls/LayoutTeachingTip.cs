@@ -5,7 +5,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls
+namespace HTools.Uwp.Controls
 {
     internal class LayoutTeachingTip : PopupLayout
     {

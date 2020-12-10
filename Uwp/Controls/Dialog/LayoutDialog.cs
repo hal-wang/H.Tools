@@ -5,7 +5,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.Dialog
+namespace HTools.Uwp.Controls.Dialog
 {
     /// <summary>
     /// ConentDialog虽好，但不能多用哦！ 

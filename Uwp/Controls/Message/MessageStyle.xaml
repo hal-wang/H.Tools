@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Hubery.Tools.Uwp.Controls.Message">
+    xmlns:local="using:HTools.Uwp.Controls.Message">
 
     <Style TargetType="local:MessageContent">
         <Setter Property="Template">

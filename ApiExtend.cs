@@ -36,7 +36,7 @@ using System.Threading.Tasks;
  *                        ..,:::;;;;:::,,.                             
  */
 
-namespace Hubery.Tools
+namespace HTools
 {
     public static class ApiExtend
     {

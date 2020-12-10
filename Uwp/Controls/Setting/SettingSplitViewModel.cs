@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 
-namespace Hubery.Tools.Uwp.Controls.Setting
+namespace HTools.Uwp.Controls.Setting
 {
     /// <summary>
     /// 

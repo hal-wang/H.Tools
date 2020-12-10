@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Hubery.Tools
+namespace HTools
 {
     public class SqliteBase<T> : SQLiteConnection
     {

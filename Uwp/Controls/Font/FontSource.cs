@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hubery.Tools.Uwp.Controls.Font
+namespace HTools.Uwp.Controls.Font
 {
     internal class FontSource : IIncrementalSource<string>
     {

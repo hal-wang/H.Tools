@@ -1,5 +1,5 @@
-﻿using Hubery.Tools.Uwp.Controls;
-using Hubery.Tools.Uwp.Controls.Dialog;
+﻿using HTools.Uwp.Controls;
+using HTools.Uwp.Controls.Dialog;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

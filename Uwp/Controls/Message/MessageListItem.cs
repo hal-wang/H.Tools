@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Hubery.Tools.Uwp.Controls.Message
+namespace HTools.Uwp.Controls.Message
 {
     /// <summary>
     /// 

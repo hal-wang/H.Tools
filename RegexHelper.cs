@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Hubery.Tools
+namespace HTools
 {
     public static class RegexHelper
     {

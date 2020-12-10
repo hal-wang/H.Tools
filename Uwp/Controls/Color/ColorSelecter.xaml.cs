@@ -4,7 +4,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Hubery.Tools.Uwp.Controls.Color
+namespace HTools.Uwp.Controls.Color
 {
     /// <summary>
     /// 

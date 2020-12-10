@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 #endif
 
-namespace Hubery.Tools
+namespace HTools
 {
     /// <summary>
     /// 

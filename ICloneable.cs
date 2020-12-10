@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools
+﻿namespace HTools
 {
     /// <summary>
     /// 对象复制

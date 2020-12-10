@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Hubery.Tools.Config
+namespace HTools.Config
 {
     [Table("Config")]
     internal class ConfigItem

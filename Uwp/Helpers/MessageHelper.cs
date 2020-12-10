@@ -1,11 +1,11 @@
-﻿using Hubery.Tools.Uwp.Controls.Message;
+﻿using HTools.Uwp.Controls.Message;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 

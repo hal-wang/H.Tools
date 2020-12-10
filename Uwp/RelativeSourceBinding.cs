@@ -1,8 +1,8 @@
-﻿using Hubery.Tools.Uwp.Helpers;
+﻿using HTools.Uwp.Helpers;
 using System;
 using Windows.UI.Xaml;
 
-namespace Hubery.Tools.Uwp
+namespace HTools.Uwp
 {
     /// <summary>
     /// 

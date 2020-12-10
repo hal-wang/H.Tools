@@ -1,4 +1,4 @@
-﻿namespace Hubery.Tools.Uwp.Helpers.Graph
+﻿namespace HTools.Uwp.Helpers.Graph
 {
     /// <summary>
     /// 

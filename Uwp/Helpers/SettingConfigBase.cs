@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Windows.Storage;
 
-namespace Hubery.Tools.Uwp.Helpers
+namespace HTools.Uwp.Helpers
 {
     /// <summary>
     /// 
