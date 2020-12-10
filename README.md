@@ -2,12 +2,18 @@
 
 个人总结 CSharp 类库
 
-## Release
+## 源码
 
-已发布至 Nuget:
+<https://github.com/hal-wang/HTools.CSharp.git>
 
-1.  HTools
+## 安装
+
+已发布至 Nuget，名称：`HTools`
+
+```shell
+PM> Install-Package HTools
+```
 
 ## 用法
 
-暂无文档，可参考 [Lavcode](https://lavcode.hal.wang) 中的使用方法
+暂无文档，可参考 [Lavcode](https://github.com/hal-wang/Lavcode) 中的使用方法
