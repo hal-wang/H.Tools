@@ -1,11 +1,21 @@
-﻿using HTools.Uwp.Helpers;
-using System;
-using System.Collections.Generic;
+﻿using System;
+
+#if NET452
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Threading;
+#endif
+
+#if UAP10_0_18362
+using HTools.Uwp.Helpers;
 using Windows.UI;
 using Windows.UI.Xaml;
+using System.Collections.Generic;
+#endif
 
-namespace HTools.Uwp
+namespace HTools
 {
+#if NET452 || UAP10_0_18362
     /// <summary>
     /// 
     /// </summary>
@@ -28,8 +38,11 @@ namespace HTools.Uwp
         private void AddResources()
         {
             var res = new ResourceDictionary();
+
+#if UAP10_0_18362
             res.Add(KeyValuePair.Create<object, object>("ThemeForegroundColor", ThemeHelper.ThemeForegroundColor));
             MergedDictionaries.Add(res);
+#endif
 
             foreach (var path in _paths)
             {
@@ -50,10 +63,14 @@ namespace HTools.Uwp
                 if (_beforeThemeColor == null || _beforeThemeColor.Value != themeColor)
                 {
                     _beforeThemeColor = themeColor;
+
+#if UAP10_0_18362
                     Application.Current.Resources["ThemeForegroundColor"] = ThemeHelper.ThemeForegroundColor;
+#endif
                 }
             };
             timer.Start();
         }
     }
+#endif
 }
