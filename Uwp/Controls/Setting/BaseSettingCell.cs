@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 namespace HTools.Uwp.Controls.Setting
 {
     /// <summary>
-    /// 为什么不用泛型：UWP暂不支持 x:TypeArguments
+    /// Why not Template：UWP doesn't support x:TypeArguments
     /// </summary>
     public class BaseSettingCell : ContentControl
     {
