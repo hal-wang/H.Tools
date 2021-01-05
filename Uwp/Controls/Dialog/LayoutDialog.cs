@@ -317,7 +317,7 @@ namespace HTools.Uwp.Controls.Dialog
 
             if (PrimaryButton == null)
             {
-                throw new ArgumentException("模板设置不正确（找不到对应按钮）");
+                throw new ArgumentException("Error Template (can't find button)");
             }
 
             SetBtnEvent(PrimaryButton, PrimaryButtonClick, ContentDialogResult.Primary);

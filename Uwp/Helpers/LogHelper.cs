@@ -25,7 +25,7 @@ namespace HTools.Uwp.Helpers
                 SystemInformation.OperatingSystemVersion.ToString(),
                 SystemInformation.DeviceModel,
                 SystemInformation.ApplicationName,
-                "UWP")
+                "Uwp")
         { }
 
         /// <summary>

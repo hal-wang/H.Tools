@@ -8,7 +8,6 @@ namespace HTools.Uwp.Helpers
     /// </summary>
     public static class LoadingHelper
     {
-        #region Loading
         /// <summary>
         /// 
         /// </summary>
@@ -56,6 +55,5 @@ namespace HTools.Uwp.Helpers
             _loading = null;
             IsLoading = false;
         }
-        #endregion
     }
 }

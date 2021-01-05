@@ -17,7 +17,7 @@ namespace UwpTest
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             await TaskExtend.SleepAsync(1000);
-            await PopupHelper.ShowDialog("Test", "Title", "OK", "Cancel");
+            await PopupHelper.ShowDialog("Test", secondButtonText: "Cancel");
         }
     }
 }
