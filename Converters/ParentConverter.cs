@@ -3,7 +3,7 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace HTools.Uwp.Converters
+namespace HTools.Converters
 {
     internal class ParentConverter : IValueConverter
     {

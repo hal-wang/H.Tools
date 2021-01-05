@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace HTools.Uwp.Converters
+namespace HTools.Converters
 {
     internal class IsStrEmptyConverter : IValueConverter
     {

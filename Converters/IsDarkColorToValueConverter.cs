@@ -3,7 +3,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
-namespace HTools.Uwp.Converters
+namespace HTools.Converters
 {
     internal class IsDarkColorToValueConverter : IValueConverter
     {

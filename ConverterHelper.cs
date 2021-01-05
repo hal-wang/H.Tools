@@ -1,4 +1,12 @@
-﻿using System;
+﻿
+using System;
+
+#if UAP10_0_18362
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+using HTools.Uwp.Helpers;
+using System.ComponentModel;
+#endif
 
 #if NET452
 using System.Windows;
@@ -79,6 +87,21 @@ namespace HTools
                 }
             }
 #endif
+
+#if UAP10_0_18362
+            else if (targetType == typeof(Windows.UI.Color))
+            {
+                return isTrue ? ColorHelper.GetColor(value1) : ColorHelper.GetColor(value2);
+            }
+            else if (targetType == typeof(Brush) || targetType == typeof(SolidColorBrush))
+            {
+                return isTrue ? ColorHelper.GetBrush(value1) : ColorHelper.GetBrush(value2);
+            }
+            else if (targetType == typeof(Thickness))
+            {
+                return isTrue ? (Thickness)TypeDescriptor.GetConverter(typeof(Thickness)).ConvertFrom(value1) : (Thickness)TypeDescriptor.GetConverter(typeof(Thickness)).ConvertFrom(value2);
+            }
+#endif
             else if (targetType.IsEnum)
             {
                 return isTrue ? Enum.Parse(targetType, value1) : Enum.Parse(targetType, value2);
@@ -107,7 +130,7 @@ namespace HTools
             {
                 return isTrue;
             }
-#if NET452
+#if NET452||UAP10_0_18362
             else if (targetType == typeof(Visibility))
             {
                 return isTrue ? Visibility.Visible : Visibility.Collapsed;

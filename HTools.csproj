@@ -140,7 +140,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <Page Include="Uwp\Converters\ConvertersDict.xaml">
+    <Page Include="Converters\ConvertersDict.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +167,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <None Update="Uwp\Converters\ConvertersDict.xaml">
+    <None Update="Converters\ConvertersDict.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Uwp\Themes\Button.xaml">
