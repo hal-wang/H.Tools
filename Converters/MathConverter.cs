@@ -1,8 +1,15 @@
-﻿using HTools;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+#if NET452
+using System.Windows.Data;
+using System.Globalization;
+#endif
+
+#if UAP10_0_18362
 using Windows.UI.Xaml.Data;
+#endif
 
 namespace HTools.Converters
 {
@@ -15,12 +22,23 @@ namespace HTools.Converters
 
         #region IValueConverter Members
 
-        public object Convert(object value, Type targetType, object parameter, string culture)
+        public object Convert(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             // Parse value into equation and remove spaces
             var mathEquation = parameter as string;
             mathEquation = mathEquation.Replace(" ", "");
-            mathEquation = mathEquation.Replace("@Value", value.ToString(), StringComparison.InvariantCultureIgnoreCase);
+            mathEquation = mathEquation.Replace("@Value", value.ToString()
+#if UAP10_0_18362
+                , StringComparison.InvariantCultureIgnoreCase
+#endif
+                );
 
             // Validate values and get list of numbers in equation
             var numbers = new List<double>();
@@ -48,7 +66,14 @@ namespace HTools.Converters
             return numbers[0].GetValue(targetType);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string culture)
+        public object ConvertBack(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             throw new NotImplementedException();
         }

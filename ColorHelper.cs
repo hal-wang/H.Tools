@@ -1,10 +1,20 @@
 ﻿using System;
+
+#if UAP10_0_18362
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
+using HTools.Uwp.Helpers;
+#endif
 
-namespace HTools.Uwp.Helpers
+#if NET452
+using System.Windows.Media;
+using System.Windows;
+#endif
+
+namespace HTools
 {
+#if UAP10_0_18362||NET452
     /// <summary>
     /// 
     /// </summary>
@@ -83,8 +93,13 @@ namespace HTools.Uwp.Helpers
             }
             else
             {
+#if UAP10_0_18362
                 var resource = Application.Current.Resources[str];
-                if (resource is Windows.UI.Color color)
+#endif
+#if NET452
+                var resource = Application.Current.MainWindow.FindResource(str);
+#endif
+                if (resource is Color color)
                 {
                     return new SolidColorBrush(color);
                 }
@@ -133,7 +148,13 @@ namespace HTools.Uwp.Helpers
         /// <returns></returns>
         public static Color GetBackColor()
         {
+#if UAP10_0_18362
             return ThemeHelper.ElementTheme == ElementTheme.Dark ? Colors.Black : Colors.White;
+#elif NET452
+            return Colors.White;
+#endif
         }
     }
+
+#endif
 }

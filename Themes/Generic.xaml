@@ -5,7 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Converters/ConvertersDict.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Converters/ConvertersDict.xaml"/>
 
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Button.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TextBox.xaml"/>

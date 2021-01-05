@@ -1,5 +1,13 @@
 ﻿using System;
+
+#if NET452
+using System.Windows.Data;
+using System.Globalization;
+#endif
+
+#if UAP10_0_18362
 using Windows.UI.Xaml.Data;
+#endif
 
 namespace HTools.Converters
 {
@@ -16,10 +24,18 @@ namespace HTools.Converters
         /// <param name="parameter"></param>
         /// <param name="language"></param>
         /// <returns></returns>
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
-            var time = DateTimeOffset.FromUnixTimeSeconds((long)value);
-            return ConverterHelper.TimeToStr(time.LocalDateTime, parameter as string);
+
+            var time = new DateTime(1970, 1, 1, 0, 0, 0) + TimeSpan.FromSeconds((long)value);
+            return ConverterHelper.TimeToStr(time.ToLocalTime(), parameter as string);
         }
 
         /// <summary>
@@ -30,7 +46,14 @@ namespace HTools.Converters
         /// <param name="parameter"></param>
         /// <param name="language"></param>
         /// <returns></returns>
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             throw new NotImplementedException();
         }

@@ -1,23 +1,39 @@
-﻿using HTools.Uwp.Helpers;
-using System;
+﻿using System;
+
+#if NET452
+using System.Windows.Data;
+using System.Windows.Media;
+using System.Globalization;
+#endif
+
+#if UAP10_0_18362
+using HTools.Uwp.Helpers;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
+#endif
 
-namespace HTools.Uwp.Converters
+namespace HTools.Converters
 {
     internal class BackColorToForeColorConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             Color? defaultBackColor;
             if (string.IsNullOrEmpty(parameter as string))
             {
-                defaultBackColor = Helpers.ColorHelper.GetBackColor();
+                defaultBackColor = Colors.White;
             }
             else
             {
-                defaultBackColor = Helpers.ColorHelper.GetColor(parameter as string);
+                defaultBackColor = Colors.Black;
             }
 
             Color? backColor = null;
@@ -47,7 +63,7 @@ namespace HTools.Uwp.Converters
                 var color = value.ToString();
                 if (color != null && color.Length > 0 && color[0] == '#')
                 {
-                    backColor = Helpers.ColorHelper.GetColor(color);
+                    backColor = ColorHelper.GetColor(color);
                 }
                 else
                 {
@@ -58,11 +74,16 @@ namespace HTools.Uwp.Converters
             bool isBackDark;
             if (backColor == null)
             {
+#if UAP10_0_18362
                 isBackDark = ThemeHelper.ElementTheme == Windows.UI.Xaml.ElementTheme.Dark;
+#endif
+#if NET452
+                isBackDark = false;
+#endif
             }
             else
             {
-                isBackDark = Helpers.ColorHelper.IsDarkColor(backColor.Value, backColor: defaultBackColor);
+                isBackDark = ColorHelper.IsDarkColor(backColor.Value, backColor: defaultBackColor);
             }
 
             if (targetType == typeof(Color))
@@ -79,7 +100,14 @@ namespace HTools.Uwp.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             throw new NotImplementedException();
         }

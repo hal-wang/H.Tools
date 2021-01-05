@@ -1,13 +1,29 @@
 ﻿using System;
+
+#if NET452
+using System.Windows.Data;
+using System.Globalization;
+using System.Windows.Media;
+#endif
+
+#if UAP10_0_18362
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
+#endif
 
 namespace HTools.Converters
 {
     internal class IsDarkColorToValueConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             Color color;
             if (value is Color)
@@ -22,17 +38,24 @@ namespace HTools.Converters
             }
             else if (value is string str)
             {
-                color = Helpers.ColorHelper.GetColor(str);
+                color = ColorHelper.GetColor(str);
             }
             else
             {
                 throw new NotSupportedException();
             }
 
-            return ConverterHelper.BoolToValue(value, Helpers.ColorHelper.IsDarkColor(color), targetType, parameter as string);
+            return ConverterHelper.BoolToValue(value, ColorHelper.IsDarkColor(color), targetType, parameter as string);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter,
+#if NET452
+            CultureInfo language
+#endif
+#if UAP10_0_18362
+            string language
+#endif
+            )
         {
             throw new NotImplementedException();
         }

@@ -11,7 +11,6 @@
     <local:IsNullToValueConverter x:Key="IsNullToValueConverter"/>
     <local:NumCompareConverter x:Key="NumCompareConverter"/>
     <local:NumToSendTipConverter x:Key="NumToSendTipConverter"/>
-    <local:ParentConverter x:Key="ParentConverter"/>
     <local:IsEqualConverter x:Key="IsEqualConverter" />
     <local:MathConverter x:Key="MathConverter"/>
     <local:BooleanToValueConverter x:Key="BooleanToValueConverter"/>

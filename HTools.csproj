@@ -75,6 +75,11 @@
     <EmbeddedResource Remove="Uwp\**" />
     <None Remove="Uwp\**" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Converters\**" />
+    <EmbeddedResource Remove="Converters\**" />
+    <None Remove="Converters\**" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
     <Page Include="Uwp\Controls\Color\ColorSelecter.xaml">
