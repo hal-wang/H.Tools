@@ -1,4 +1,6 @@
-﻿namespace HTools.Uwp.Controls.Color
+﻿using HTools.Uwp.Helpers;
+
+namespace HTools.Uwp.Controls.Color
 {
     /// <summary>
     /// 
@@ -9,28 +11,19 @@
         /// 
         /// </summary>
         /// <param name="color"></param>
-        /// <param name="name"></param>
-        /// <param name="isDark"></param>
-        public ColorItem(Windows.UI.Color color, string name, bool isDark = false)
+        public ColorItem(Windows.UI.Color color)
         {
             Color = color;
-            Name = name;
-            IsDark = isDark;
         }
 
         /// <summary>
-        /// 
+        /// display name
         /// </summary>
-        public string Name { get; set; }
+        public string Name => ResourcesHelper.GetResStr($"ColorSelecterColor${Color}");
 
         /// <summary>
         /// 
         /// </summary>
         public Windows.UI.Color Color { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsDark { get; set; }
     }
 }

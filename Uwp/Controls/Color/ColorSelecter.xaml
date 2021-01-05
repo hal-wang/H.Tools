@@ -76,7 +76,7 @@
                         HorizontalAlignment="Right"
                         Margin="10 0"
                         Grid.Column="1">
-                <Button Content="重置"
+                <Button x:Uid="ColorSelecterResetButton"
                         Margin="0 0 20 0"
                         Padding="12 5"
                         Visibility="{x:Bind Resetable,Mode=OneWay,Converter={StaticResource BooleanConverter}}"
@@ -85,7 +85,7 @@
                         Foreground="{ThemeResource SystemAccentBrush}"
                         Click="{x:Bind HandleReset}"/>
 
-                    <Button Content="确定"
+                <Button x:Uid="ColorSelecterOkButton"
                         Padding="12 5"
                         VerticalAlignment="Center"
                         Style="{ThemeResource LightButtonStyle}"

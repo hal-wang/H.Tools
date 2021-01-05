@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -11,6 +12,28 @@ namespace HTools.Uwp.Controls.Color
     /// </summary>
     public sealed partial class ColorSelecter : UserControl
     {
+        private static readonly Windows.UI.Color[] _colors = new Windows.UI.Color[]
+        {
+            Colors.Black,
+            Colors.Gray,
+            Colors.White,
+            Colors.Red,
+            Colors.DarkRed,
+            Colors.OrangeRed,
+            Colors.Orange,
+            Colors.LightYellow,
+            Colors.Yellow,
+            Colors.LightGreen,
+            Colors.Green,
+            Colors.DarkGreen,
+            Colors.LightCyan,
+            Colors.Cyan,
+            Colors.LightBlue,
+            Colors.DeepSkyBlue,
+            Colors.Blue,
+            Colors.Purple
+        };
+
         /// <summary>
         /// 
         /// </summary>
@@ -162,27 +185,7 @@ namespace HTools.Uwp.Controls.Color
         /// <summary>
         /// 
         /// </summary>
-        public ObservableCollection<ColorItem> DefaultColors = new ObservableCollection<ColorItem>()
-        {
-            new ColorItem(Colors.Black, "黑"),
-                new ColorItem(Colors.Gray, "灰"),
-                new ColorItem(Colors.White, "白"),
-                new ColorItem(Colors.Red, "红"),
-                new ColorItem(Colors.DarkRed, "深红"),
-                new ColorItem(Colors.OrangeRed, "橙红"),
-                new ColorItem(Colors.Orange, "橙"),
-                new ColorItem(Colors.LightYellow, "浅黄"),
-                new ColorItem(Colors.Yellow, "黄"),
-                new ColorItem(Colors.LightGreen, "浅绿"),
-                new ColorItem(Colors.Green, "绿"),
-                new ColorItem(Colors.DarkGreen, "深绿"),
-                new ColorItem(Colors.LightCyan, "浅青"),
-                new ColorItem(Colors.Cyan, "青"),
-                new ColorItem(Colors.LightBlue, "浅蓝"),
-                new ColorItem(Colors.DeepSkyBlue, "天蓝"),
-                new ColorItem(Colors.Blue, "蓝"),
-                new ColorItem(Colors.Purple, "紫"),
-        };
+        public ObservableCollection<ColorItem> DefaultColors = new ObservableCollection<ColorItem>(_colors.Select(color => new ColorItem(color)).ToList());
 
         private Windows.UI.Color? _old = null;
 

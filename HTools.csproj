@@ -187,6 +187,11 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+  </ItemGroup>
+
   <ItemGroup>
     <None Include="logo.png">
       <Pack>True</Pack>
