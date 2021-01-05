@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="UwpTest\**" />
+    <EmbeddedResource Remove="UwpTest\**" />
+    <None Remove="UwpTest\**" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' Or '$(TargetFramework)' == 'netstandard2.0'">
     <Compile Remove="Uwp\**" />
     <EmbeddedResource Remove="Uwp\**" />

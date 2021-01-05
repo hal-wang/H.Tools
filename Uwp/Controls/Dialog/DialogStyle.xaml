@@ -11,8 +11,8 @@
         <Setter Property="Foreground" Value="{ThemeResource ThemeForegroundBrush}" />
     </Style>
     <Style TargetType="Button" x:Key="DialogSecondaryButtonStyle" BasedOn="{StaticResource LightButtonStyle}">
-        <Setter Property="Background" Value="{ThemeResource ButtonBackgroundThemeBrush}" />
-        <Setter Property="Foreground" Value="{ThemeResource ButtonForegroundThemeBrush}" />
+        <Setter Property="Background" Value="{ThemeResource ButtonBackground}" />
+        <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
     </Style>
 
     <Style TargetType="local:LayoutDialog">
