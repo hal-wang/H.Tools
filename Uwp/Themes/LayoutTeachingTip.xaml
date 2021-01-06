@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:htuc="using:HTools.Uwp.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+    <Style TargetType="htuc:LayoutTeachingTip">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="htuc:LayoutTeachingTip">
+                    <Grid>
+                        <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                Opacity="{TemplateBinding BackgroundOpacity}"
+                                IsHitTestVisible="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Clickable,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=T}"/>
+
+                        <muxc:TeachingTip PreferredPlacement="{TemplateBinding PreferredPlacement}"
+                                          Target="{TemplateBinding Target}"
+                                          Title="{TemplateBinding Title}"
+                                          Name="TeachingTip"
+                                          Content="{TemplateBinding Content}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>    
+</ResourceDictionary>

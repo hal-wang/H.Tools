@@ -21,9 +21,22 @@ namespace HTools
     /// </summary>
     public class HbrUwpResources : ResourceDictionary
     {
-        private readonly string[] _paths =
+        private readonly string _genericPath = "ms-appx:///HTools/Themes/Generic.xaml";
+        private readonly string[] _resourcesPaths =
         {
-            "ms-appx:///HTools/Themes/Generic.xaml",
+            #if UAP10_0_18362
+            "ms-appx:///HTools/Uwp/Themes/Colors.xaml",
+
+            "ms-appx:///HTools/Uwp/Themes/Button.xaml",
+            "ms-appx:///HTools/Uwp/Themes/TextBox.xaml",
+            "ms-appx:///HTools/Uwp/Themes/PasswordBox.xaml",
+            "ms-appx:///HTools/Uwp/Themes/LayoutTeachingTip.xaml",
+            "ms-appx:///HTools/Uwp/Themes/TitleBar.xaml",
+
+            "ms-appx:///HTools/Uwp/Controls/Message/MessageStyle.xaml",
+            "ms-appx:///HTools/Uwp/Controls/Dialog/DialogStyle.xaml",
+            "ms-appx:///HTools/Uwp/Controls/Setting/SettingStyle.xaml",
+            #endif
         };
 
         /// <summary>
@@ -31,6 +44,7 @@ namespace HTools
         /// </summary>
         public HbrUwpResources()
         {
+
             AddResources();
             StartTiemeListener();
         }
@@ -44,10 +58,13 @@ namespace HTools
             MergedDictionaries.Add(res);
 #endif
 
-            foreach (var path in _paths)
+            var genericDict = new ResourceDictionary() { Source = new Uri(_genericPath, UriKind.RelativeOrAbsolute) };
+            foreach (var path in _resourcesPaths)
             {
-                MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(path, UriKind.RelativeOrAbsolute) });
+                genericDict.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(path, UriKind.RelativeOrAbsolute) });
             }
+
+            MergedDictionaries.Add(genericDict);
         }
 
         private Color? _beforeThemeColor = null;

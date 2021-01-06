@@ -80,6 +80,11 @@
     <EmbeddedResource Remove="Converters\**" />
     <None Remove="Converters\**" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Themes\**" />
+    <EmbeddedResource Remove="Themes\**" />
+    <None Remove="Themes\**" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
     <Page Include="Uwp\Controls\Color\ColorSelecter.xaml">
@@ -169,6 +174,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Uwp\Themes\LayoutTeachingTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uwp\Themes\TitleBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
@@ -190,6 +203,12 @@
     <None Update="Uwp\Themes\TextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="Uwp\Themes\LayoutTeachingTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Uwp\Themes\TitleBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
@@ -202,5 +221,11 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Xaml">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
