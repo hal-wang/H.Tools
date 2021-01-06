@@ -30,5 +30,10 @@ namespace UwpTest
             var b = localTime == localTime2;
             var b2 = time == localTime2;
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await PopupHelper.ShowTeachingTip(sender as FrameworkElement, "TeachingTip", "TeachingTipContent");
+        }
     }
 }

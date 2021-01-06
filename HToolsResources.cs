@@ -19,7 +19,7 @@ namespace HTools
     /// <summary>
     /// 
     /// </summary>
-    public class HbrUwpResources : ResourceDictionary
+    public class HToolsResources : ResourceDictionary
     {
         private readonly string _genericPath = "ms-appx:///HTools/Themes/Generic.xaml";
         private readonly string[] _resourcesPaths =
@@ -42,7 +42,7 @@ namespace HTools
         /// <summary>
         /// 
         /// </summary>
-        public HbrUwpResources()
+        public HToolsResources()
         {
 
             AddResources();

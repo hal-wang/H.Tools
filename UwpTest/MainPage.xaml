@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <StackPanel Padding="20">
-        <Button Content="Test"/>
+        <Button Content="Test" Click="Button_Click"/>
         <color:ColorSelecter Width="400" Resetable="True"/>
     </StackPanel>
 </Page>
