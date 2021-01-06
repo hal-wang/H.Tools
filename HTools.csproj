@@ -68,6 +68,10 @@
     <Compile Remove="UwpTest\**" />
     <EmbeddedResource Remove="UwpTest\**" />
     <None Remove="UwpTest\**" />
+    
+    <Compile Remove="WpfTest\**" />
+    <EmbeddedResource Remove="WpfTest\**" />
+    <None Remove="WpfTest\**" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' Or '$(TargetFramework)' == 'netstandard2.0'">

@@ -21,10 +21,24 @@ namespace HTools
     /// </summary>
     public class HToolsResources : ResourceDictionary
     {
+#if NET452
+        private readonly string _genericPath = "/HTools;Component/Themes/Generic.xaml";
+#endif
+#if UAP10_0_18362
         private readonly string _genericPath = "ms-appx:///HTools/Themes/Generic.xaml";
+#endif
+
         private readonly string[] _resourcesPaths =
         {
-            #if UAP10_0_18362
+#if NET452
+            "/HTools;Component/Converters/ConvertersDict.xaml",
+#endif
+#if UAP10_0_18362
+            "ms-appx:///HTools/Converters/ConvertersDict.xaml",
+#endif
+
+            "ms-appx:///HTools/Converters/ConvertersDict.xaml",
+#if UAP10_0_18362
             "ms-appx:///HTools/Uwp/Themes/Colors.xaml",
 
             "ms-appx:///HTools/Uwp/Themes/Button.xaml",
@@ -36,7 +50,7 @@ namespace HTools
             "ms-appx:///HTools/Uwp/Controls/Message/MessageStyle.xaml",
             "ms-appx:///HTools/Uwp/Controls/Dialog/DialogStyle.xaml",
             "ms-appx:///HTools/Uwp/Controls/Setting/SettingStyle.xaml",
-            #endif
+#endif
         };
 
         /// <summary>

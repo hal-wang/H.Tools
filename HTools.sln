@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTools", "HTools.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpTest", "UwpTest\UwpTest.csproj", "{81800BCB-5FEF-4706-8AF9-FF84C3901A1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,26 @@ Global
 		{81800BCB-5FEF-4706-8AF9-FF84C3901A1F}.Release|x86.ActiveCfg = Release|x86
 		{81800BCB-5FEF-4706-8AF9-FF84C3901A1F}.Release|x86.Build.0 = Release|x86
 		{81800BCB-5FEF-4706-8AF9-FF84C3901A1F}.Release|x86.Deploy.0 = Release|x86
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|x64.Build.0 = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Debug|x86.Build.0 = Debug|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|ARM.Build.0 = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|ARM64.Build.0 = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|x64.ActiveCfg = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|x64.Build.0 = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|x86.ActiveCfg = Release|Any CPU
+		{BC1D1567-14EE-4AAB-A0C6-782C6F1F1E19}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
