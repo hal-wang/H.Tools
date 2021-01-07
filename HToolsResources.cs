@@ -21,35 +21,24 @@ namespace HTools
     /// </summary>
     public class HToolsResources : ResourceDictionary
     {
-#if NET452
-        private readonly string _genericPath = "/HTools;Component/Themes/Generic.xaml";
-#endif
-#if UAP10_0_18362
-        private readonly string _genericPath = "ms-appx:///HTools/Themes/Generic.xaml";
-#endif
+        private readonly string _genericPath = "Themes/Generic.xaml";
 
         private readonly string[] _resourcesPaths =
         {
-#if NET452
-            "/HTools;Component/Converters/ConvertersDict.xaml",
-#endif
+            "Converters/ConvertersDict.xaml",
+
 #if UAP10_0_18362
-            "ms-appx:///HTools/Converters/ConvertersDict.xaml",
-#endif
+            "Uwp/Themes/Colors.xaml",
 
-            "ms-appx:///HTools/Converters/ConvertersDict.xaml",
-#if UAP10_0_18362
-            "ms-appx:///HTools/Uwp/Themes/Colors.xaml",
+            "Uwp/Themes/Button.xaml",
+            "Uwp/Themes/TextBox.xaml",
+            "Uwp/Themes/PasswordBox.xaml",
+            "Uwp/Themes/LayoutTeachingTip.xaml",
+            "Uwp/Themes/TitleBar.xaml",
 
-            "ms-appx:///HTools/Uwp/Themes/Button.xaml",
-            "ms-appx:///HTools/Uwp/Themes/TextBox.xaml",
-            "ms-appx:///HTools/Uwp/Themes/PasswordBox.xaml",
-            "ms-appx:///HTools/Uwp/Themes/LayoutTeachingTip.xaml",
-            "ms-appx:///HTools/Uwp/Themes/TitleBar.xaml",
-
-            "ms-appx:///HTools/Uwp/Controls/Message/MessageStyle.xaml",
-            "ms-appx:///HTools/Uwp/Controls/Dialog/DialogStyle.xaml",
-            "ms-appx:///HTools/Uwp/Controls/Setting/SettingStyle.xaml",
+            "Uwp/Controls/Message/MessageStyle.xaml",
+            "Uwp/Controls/Dialog/DialogStyle.xaml",
+            "Uwp/Controls/Setting/SettingStyle.xaml",
 #endif
         };
 
@@ -58,7 +47,6 @@ namespace HTools
         /// </summary>
         public HToolsResources()
         {
-
             AddResources();
             StartTiemeListener();
         }
@@ -72,10 +60,10 @@ namespace HTools
             MergedDictionaries.Add(res);
 #endif
 
-            var genericDict = new ResourceDictionary() { Source = new Uri(_genericPath, UriKind.RelativeOrAbsolute) };
-            foreach (var path in _resourcesPaths)
+            var genericDict = new ResourceDictionary() { Source = new Uri(FillUrl(_genericPath), UriKind.RelativeOrAbsolute) };
+            foreach (var url in _resourcesPaths)
             {
-                genericDict.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(path, UriKind.RelativeOrAbsolute) });
+                genericDict.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(FillUrl(url), UriKind.RelativeOrAbsolute) });
             }
 
             MergedDictionaries.Add(genericDict);
@@ -101,6 +89,16 @@ namespace HTools
                 }
             };
             timer.Start();
+        }
+
+        private string FillUrl(string url)
+        {
+#if UAP10_0_18362
+            return $"ms-appx:///HTools/${url}";
+#endif
+#if NET452
+            return $"/HTools;Component/${url}";
+#endif
         }
     }
 #endif
