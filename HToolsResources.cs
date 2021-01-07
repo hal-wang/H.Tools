@@ -53,7 +53,7 @@ namespace HTools
         public HToolsResources()
         {
             AddResources();
-            StartTiemeListener();
+            StartThemeListener();
         }
 
         private void AddResources()
@@ -75,7 +75,7 @@ namespace HTools
         }
 
         private Color? _beforeThemeColor = null;
-        private void StartTiemeListener()
+        private void StartThemeListener()
         {
             DispatcherTimer timer = new DispatcherTimer()
             {
