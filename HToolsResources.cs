@@ -25,7 +25,12 @@ namespace HTools
 
         private readonly string[] _resourcesPaths =
         {
-            "Converters/ConvertersDict.xaml",
+#if UAP10_0_18362
+            "Converters/UwpConverters.xaml",
+#endif
+#if NET452
+            "Converters/WpfConverters.xaml",
+#endif
 
 #if UAP10_0_18362
             "Uwp/Themes/Colors.xaml",
@@ -94,10 +99,10 @@ namespace HTools
         private string FillUrl(string url)
         {
 #if UAP10_0_18362
-            return $"ms-appx:///HTools/${url}";
+            return $"ms-appx:///HTools/{url}";
 #endif
 #if NET452
-            return $"/HTools;Component/${url}";
+            return $"/HTools;Component/{url}";
 #endif
         }
     }

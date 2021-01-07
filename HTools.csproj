@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--netstandard2.0;net452;uap10.0.18362;-->
-    <TargetFrameworks>net452;netstandard2.0;uap10.0.18362;</TargetFrameworks>
+    <TargetFrameworks>uap10.0.18362;net452;netstandard2.0;</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Authors>hal-wang</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -159,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Converters\UwpConverters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
@@ -166,11 +170,14 @@
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <Page Include="Converters\WpfConverters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
 
   <ItemGroup>
-    <None Update="Converters\ConvertersDict.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

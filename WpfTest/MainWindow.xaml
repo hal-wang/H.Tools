@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:local="using:WpfTest"
+        x:Name="mw"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="{Binding ElementName=mw,Path=IsMouseOver,Converter={StaticResource BooleanToValueConverter},ConverterParameter=在:不在}"/>
     </Grid>
 </Window>

@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HTools.Converters">
+
+    <local:BooleanConverter x:Key="BooleanConverter"/>
+    <local:DateFormatConverter x:Key="DateFormatConverter"/>
+    <local:DateParseConverter x:Key="DateParseConverter"/>
+    <local:TimestampConverter x:Key="TimestampConverter"/>
+    <local:IsNullConverter x:Key="IsNullConverter"/>
+    <local:IsNullToValueConverter x:Key="IsNullToValueConverter"/>
+    <local:NumCompareConverter x:Key="NumCompareConverter"/>
+    <local:NumToSendTipConverter x:Key="NumToSendTipConverter"/>
+    <local:IsEqualConverter x:Key="IsEqualConverter" />
+    <local:MathConverter x:Key="MathConverter"/>
+    <local:BooleanToValueConverter x:Key="BooleanToValueConverter"/>
+    <local:IsStrEmptyConverter x:Key="IsStrEmptyConverter"/>
+    <local:IsStrEmptyToValueConverter x:Key="IsStrEmptyToValueConverter"/>
+    <local:IsDarkColorToValueConverter x:Key="IsDarkColorToValueConverter"/>
+    <local:IsDarkThemeToValueConverter x:Key="IsDarkThemeToValueConverter"/>
+    <local:BackColorToForeColorConverter x:Key="BackColorToForeColorConverter"/>
+    <local:TestConverter x:Key="TestConverter"/>
+    <local:ThicknessConverter x:Key="ThicknessConverter"/>
+    <local:NoBreakConverter x:Key="NoBreakConverter"/>
+
+</ResourceDictionary>
