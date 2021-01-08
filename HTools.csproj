@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/hal-wang/HTools.CSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hal-wang/HTools.CSharp</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.3.2-preview1</Version>
+    <Version>1.3.2</Version>
     <Description>工具库</Description>
-    <AssemblyVersion>1.3.2.1</AssemblyVersion>
-    <FileVersion>1.3.2.1</FileVersion>
+    <AssemblyVersion>1.3.2.0</AssemblyVersion>
+    <FileVersion>1.3.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -60,7 +60,7 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' Or '$(TargetFramework)' == 'uap10.0.18362'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
   </ItemGroup>
 
