@@ -43,7 +43,7 @@ namespace HTools
                     return value;
                 }
 
-                if (!(value is string str))
+                if (value is not string str)
                 {
                     return value.GetValue(targetType);
                 }
@@ -102,6 +102,13 @@ namespace HTools
                 return isTrue ? (Thickness)TypeDescriptor.GetConverter(typeof(Thickness)).ConvertFrom(value1) : (Thickness)TypeDescriptor.GetConverter(typeof(Thickness)).ConvertFrom(value2);
             }
 #endif
+
+#if UAP10_0_18362 || NET452
+            else if (targetType == typeof(Style))
+            {
+                return isTrue ? Application.Current.Resources[value1] : Application.Current.Resources[value2];
+            }
+#endif
             else if (targetType.IsEnum)
             {
                 return isTrue ? Enum.Parse(targetType, value1) : Enum.Parse(targetType, value2);
@@ -130,7 +137,7 @@ namespace HTools
             {
                 return isTrue;
             }
-#if NET452||UAP10_0_18362
+#if NET452 || UAP10_0_18362
             else if (targetType == typeof(Visibility))
             {
                 return isTrue ? Visibility.Visible : Visibility.Collapsed;
