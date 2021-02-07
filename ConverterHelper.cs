@@ -83,7 +83,7 @@ namespace HTools
                 }
                 else
                 {
-                    return isTrue ? Application.Current.Resources[value1] : Application.Current.Resources[value1];
+                    return isTrue ? Application.Current.Resources[value1] : Application.Current.Resources[value2];
                 }
             }
 #endif
