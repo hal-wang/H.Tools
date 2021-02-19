@@ -15,6 +15,8 @@
     <Description>工具库</Description>
     <AssemblyVersion>1.3.4.0</AssemblyVersion>
     <FileVersion>1.3.4.0</FileVersion>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -87,6 +89,18 @@
     <Compile Remove="Themes\**" />
     <EmbeddedResource Remove="Themes\**" />
     <None Remove="Themes\**" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362' Or '$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Themes\net452\Generic.xaml" />
+    <EmbeddedResource Remove="Themes\net452\Generic.xaml" />
+    <None Remove="Themes\net452\Generic.xaml" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452' Or '$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Themes\uap10.0.18362\Generic.xaml" />
+    <EmbeddedResource Remove="Themes\uap10.0.18362\Generic.xaml" />
+    <None Remove="Themes\uap10.0.18362\Generic.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -195,4 +209,13 @@
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="copy /y Themes\uap10.0.18362\Generic.xaml Themes\Generic.xaml"  Condition="'$(TargetFramework)' == 'uap10.0.18362'"/>
+    <Exec Command="copy /y Themes\net452\Generic.xaml Themes\Generic.xaml" Condition="'$(TargetFramework)' == 'net452'" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /y Themes\blank\Generic.xaml Themes\Generic.xaml" />
+  </Target>
 </Project>

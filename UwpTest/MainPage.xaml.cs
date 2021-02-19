@@ -33,6 +33,9 @@ namespace UwpTest
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            var dialog = new TestDialog();
+            await dialog.ShowAsync();
+
             await PopupHelper.ShowTeachingTip(sender as FrameworkElement, "TeachingTip", "TeachingTipContent");
         }
     }

@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///HTools/Converters/UwpConverters.xaml"/>
+
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Button.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TextBox.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/PasswordBox.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/LayoutTeachingTip.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TitleBar.xaml"/>
+        
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/Message/MessageStyle.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/Dialog/DialogStyle.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/Setting/SettingStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

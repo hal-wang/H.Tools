@@ -23,30 +23,6 @@ namespace HTools
     {
         private readonly string _genericPath = "Themes/Generic.xaml";
 
-        private readonly string[] _resourcesPaths =
-        {
-#if UAP10_0_18362
-            "Converters/UwpConverters.xaml",
-#endif
-#if NET452
-            "Converters/WpfConverters.xaml",
-#endif
-
-#if UAP10_0_18362
-            "Uwp/Themes/Colors.xaml",
-
-            "Uwp/Themes/Button.xaml",
-            "Uwp/Themes/TextBox.xaml",
-            "Uwp/Themes/PasswordBox.xaml",
-            "Uwp/Themes/LayoutTeachingTip.xaml",
-            "Uwp/Themes/TitleBar.xaml",
-
-            "Uwp/Controls/Message/MessageStyle.xaml",
-            "Uwp/Controls/Dialog/DialogStyle.xaml",
-            "Uwp/Controls/Setting/SettingStyle.xaml",
-#endif
-        };
-
         /// <summary>
         /// 
         /// </summary>
@@ -65,12 +41,7 @@ namespace HTools
             MergedDictionaries.Add(res);
 #endif
 
-            var genericDict = new ResourceDictionary() { Source = new Uri(FillUrl(_genericPath), UriKind.RelativeOrAbsolute) };
-            foreach (var url in _resourcesPaths)
-            {
-                genericDict.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(FillUrl(url), UriKind.RelativeOrAbsolute) });
-            }
-
+            var genericDict = new ResourceDictionary() { Source = new Uri(FillUrl(_genericPath), UriKind.Absolute) };
             MergedDictionaries.Add(genericDict);
         }
 
@@ -102,7 +73,7 @@ namespace HTools
             return $"ms-appx:///HTools/{url}";
 #endif
 #if NET452
-            return $"/HTools;Component/{url}";
+            return $"pack://application:,,,/HTools;component/{url}";
 #endif
         }
     }
