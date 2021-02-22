@@ -19,7 +19,7 @@ namespace HTools.Uwp.Controls.Color
         /// <summary>
         /// display name
         /// </summary>
-        public string Name => ResourcesHelper.GetResStr($"ColorSelecterColor${Color}");
+        public string Name => ResourcesHelper.GetHToolsResStr($"ColorSelecterColor{Color.ToString().Replace("#", "")}");
 
         /// <summary>
         /// 

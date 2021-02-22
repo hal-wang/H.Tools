@@ -117,59 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ColorSelecterColorBlack" xml:space="preserve">
+  <data name="ColorSelecterColorFF000000" xml:space="preserve">
     <value>黑</value>
   </data>
-  <data name="ColorSelecterColorBlue" xml:space="preserve">
+  <data name="ColorSelecterColorFF0000FF" xml:space="preserve">
     <value>蓝</value>
   </data>
-  <data name="ColorSelecterColorCyan" xml:space="preserve">
-    <value>青</value>
-  </data>
-  <data name="ColorSelecterColorDarkGreen" xml:space="preserve">
+  <data name="ColorSelecterColorFF006400" xml:space="preserve">
     <value>深绿</value>
   </data>
-  <data name="ColorSelecterColorDarkRed" xml:space="preserve">
-    <value>深红</value>
-  </data>
-  <data name="ColorSelecterColorDeepSkyBlue" xml:space="preserve">
-    <value>天蓝</value>
-  </data>
-  <data name="ColorSelecterColorGray" xml:space="preserve">
-    <value>灰</value>
-  </data>
-  <data name="ColorSelecterColorGreen" xml:space="preserve">
+  <data name="ColorSelecterColorFF008000" xml:space="preserve">
     <value>绿</value>
   </data>
-  <data name="ColorSelecterColorLightBlue" xml:space="preserve">
-    <value>浅蓝</value>
+  <data name="ColorSelecterColorFF00BFFF" xml:space="preserve">
+    <value>天蓝</value>
   </data>
-  <data name="ColorSelecterColorLightCyan" xml:space="preserve">
-    <value>浅青</value>
+  <data name="ColorSelecterColorFF00FFFF" xml:space="preserve">
+    <value>青</value>
   </data>
-  <data name="ColorSelecterColorLightGreen" xml:space="preserve">
-    <value>浅绿</value>
-  </data>
-  <data name="ColorSelecterColorLightYellow" xml:space="preserve">
-    <value>浅黄</value>
-  </data>
-  <data name="ColorSelecterColorOrange" xml:space="preserve">
-    <value>橙</value>
-  </data>
-  <data name="ColorSelecterColorOrangeRed" xml:space="preserve">
-    <value>橙红</value>
-  </data>
-  <data name="ColorSelecterColorPurple" xml:space="preserve">
+  <data name="ColorSelecterColorFF800080" xml:space="preserve">
     <value>紫</value>
   </data>
-  <data name="ColorSelecterColorRed" xml:space="preserve">
+  <data name="ColorSelecterColorFF808080" xml:space="preserve">
+    <value>灰</value>
+  </data>
+  <data name="ColorSelecterColorFF8B0000" xml:space="preserve">
+    <value>深红</value>
+  </data>
+  <data name="ColorSelecterColorFF90EE90" xml:space="preserve">
+    <value>浅绿</value>
+  </data>
+  <data name="ColorSelecterColorFFADD8E6" xml:space="preserve">
+    <value>浅蓝</value>
+  </data>
+  <data name="ColorSelecterColorFFE0FFFF" xml:space="preserve">
+    <value>浅青</value>
+  </data>
+  <data name="ColorSelecterColorFFFF0000" xml:space="preserve">
     <value>红</value>
   </data>
-  <data name="ColorSelecterColorWhite" xml:space="preserve">
-    <value>白</value>
+  <data name="ColorSelecterColorFFFF4500" xml:space="preserve">
+    <value>橙红</value>
   </data>
-  <data name="ColorSelecterColorYellow" xml:space="preserve">
+  <data name="ColorSelecterColorFFFFA500" xml:space="preserve">
+    <value>橙</value>
+  </data>
+  <data name="ColorSelecterColorFFFFFF00" xml:space="preserve">
     <value>黄</value>
+  </data>
+  <data name="ColorSelecterColorFFFFFFE0" xml:space="preserve">
+    <value>浅黄</value>
+  </data>
+  <data name="ColorSelecterColorFFFFFFFF" xml:space="preserve">
+    <value>白</value>
   </data>
   <data name="ColorSelecterOkButton.Content" xml:space="preserve">
     <value>确定</value>

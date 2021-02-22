@@ -17,10 +17,6 @@ namespace HTools
     /// </summary>
     public class ResourcesHelper
     {
-#if UAP10_0_18362
-        private static ResourceLoader ResourceLoader { get; set; } = ResourceLoader.GetForCurrentView();
-#endif
-
         /// <summary>
         /// 
         /// </summary>
@@ -41,7 +37,12 @@ namespace HTools
         /// <returns></returns>
         public static string GetResStr(string resource)
         {
-            return ResourceLoader.GetString(resource);
+            return ResourceLoader.GetForCurrentView().GetString(resource);
+        }
+
+        public static string GetHToolsResStr(string resource)
+        {
+            return ResourceLoader.GetForCurrentView("HTools/Resources").GetString(resource);
         }
 #endif
     }
