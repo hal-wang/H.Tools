@@ -1,17 +1,15 @@
-﻿using HTools.Uwp.Helpers;
-
-namespace HTools.Uwp.Controls.Color
+﻿namespace HTools.Uwp.Controls
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class ColorItem
+    public sealed class ColorSelecterColor
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="color"></param>
-        public ColorItem(Windows.UI.Color color)
+        public ColorSelecterColor(Windows.UI.Color color)
         {
             Color = color;
         }

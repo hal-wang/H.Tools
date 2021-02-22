@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:htuc="using:HTools.Uwp.Controls"
-    xmlns:local="using:HTools.Uwp.Controls.Dialog"
+    xmlns:huc="using:HTools.Uwp.Controls"
     xmlns:htucl="using:HTools.Uwp.Controls.Loading"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
@@ -15,11 +14,11 @@
         <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
     </Style>
 
-    <Style TargetType="local:LayoutDialog">
+    <Style TargetType="huc:LayoutDialog">
         <Setter Property="Padding" Value="0 10 0 14" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:LayoutDialog">
+                <ControlTemplate TargetType="huc:LayoutDialog">
                     <Border>
                         <Border.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}"
@@ -157,7 +156,7 @@
                                                         VerticalAlignment="Stretch"
                                                         HorizontalContentAlignment="Stretch"
                                                         VerticalContentAlignment="Stretch"/>
-                                        <htuc:PathButton Margin="10 0 -10 0"
+                                        <huc:PathButton Margin="10 0 -10 0"
                                                          Grid.Column="2"
                                                          x:Name="ExitButton"
                                                          Foreground="Red"

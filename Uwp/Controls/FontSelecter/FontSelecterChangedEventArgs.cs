@@ -1,9 +1,9 @@
-﻿namespace HTools.Uwp.Controls.Emoji
+﻿namespace HTools.Uwp.Controls
 {
     /// <summary>
     /// 
     /// </summary>
-    public class EmojiChangedEventArgs
+    public sealed class FontSelecterChangedEventArgs
     {
         /// <summary>
         /// 

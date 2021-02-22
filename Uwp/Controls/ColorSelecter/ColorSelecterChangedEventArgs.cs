@@ -1,9 +1,9 @@
-﻿namespace HTools.Uwp.Controls.Color
+﻿namespace HTools.Uwp.Controls
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class ColorChangedEventArgs
+    public sealed class ColorSelecterChangedEventArgs
     {
         /// <summary>
         /// 

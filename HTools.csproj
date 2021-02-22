@@ -104,16 +104,16 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <Page Include="Uwp\Controls\Color\ColorSelecter.xaml">
+    <Page Include="Uwp\Controls\ColorSelecter\ColorSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Uwp\Controls\Dialog\DialogStyle.xaml">
+    <Page Include="Uwp\Controls\LayoutDialog\LayoutDialogStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Uwp\Controls\Emoji\EmojiSelecter.xaml">
+    <Page Include="Uwp\Controls\EmojiSelecter\EmojiSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Uwp\Controls\Font\FontSelecter.xaml">
+    <Page Include="Uwp\Controls\FontSelecter\FontSelecter.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Uwp\Controls\Loading\LayoutLoading.xaml">

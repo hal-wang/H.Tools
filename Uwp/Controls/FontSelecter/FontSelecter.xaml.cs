@@ -2,7 +2,7 @@
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 
-namespace HTools.Uwp.Controls.Font
+namespace HTools.Uwp.Controls
 {
     /// <summary>
     /// 
@@ -12,8 +12,8 @@ namespace HTools.Uwp.Controls.Font
         /// <summary>
         /// 
         /// </summary>
-        public event TypedEventHandler<FontSelecter, FontChangedEventArgs> Changed;
-        internal IncrementalLoadingCollection<FontSource, string> Fonts { get; } = new IncrementalLoadingCollection<FontSource, string>();
+        public event TypedEventHandler<FontSelecter, FontSelecterChangedEventArgs> Changed;
+        internal IncrementalLoadingCollection<FontSelecterSource, string> Fonts { get; } = new IncrementalLoadingCollection<FontSelecterSource, string>();
 
         /// <summary>
         /// 
@@ -29,7 +29,7 @@ namespace HTools.Uwp.Controls.Font
             if (!(e.ClickedItem is string str))
                 return;
 
-            Changed?.Invoke(this, new FontChangedEventArgs()
+            Changed?.Invoke(this, new FontSelecterChangedEventArgs()
             {
                 Old = _oldFont,
                 New = str

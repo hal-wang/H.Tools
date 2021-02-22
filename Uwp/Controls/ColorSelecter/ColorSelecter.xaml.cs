@@ -5,7 +5,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace HTools.Uwp.Controls.Color
+namespace HTools.Uwp.Controls
 {
     /// <summary>
     /// 
@@ -185,14 +185,14 @@ namespace HTools.Uwp.Controls.Color
         /// <summary>
         /// 
         /// </summary>
-        public ObservableCollection<ColorItem> DefaultColors = new ObservableCollection<ColorItem>(_colors.Select(color => new ColorItem(color)).ToList());
+        public ObservableCollection<ColorSelecterColor> DefaultColors = new ObservableCollection<ColorSelecterColor>(_colors.Select(color => new ColorSelecterColor(color)).ToList());
 
         private Windows.UI.Color? _old = null;
 
         /// <summary>
         /// 
         /// </summary>
-        public event TypedEventHandler<ColorSelecter, ColorChangedEventArgs> Changed;
+        public event TypedEventHandler<ColorSelecter, ColorSelecterChangedEventArgs> Changed;
 
 
         #region Handle
@@ -221,7 +221,7 @@ namespace HTools.Uwp.Controls.Color
         /// <param name="e"></param>
         public void HandleColorClicked(object sender, ItemClickEventArgs e)
         {
-            var color = (e.ClickedItem as ColorItem).Color;
+            var color = (e.ClickedItem as ColorSelecterColor).Color;
             if (this.PresetOpacity >= 0 && this.PresetOpacity < 1)
             {
                 color.A = (byte)(int)(255 * this.PresetOpacity);
@@ -233,7 +233,7 @@ namespace HTools.Uwp.Controls.Color
 
         private void ChangeColor()
         {
-            Changed?.Invoke(this, new ColorChangedEventArgs()
+            Changed?.Invoke(this, new ColorSelecterChangedEventArgs()
             {
                 New = SelectedColor,
                 Old = _old
@@ -247,7 +247,7 @@ namespace HTools.Uwp.Controls.Color
         /// </summary>
         public void HandleReset()
         {
-            Changed?.Invoke(this, new ColorChangedEventArgs()
+            Changed?.Invoke(this, new ColorSelecterChangedEventArgs()
             {
                 New = null,
                 Old = _old

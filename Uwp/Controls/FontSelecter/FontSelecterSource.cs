@@ -5,9 +5,9 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HTools.Uwp.Controls.Font
+namespace HTools.Uwp.Controls
 {
-    internal class FontSource : IIncrementalSource<string>
+    internal class FontSelecterSource : IIncrementalSource<string>
     {
         private readonly SharpDX.DirectWrite.Factory _factory = new SharpDX.DirectWrite.Factory();
 
