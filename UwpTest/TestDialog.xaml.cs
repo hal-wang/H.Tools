@@ -1,5 +1,4 @@
-﻿using HTools.Uwp.Controls.Dialog;
-using Windows.UI.Xaml.Controls;
+﻿using HTools.Uwp.Controls;
 
 namespace UwpTest
 {

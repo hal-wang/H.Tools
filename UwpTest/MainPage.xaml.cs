@@ -1,6 +1,10 @@
 ﻿using HTools;
 using HTools.Uwp.Helpers;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using UwpTest.Models;
+using UwpTest.Views;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -8,35 +12,64 @@ namespace UwpTest
 {
     public sealed partial class MainPage : Page
     {
+        public ObservableCollection<PageMenuItem> Pages
+        {
+            get { return (ObservableCollection<PageMenuItem>)GetValue(PagesProperty); }
+            set { SetValue(PagesProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Pages.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PagesProperty =
+            DependencyProperty.Register("Pages", typeof(ObservableCollection<PageMenuItem>), typeof(MainPage), new PropertyMetadata(null));
+
+
         public MainPage()
         {
             this.InitializeComponent();
 
+            InitPages();
             Loaded += MainPage_Loaded;
         }
 
-        private async void MainPage_Loaded(object sender, RoutedEventArgs e)
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await TaskExtend.SleepAsync(1000);
-            await PopupHelper.ShowDialog("Test", secondButtonText: "Cancel");
-
-
-            var time = new DateTime(1970, 1, 1, 0, 0, 0) + TimeSpan.FromSeconds(1609838321);
-            var localTime = time.ToLocalTime();
-
-            var time2 = DateTimeOffset.FromUnixTimeSeconds(1609838321);
-            var localTime2 = time2.LocalDateTime;
-
-            var b = localTime == localTime2;
-            var b2 = time == localTime2;
+            contentFrame.Navigate(typeof(HomePage));
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void InitPages()
         {
-            var dialog = new TestDialog();
-            await dialog.ShowAsync();
+            Pages = new ObservableCollection<PageMenuItem>
+            {
+                new PageMenuItem()
+                {
+                    Name = nameof(HomePage),
+                    PageType = typeof(HomePage),
+                    Glyph = Symbol.Home
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(ColorSelecterPage),
+                    PageType = typeof(ColorSelecterPage),
+                    Glyph = Symbol.FontColor
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(LayoutDialogPage),
+                    PageType = typeof(LayoutDialogPage),
+                    Glyph = Symbol.NewWindow
+                }
+            };
+        }
 
-            await PopupHelper.ShowTeachingTip(sender as FrameworkElement, "TeachingTip", "TeachingTipContent");
+        private void NavigationView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.InvokedItem is not string name) return;
+
+            var pageType = Pages.Where(p => p.Name == name).Select(p => p.PageType).FirstOrDefault();
+            if (pageType == default) return;
+            if (contentFrame.Content != null && pageType == contentFrame.Content.GetType()) return;
+
+            contentFrame.Navigate(pageType);
         }
     }
 }
