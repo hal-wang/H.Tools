@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -76,6 +77,54 @@ namespace HTools
         public static Task<HttpResponseMessage> PutAsync(this HttpClient httpClient, string requestUri, object content = null, object param = null, object query = null)
         {
             return httpClient.SendAsync(requestUri, "PUT", content, param, query);
+        }
+
+        public async static Task<T> GetContent<T>(this HttpResponseMessage httpResponse)
+        {
+            var str = await httpResponse.Content.ReadAsStringAsync();
+            if (typeof(T) == typeof(string))
+            {
+                if (str.Length > 0 && str[0] != '"')
+                {
+                    str = '"' + str + '"';
+                }
+            }
+
+            return JsonConvert.DeserializeObject<T>(str);
+        }
+
+        public async static Task<string> GetErrorMessage(this HttpResponseMessage httpResponse)
+        {
+            if (httpResponse.IsSuccessStatusCode) return null;
+
+            string errMsg;
+            var contentStr = await httpResponse.Content.ReadAsStringAsync();
+            if (string.IsNullOrEmpty(contentStr))
+            {
+                errMsg = (int)(httpResponse.StatusCode) + "  " + httpResponse.ReasonPhrase;
+            }
+            else
+            {
+                try
+                {
+                    var jObj = JsonConvert.DeserializeObject<JObject>(contentStr);
+                    if (jObj.ContainsKey("message"))
+                    {
+                        errMsg = jObj.GetValue("message").Value<string>();
+                    }
+                    else
+                    {
+                        errMsg = jObj.Value<string>();
+                    }
+                }
+                catch (JsonReaderException)
+                {
+                    errMsg = contentStr;
+                }
+            }
+            if (errMsg == null) errMsg = "";
+            Debug.WriteLine("Error：" + errMsg);
+            return errMsg;
         }
     }
 }
