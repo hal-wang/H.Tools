@@ -12,19 +12,19 @@ namespace HTools.Uwp.Helpers
     /// </summary>
     public class LogHelper : HLogBase
     {
-        private static readonly string _fileName = SystemInformation.ApplicationName + ".log";
+        private static readonly string _fileName = SystemInformation.Instance.ApplicationName + ".log";
         private static readonly string _path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, _fileName);
         /// <summary>
         /// 
         /// </summary>
-        public static LogHelper Instance = new LogHelper();
+        public static LogHelper Instance = new();
 
         private LogHelper() :
             base(_path,
-                $"{SystemInformation.ApplicationVersion.Major}.{SystemInformation.ApplicationVersion.Minor}.{SystemInformation.ApplicationVersion.Build}",
-                SystemInformation.OperatingSystemVersion.ToString(),
-                SystemInformation.DeviceModel,
-                SystemInformation.ApplicationName,
+                $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}",
+                SystemInformation.Instance.OperatingSystemVersion.ToString(),
+                SystemInformation.Instance.DeviceModel,
+                SystemInformation.Instance.ApplicationName,
                 "Uwp")
         { }
 
@@ -37,7 +37,7 @@ namespace HTools.Uwp.Helpers
             var savePicker = new Windows.Storage.Pickers.FileSavePicker
             {
                 SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop,
-                SuggestedFileName = SystemInformation.ApplicationName
+                SuggestedFileName = SystemInformation.Instance.ApplicationName
             };
             savePicker.FileTypeChoices.Add("log", new List<string>() { ".log" });
             StorageFile targetFile = await savePicker.PickSaveFileAsync();

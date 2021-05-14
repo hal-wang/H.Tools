@@ -48,7 +48,7 @@ namespace HTools
         private Color? _beforeThemeColor = null;
         private void StartThemeListener()
         {
-            DispatcherTimer timer = new DispatcherTimer()
+            var timer = new DispatcherTimer()
             {
                 Interval = TimeSpan.FromSeconds(1)
             };
