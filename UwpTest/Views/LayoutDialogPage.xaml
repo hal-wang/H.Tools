@@ -65,5 +65,9 @@
         <Button Content="Show dialog"
                 Margin="0 20 0 0"
                 Click="ShowDialog_Click"/>
+
+        <Button Content="Show tip"
+                Margin="0 60 0 0"
+                Click="ShowTip_Click"/>
     </StackPanel>
 </Page>

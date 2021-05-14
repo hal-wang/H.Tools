@@ -32,5 +32,10 @@ namespace UwpTest.Views
         {
             await PopupHelper.ShowDialog(contentTB.Text, titleTB.Text, primaryButtonTextTB.Text, secondButtonTextTB.Text, isPrimaryDefaultCB.IsChecked, isExitButtonVisibleTS.IsOn, closeButtonTextTB.Text);
         }
+
+        private async void ShowTip_Click(object sender, RoutedEventArgs e)
+        {
+            await PopupHelper.ShowDialog("test", isExitButtonVisible: true);
+        }
     }
 }
