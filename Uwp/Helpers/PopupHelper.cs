@@ -45,9 +45,18 @@ namespace HTools.Uwp.Helpers
         /// <param name="isPrimaryDefault"></param>
         /// <param name="closeButtonText"></param>
         /// <returns></returns>
-        public async static Task<ContentDialogResult> ShowDialog(string content, string title = "Tips", string primaryButtonText = "Close", string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null)
+        public async static Task<ContentDialogResult> ShowDialog(string content, string title = null, string primaryButtonText = null, string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null)
         {
-            LayoutDialog layoutDialog = new LayoutDialog()
+            if (title == null)
+            {
+                title = ResourcesHelper.GetHToolsResStr("Tips");
+            }
+            if (primaryButtonText == null)
+            {
+                primaryButtonText = ResourcesHelper.GetHToolsResStr("Close");
+            }
+
+            LayoutDialog layoutDialog = new()
             {
                 Title = title,
                 Content = content,
