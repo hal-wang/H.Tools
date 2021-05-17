@@ -57,6 +57,12 @@ namespace UwpTest
                     Name = nameof(LayoutDialogPage),
                     PageType = typeof(LayoutDialogPage),
                     Glyph = Symbol.NewWindow
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(ThemePage),
+                    PageType = typeof(ThemePage),
+                    Glyph = Symbol.FontColor
                 }
             };
         }

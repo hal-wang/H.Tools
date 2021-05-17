@@ -139,6 +139,9 @@
     <Compile Include="Views\LayoutDialogPage.xaml.cs">
       <DependentUpon>LayoutDialogPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThemePage.xaml.cs">
+      <DependentUpon>ThemePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LayoutDialogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

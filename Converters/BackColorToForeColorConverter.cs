@@ -26,15 +26,6 @@ namespace HTools.Converters
 #endif
             )
         {
-            Color? defaultBackColor;
-            if (string.IsNullOrEmpty(parameter as string))
-            {
-                defaultBackColor = Colors.White;
-            }
-            else
-            {
-                defaultBackColor = Colors.Black;
-            }
 
             Color? backColor = null;
             if (value == null)
@@ -83,6 +74,15 @@ namespace HTools.Converters
             }
             else
             {
+
+                Color defaultBackColor;
+#if UAP10_0_18362
+                defaultBackColor = ThemeHelper.ElementTheme == Windows.UI.Xaml.ElementTheme.Dark ? Colors.Black : Colors.White;
+#endif
+#if NET452
+                defaultBackColor = Colors.White;
+#endif
+
                 isBackDark = ColorHelper.IsDarkColor(backColor.Value, backColor: defaultBackColor);
             }
 
