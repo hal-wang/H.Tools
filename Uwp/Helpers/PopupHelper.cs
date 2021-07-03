@@ -77,7 +77,7 @@ namespace HTools.Uwp.Helpers
             titleGrid.Children.Add(new TextBlock()
             {
                 VerticalAlignment = VerticalAlignment.Center,
-                Text = title
+                Text = title ?? ""
             });
             if (isExitButtonVisible)
             {
