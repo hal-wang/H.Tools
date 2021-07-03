@@ -4,9 +4,11 @@ using System;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Services.Store;
+using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace HTools.Uwp.Helpers
 {
@@ -45,53 +47,91 @@ namespace HTools.Uwp.Helpers
         /// <param name="isPrimaryDefault"></param>
         /// <param name="closeButtonText"></param>
         /// <returns></returns>
-        public async static Task<ContentDialogResult> ShowDialog(string content, string title = null, string primaryButtonText = null, string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null)
+        public async static Task<ContentDialogResult> ShowDialog(object content, string title = null, string primaryButtonText = null, string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null)
         {
-            if (title == null)
+            ContentDialog dialog = new();
+            if (primaryButtonText != null)
             {
-                title = ResourcesHelper.GetHToolsResStr("Tips");
+                dialog.PrimaryButtonText = primaryButtonText;
             }
-            if (primaryButtonText == null)
+            if (primaryButtonText == null && secondButtonText == null && closeButtonText == null && !isExitButtonVisible)
             {
-                primaryButtonText = ResourcesHelper.GetHToolsResStr("Close");
+                isExitButtonVisible = true;
             }
 
-            LayoutDialog layoutDialog = new()
+            if (content is string str)
             {
-                Title = title,
-                Content = content,
-                PrimaryButtonText = primaryButtonText,
-                IsExitButtonVisible = isExitButtonVisible
+                content = new TextBlock()
+                {
+                    Text = str,
+                    TextWrapping = TextWrapping.Wrap
+                };
+            }
+            var contentGrid = new Grid();
+            contentGrid.Children.Add(content as UIElement);
+
+            var titleGrid = new Grid()
+            {
+                Width = 200,
             };
+            titleGrid.Children.Add(new TextBlock()
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                Text = title
+            });
+            if (isExitButtonVisible)
+            {
+                var exitButton = new Button()
+                {
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Style = ResourcesHelper.GetResource<Style>("LightButtonStyle"),
+                    Content = new SymbolIcon(Symbol.Cancel),
+                    Foreground = new SolidColorBrush(Colors.Red)
+                };
+                titleGrid.Children.Add(exitButton);
+                exitButton.Click += (ss, ee) =>
+                {
+                    dialog.Hide();
+                };
+            }
+            contentGrid.SizeChanged += (ss, ee) =>
+            {
+                titleGrid.Width = ee.NewSize.Width;
+            };
+
+
+            dialog.Title = titleGrid;
+            dialog.Content = contentGrid;
 
             if (string.IsNullOrEmpty(secondButtonText))
             {
-                layoutDialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.DefaultButton = ContentDialogButton.Primary;
             }
             else
             {
-                layoutDialog.SecondaryButtonText = secondButtonText;
+                dialog.SecondaryButtonText = secondButtonText;
 
                 if (!string.IsNullOrEmpty(closeButtonText))
                 {
-                    layoutDialog.CloseButtonText = closeButtonText;
+                    dialog.CloseButtonText = closeButtonText;
                 }
 
                 switch (isPrimaryDefault)
                 {
                     case null:
-                        layoutDialog.DefaultButton = ContentDialogButton.Close;
+                        dialog.DefaultButton = ContentDialogButton.Close;
                         break;
                     case true:
-                        layoutDialog.DefaultButton = ContentDialogButton.Primary;
+                        dialog.DefaultButton = ContentDialogButton.Primary;
                         break;
                     case false:
-                        layoutDialog.DefaultButton = ContentDialogButton.Secondary;
+                        dialog.DefaultButton = ContentDialogButton.Secondary;
                         break;
                 }
             }
 
-            return await layoutDialog.ShowAsync();
+            return await dialog.QueueAsync();
         }
 
         /// <summary>

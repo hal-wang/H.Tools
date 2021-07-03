@@ -8,9 +8,9 @@
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/PasswordBox.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/LayoutTeachingTip.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TitleBar.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Dialog.xaml"/>
 
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/Message/MessageStyle.xaml"/>
-        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/LayoutDialog/LayoutDialogStyle.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Controls/Setting/SettingStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

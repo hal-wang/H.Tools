@@ -136,8 +136,8 @@
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LayoutDialogPage.xaml.cs">
-      <DependentUpon>LayoutDialogPage.xaml</DependentUpon>
+    <Compile Include="Views\DialogPage.xaml.cs">
+      <DependentUpon>DialogPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThemePage.xaml.cs">
       <DependentUpon>ThemePage.xaml</DependentUpon>
@@ -183,7 +183,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LayoutDialogPage.xaml">
+    <Page Include="Views\DialogPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +197,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.5.0</Version>
+      <Version>2.6.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

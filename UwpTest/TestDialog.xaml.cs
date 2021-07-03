@@ -1,20 +1,20 @@
-﻿using HTools.Uwp.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace UwpTest
 {
-    public sealed partial class TestDialog : LayoutDialog
+    public sealed partial class TestDialog : ContentDialog
     {
         public TestDialog()
         {
             this.InitializeComponent();
         }
 
-        private void ContentDialog_PrimaryButtonClick(LayoutDialog sender, LayoutDialogButtonClickEventArgs args)
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
 
         }
 
-        private void ContentDialog_SecondaryButtonClick(LayoutDialog sender, LayoutDialogButtonClickEventArgs args)
+        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
 
         }

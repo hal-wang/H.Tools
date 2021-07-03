@@ -54,8 +54,8 @@ namespace UwpTest
                 },
                 new PageMenuItem()
                 {
-                    Name = nameof(LayoutDialogPage),
-                    PageType = typeof(LayoutDialogPage),
+                    Name = nameof(DialogPage),
+                    PageType = typeof(DialogPage),
                     Glyph = Symbol.NewWindow
                 },
                 new PageMenuItem()
