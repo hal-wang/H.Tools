@@ -63,6 +63,12 @@ namespace UwpTest
                     Name = nameof(ThemePage),
                     PageType = typeof(ThemePage),
                     Glyph = Symbol.FontColor
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(SettingPage),
+                    PageType = typeof(SettingPage),
+                    Glyph = Symbol.Setting
                 }
             };
         }

@@ -26,7 +26,6 @@ namespace HTools.Uwp.Helpers
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
                     _message.ShowMessage(content, messageType, duration);
-                    //_message.radi
                 });
             }
             catch (Exception ex)
