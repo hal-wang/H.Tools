@@ -3,10 +3,10 @@
     xmlns:htuc="using:HTools.Uwp.Controls"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
-    <Style TargetType="htuc:LayoutTeachingTip">
+    <Style TargetType="htuc:SimpleTeachingTip">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="htuc:LayoutTeachingTip">
+                <ControlTemplate TargetType="htuc:SimpleTeachingTip">
                     <Grid>
                         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                                 Opacity="{TemplateBinding BackgroundOpacity}"
@@ -21,5 +21,21 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>    
+    </Style>
+
+    <Style TargetType="htuc:LayoutTeachingTip">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="htuc:LayoutTeachingTip">
+                    <Grid>
+                        <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                Opacity="{TemplateBinding BackgroundOpacity}"
+                                IsHitTestVisible="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Clickable,Mode=OneWay,Converter={StaticResource BooleanConverter},ConverterParameter=T}"/>
+
+                        <ContentControl Content="{TemplateBinding Content}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

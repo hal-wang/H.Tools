@@ -69,6 +69,12 @@ namespace UwpTest
                     Name = nameof(SettingPage),
                     PageType = typeof(SettingPage),
                     Glyph = Symbol.Setting
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(TeachingTipPage),
+                    PageType = typeof(TeachingTipPage),
+                    Glyph = Symbol.SetTile
                 }
             };
         }

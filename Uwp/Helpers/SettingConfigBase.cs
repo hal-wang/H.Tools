@@ -18,7 +18,7 @@ namespace HTools.Uwp.Helpers
         /// <param name="defaultValue"></param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        protected T Get<T>(T defaultValue = default, [CallerMemberName] string propertyName = null)
+        public T Get<T>(T defaultValue = default, [CallerMemberName] string propertyName = null)
         {
             if (string.IsNullOrEmpty(propertyName))
             {
@@ -42,7 +42,7 @@ namespace HTools.Uwp.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
         /// <param name="propertyName"></param>
-        protected void Set<T>(T value, [CallerMemberName] string propertyName = null)
+        public void Set<T>(T value, [CallerMemberName] string propertyName = null)
         {
             _localSettings.Values[propertyName] = value;
         }
