@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace HTools.Uwp.Controls.Setting {
@@ -109,6 +110,27 @@ namespace HTools.Uwp.Controls.Setting {
             }
             (d as SettingSplitView).IsOpen = (bool)e.NewValue;
         }
+
+
+        public double PaneWidth {
+            get { return (double)GetValue(PaneWidthProperty); }
+            set { SetValue(PaneWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PaneWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PaneWidthProperty =
+            DependencyProperty.Register("PaneWidth", typeof(double), typeof(SettingSplitView), new PropertyMetadata(340));
+
+
+        public SplitViewPanePlacement PanePlacement {
+            get { return (SplitViewPanePlacement)GetValue(PanePlacementProperty); }
+            set { SetValue(PanePlacementProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PanePlacement.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PanePlacementProperty =
+            DependencyProperty.Register("PanePlacement", typeof(SplitViewPanePlacement), typeof(SettingSplitView), new PropertyMetadata(SplitViewPanePlacement.Right));
+
 
         /// <summary>
         /// 

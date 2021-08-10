@@ -209,11 +209,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingSplitView">
                     <Grid>
-                        <SplitView  CompactPaneLength="0"
-                                    OpenPaneLength="340"
-                                    PanePlacement="Right"
-                                    IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
-                                    PaneBackground="{TemplateBinding Background}">
+                        <SplitView CompactPaneLength="0"
+                                   OpenPaneLength="{TemplateBinding PaneWidth}"
+                                   PanePlacement="{TemplateBinding PanePlacement}"
+                                   IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
+                                   PaneBackground="{TemplateBinding Background}">
                             <SplitView.Pane>
                                 <Grid BorderBrush="{TemplateBinding BorderBrush}"
                                       BorderThickness="{TemplateBinding BorderThickness}">
