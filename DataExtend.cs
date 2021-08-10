@@ -91,6 +91,15 @@ namespace HTools {
         }
         #endregion
 
+        public static bool IsArrayEquals<T>(T[] arr1, T[] arr2) where T : IEquatable<T> {
+            if (arr1 == arr2) return true;
+            if (arr1 == null || arr2 == null) return false;
+            if (arr1.Length != arr2.Length) return false;
+            for (var i = 0; i < arr1.Length; i++) {
+                if (!arr1[i].Equals(arr2[i])) return false;
+            }
+            return true;
+        }
 
         public static string ToX2(this byte[] data) {
             StringBuilder sb = new();
