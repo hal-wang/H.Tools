@@ -16,6 +16,7 @@ namespace HTools.Uwp.Controls.Setting {
         /// </summary>
         public SettingSplitView() {
             DefaultStyleKey = typeof(SettingSplitView);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             CloseCommand = new RelayCommand(() => IsPaneOpen = false);
             RequestedTheme = !(Window.Current.Content is FrameworkElement element) ? ElementTheme.Light : element.RequestedTheme;
         }

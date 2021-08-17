@@ -72,7 +72,20 @@
     <EmbeddedResource Remove="Uwp\**" />
     <None Remove="Uwp\**" />
   </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <Compile Remove="Themes\\uap_generic.xaml" />
+    <EmbeddedResource Remove="Themes\\uap_generic.xaml" />
+    <None Remove="Themes\\uap_generic.xaml" />
+  </ItemGroup>
 
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <Compile Remove="Themes\\net452_generic.xaml" />
+    <EmbeddedResource Remove="Themes\\net452_generic.xaml" />
+    <None Remove="Themes\\net452_generic.xaml" />
+  </ItemGroup>
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <Compile Remove="Converters\**" />
     <EmbeddedResource Remove="Converters\**" />
@@ -165,12 +178,12 @@
     <PRIResource Include="Strings\zh-CN\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <Page Include="Converters\UwpConverters.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-    <Page Include="Themes\Generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Page Include="Themes\uap_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
     <Page Include="Converters\WpfConverters.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-    <Resource Include="Themes\Generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Resource Include="Themes\net452_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
 
   <ItemGroup>
@@ -179,15 +192,4 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
-  <Target Name="CopyTarget1" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Exec Command="copy /y Themes\net452\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-  <Target Name="CopyTarget2" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'net452'">
-    <Exec Command="copy /y Themes\uap10.0.18362\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-  <Target Name="CopyTarget3" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <Exec Command="copy /y Themes\blank\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-
 </Project>

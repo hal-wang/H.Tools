@@ -59,6 +59,7 @@ namespace HTools.Uwp.Controls {
 
         public SimpleTeachingTip(string title = "", object content = null) {
             DefaultStyleKey = typeof(SimpleTeachingTip);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             Title = title;
             Content = content is string str
                 ? new TextBlock() {

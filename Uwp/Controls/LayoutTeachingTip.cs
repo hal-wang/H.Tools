@@ -6,6 +6,7 @@ namespace HTools.Uwp.Controls {
     internal class LayoutTeachingTip : PopupLayout {
         public LayoutTeachingTip(TeachingTip teachingTip) {
             DefaultStyleKey = typeof(LayoutTeachingTip);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             Content = teachingTip;
             Loaded += (ss, ee) => Focus(FocusState.Programmatic);
         }
