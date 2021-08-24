@@ -1,50 +1,16 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using HTools.Config;
 using Windows.Storage;
 
-namespace HTools.Uwp.Helpers
-{
-    /// <summary>
-    /// 
-    /// </summary>
-    public abstract class SettingConfigBase
-    {
+namespace HTools.Uwp.Helpers {
+    public abstract class SettingConfigBase : ConfigBase<object> {
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="defaultValue"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        protected T Get<T>(T defaultValue = default, [CallerMemberName] string propertyName = null)
-        {
-            if (string.IsNullOrEmpty(propertyName))
-            {
-                throw new Exception();
-            }
+        public override bool ContainsKey(string key) => _localSettings.Values.ContainsKey(key);
 
-            object result = _localSettings.Values[propertyName];
-            if (result == null)
-            {
-                return defaultValue;
-            }
-            else
-            {
-                return (T)result;
-            }
-        }
+        protected override object GetValue(string key) => _localSettings.Values[key];
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="value"></param>
-        /// <param name="propertyName"></param>
-        protected void Set<T>(T value, [CallerMemberName] string propertyName = null)
-        {
-            _localSettings.Values[propertyName] = value;
-        }
+        protected override void SetValue(object value, string key) => _localSettings.Values[key] = value;
+
+        public override void Remove(string key) => _localSettings.Values.Remove(key);
     }
 }
