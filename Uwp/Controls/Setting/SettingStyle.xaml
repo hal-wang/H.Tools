@@ -226,7 +226,7 @@
 
                                     <Button Command="{TemplateBinding CloseCommand}" Style="{ThemeResource LightButtonStyle}" Padding="10 20 0 10" HorizontalAlignment="Left">
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE76B;" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>
+                                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE76B;" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}" Margin="0 0 6 0"/>
                                             <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" FontSize="18" Foreground="{TemplateBinding HeaderForeground}"/>
                                         </StackPanel>
                                     </Button>
