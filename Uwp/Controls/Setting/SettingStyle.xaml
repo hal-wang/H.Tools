@@ -202,18 +202,21 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource SystemAccentBrush7}" />
+        <Setter Property="BorderThickness" Value="1 0 0 0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingSplitView">
                     <Grid>
-                        <SplitView  CompactPaneLength="0"
-                                    OpenPaneLength="340"
-                                    PanePlacement="Right"
-                                    IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
-                                    PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                        <SplitView CompactPaneLength="0"
+                                   OpenPaneLength="{TemplateBinding PaneWidth}"
+                                   PanePlacement="{TemplateBinding PanePlacement}"
+                                   IsPaneOpen="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsPaneOpen,Mode=TwoWay}"
+                                   PaneBackground="{TemplateBinding Background}">
                             <SplitView.Pane>
-                                <Grid BorderBrush="{ThemeResource SystemAccentBrush7}"
-                                      BorderThickness="1 0 0 0">
+                                <Grid BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="*"/>

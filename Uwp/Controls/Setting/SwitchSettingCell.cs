@@ -13,6 +13,7 @@ namespace HTools.Uwp.Controls.Setting
         public SwitchSettingCell()
         {
             DefaultStyleKey = typeof(SwitchSettingCell);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
         }
 
         /// <summary>

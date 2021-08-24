@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/hal-wang/HTools.CSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hal-wang/HTools.CSharp</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.5.3</Version>
+    <Version>1.5.9</Version>
     <Description>工具库</Description>
-    <AssemblyVersion>1.5.3.0</AssemblyVersion>
-    <FileVersion>1.5.3.0</FileVersion>
+    <AssemblyVersion>1.5.9.0</AssemblyVersion>
+    <FileVersion>1.5.9.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,12 +23,6 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <PackageReference Include="Microsoft.Graph.Core">
-      <Version>1.25.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Identity.Client">
-      <Version>4.33.0</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp">
       <Version>7.0.2</Version>
     </PackageReference>
@@ -36,7 +30,7 @@
       <Version>7.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.6.0</Version>
+      <Version>2.6.1</Version>
     </PackageReference>
     <PackageReference Include="SharpDX.Direct2D1">
       <Version>4.2.0</Version>
@@ -78,7 +72,20 @@
     <EmbeddedResource Remove="Uwp\**" />
     <None Remove="Uwp\**" />
   </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <Compile Remove="Themes\\uap_generic.xaml" />
+    <EmbeddedResource Remove="Themes\\uap_generic.xaml" />
+    <None Remove="Themes\\uap_generic.xaml" />
+  </ItemGroup>
 
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
+    <Compile Remove="Themes\\net452_generic.xaml" />
+    <EmbeddedResource Remove="Themes\\net452_generic.xaml" />
+    <None Remove="Themes\\net452_generic.xaml" />
+  </ItemGroup>
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <Compile Remove="Converters\**" />
     <EmbeddedResource Remove="Converters\**" />
@@ -153,7 +160,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Uwp\Themes\LayoutTeachingTip.xaml">
+    <Page Include="Uwp\Themes\TeachingTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,12 +178,12 @@
     <PRIResource Include="Strings\zh-CN\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <Page Include="Converters\UwpConverters.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-    <Page Include="Themes\Generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Page Include="Themes\uap_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
     <Page Include="Converters\WpfConverters.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-    <Resource Include="Themes\Generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Resource Include="Themes\net452_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
 
   <ItemGroup>
@@ -185,15 +192,4 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
-  <Target Name="CopyTarget1" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Exec Command="copy /y Themes\net452\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-  <Target Name="CopyTarget2" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'net452'">
-    <Exec Command="copy /y Themes\uap10.0.18362\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-  <Target Name="CopyTarget3" BeforeTargets="Build" Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <Exec Command="copy /y Themes\blank\Generic.xaml Themes\Generic.xaml" />
-  </Target>
-
 </Project>

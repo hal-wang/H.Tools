@@ -14,6 +14,7 @@ namespace HTools.Uwp.Controls.Setting
         public ExpandSettingCell()
         {
             DefaultStyleKey = typeof(ExpandSettingCell);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
         }
 
 

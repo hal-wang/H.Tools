@@ -21,7 +21,12 @@ namespace HTools
     /// </summary>
     public class HToolsResources : ResourceDictionary
     {
-        private readonly string _genericPath = "Themes/Generic.xaml";
+#if UAP10_0_18362
+        private readonly string _genericPath = "Themes/uap_generic.xaml";
+#endif
+#if NET452
+        private readonly string _genericPath = "Themes/net452_generic.xaml";
+#endif
 
         /// <summary>
         /// 

@@ -6,7 +6,7 @@
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Button.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TextBox.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/PasswordBox.xaml"/>
-        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/LayoutTeachingTip.xaml"/>
+        <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TeachingTip.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/TitleBar.xaml"/>
         <ResourceDictionary Source="ms-appx:///HTools/Uwp/Themes/Dialog.xaml"/>
 

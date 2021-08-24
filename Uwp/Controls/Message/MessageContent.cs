@@ -14,6 +14,7 @@ namespace HTools.Uwp.Controls.Message
         public MessageContent()
         {
             this.DefaultStyleKey = typeof(MessageContent);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
         }
 
         /// <summary>

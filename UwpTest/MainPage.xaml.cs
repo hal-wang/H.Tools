@@ -8,8 +8,8 @@ using Windows.UI.Xaml.Controls;
 namespace UwpTest {
     public sealed partial class MainPage : Page {
         public ObservableCollection<PageMenuItem> Pages {
-            get { return (ObservableCollection<PageMenuItem>)GetValue(PagesProperty); }
-            set { SetValue(PagesProperty, value); }
+            get => (ObservableCollection<PageMenuItem>)GetValue(PagesProperty);
+            set => SetValue(PagesProperty, value);
         }
 
         // Using a DependencyProperty as the backing store for Pages.  This enables animation, styling, binding, etc...
@@ -18,7 +18,7 @@ namespace UwpTest {
 
 
         public MainPage() {
-            this.InitializeComponent();
+            InitializeComponent();
 
             InitPages();
             Loaded += MainPage_Loaded;
@@ -54,6 +54,18 @@ namespace UwpTest {
                     Name = nameof(ThemePage),
                     PageType = typeof(ThemePage),
                     Glyph = Symbol.FontColor
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(SettingPage),
+                    PageType = typeof(SettingPage),
+                    Glyph = Symbol.Setting
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(TeachingTipPage),
+                    PageType = typeof(TeachingTipPage),
+                    Glyph = Symbol.SetTile
                 },
                 new PageMenuItem()
                 {

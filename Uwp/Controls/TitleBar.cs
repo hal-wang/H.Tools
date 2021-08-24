@@ -14,6 +14,7 @@ namespace HTools.Uwp.Controls
         public TitleBar()
         {
             this.DefaultStyleKey = typeof(TitleBar);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             Loaded += TitleBar_Loaded;
         }
 

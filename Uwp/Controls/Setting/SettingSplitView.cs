@@ -1,23 +1,22 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using HTools.Uwp.Helpers;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace HTools.Uwp.Controls.Setting
-{
+namespace HTools.Uwp.Controls.Setting {
     /// <summary>
     /// 
     /// </summary>
-    public class SettingSplitView : PopupLayout
-    {
+    public class SettingSplitView : PopupLayout {
         /// <summary>
         /// 
         /// </summary>
-        public SettingSplitView()
-        {
+        public SettingSplitView() {
             DefaultStyleKey = typeof(SettingSplitView);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             CloseCommand = new RelayCommand(() => IsPaneOpen = false);
             RequestedTheme = !(Window.Current.Content is FrameworkElement element) ? ElementTheme.Light : element.RequestedTheme;
         }
@@ -25,8 +24,7 @@ namespace HTools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public string Header
-        {
+        public string Header {
             get { return (string)GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
         }
@@ -41,8 +39,7 @@ namespace HTools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public Thickness ContentPadding
-        {
+        public Thickness ContentPadding {
             get { return (Thickness)GetValue(ContentPaddingProperty); }
             set { SetValue(ContentPaddingProperty, value); }
         }
@@ -57,8 +54,7 @@ namespace HTools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public Brush HeaderBackground
-        {
+        public Brush HeaderBackground {
             get { return (Brush)GetValue(HeaderBackgroundProperty); }
             set { SetValue(HeaderBackgroundProperty, value); }
         }
@@ -73,8 +69,7 @@ namespace HTools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public Brush HeaderForeground
-        {
+        public Brush HeaderForeground {
             get { return (Brush)GetValue(HeaderForegroundProperty); }
             set { SetValue(HeaderForegroundProperty, value); }
         }
@@ -86,8 +81,7 @@ namespace HTools.Uwp.Controls.Setting
             DependencyProperty.Register("HeaderForeground", typeof(Brush), typeof(SettingSplitView), new PropertyMetadata(ResourcesHelper.GetResource<SolidColorBrush>("ApplicationForegroundThemeBrush")));
 
 
-        internal ICommand CloseCommand
-        {
+        internal ICommand CloseCommand {
             get { return (ICommand)GetValue(CloseCommandProperty); }
             set { SetValue(CloseCommandProperty, value); }
         }
@@ -100,8 +94,7 @@ namespace HTools.Uwp.Controls.Setting
         /// <summary>
         /// 
         /// </summary>
-        public bool IsPaneOpen
-        {
+        public bool IsPaneOpen {
             get { return (bool)GetValue(IsPaneOpenProperty); }
             set { SetValue(IsPaneOpenProperty, value); }
         }
@@ -112,23 +105,49 @@ namespace HTools.Uwp.Controls.Setting
         public static readonly DependencyProperty IsPaneOpenProperty =
             DependencyProperty.Register("IsPaneOpen", typeof(bool), typeof(SettingSplitView), new PropertyMetadata(false, OnIsPaneOpenChange));
 
-        private async static void OnIsPaneOpenChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!(bool)e.NewValue)
-            {
+        private async static void OnIsPaneOpenChange(DependencyObject d, DependencyPropertyChangedEventArgs e) {
+            if (!(bool)e.NewValue) {
                 await TaskExtend.SleepAsync(100);
             }
             (d as SettingSplitView).IsOpen = (bool)e.NewValue;
         }
 
+
+        public double PaneWidth {
+            get { return (double)GetValue(PaneWidthProperty); }
+            set { SetValue(PaneWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PaneWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PaneWidthProperty =
+            DependencyProperty.Register("PaneWidth", typeof(double), typeof(SettingSplitView), new PropertyMetadata(340));
+
+
+        public SplitViewPanePlacement PanePlacement {
+            get { return (SplitViewPanePlacement)GetValue(PanePlacementProperty); }
+            set { SetValue(PanePlacementProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PanePlacement.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PanePlacementProperty =
+            DependencyProperty.Register("PanePlacement", typeof(SplitViewPanePlacement), typeof(SettingSplitView), new PropertyMetadata(SplitViewPanePlacement.Right));
+
+
         /// <summary>
         /// 
         /// </summary>
-        public async void Show()
-        {
+        public async Task ShowAsync() {
             IsOpen = true;
             await TaskExtend.SleepAsync(100);
             IsPaneOpen = true;
+
+            TaskCompletionSource<object> showWaiter = new();
+            IsOpenChanged += (isOpen) => {
+                if (!isOpen) {
+                    showWaiter.SetResult(null);
+                }
+            };
+            await showWaiter.Task;
         }
     }
 }

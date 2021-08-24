@@ -13,6 +13,7 @@ namespace HTools.Uwp.Controls.Setting
         public ButtonSettingCell()
         {
             DefaultStyleKey = typeof(ButtonSettingCell);
+            DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
         }
 
         /// <summary>
