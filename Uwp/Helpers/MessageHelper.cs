@@ -19,7 +19,7 @@ namespace HTools.Uwp.Helpers {
         /// <param name="duration"></param>
         public static async void Show(string content, MessageType messageType = MessageType.Primary, int duration = 3000) {
             try {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
+                await CoreApplication.GetCurrentView().Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
                     _message.ShowMessage(content, messageType, duration);
                 });
             } catch (Exception ex) {
@@ -85,7 +85,7 @@ namespace HTools.Uwp.Helpers {
         /// <param name="str"></param>
         /// <param name="milliseconds"></param>
         public static async void ShowToast(string str, int milliseconds = 2000) {
-            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
+            await CoreApplication.GetCurrentView().Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
                 new NotifyPopup(str, milliseconds).Show();
             });
         }
