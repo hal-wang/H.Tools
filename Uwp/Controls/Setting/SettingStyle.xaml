@@ -34,6 +34,7 @@
                                       Margin="0 0 -100 0"
                                       OnContent=""
                                       OffContent=""
+                                      x:Name="ToggleSwitch"
                                       IsOn="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,Mode=TwoWay}"/>
                     </Grid>
                 </ControlTemplate>
