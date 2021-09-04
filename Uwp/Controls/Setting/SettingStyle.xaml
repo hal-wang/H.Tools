@@ -206,6 +206,8 @@
         <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
         <Setter Property="BorderBrush" Value="{ThemeResource SystemAccentBrush7}" />
         <Setter Property="BorderThickness" Value="1 0 0 0" />
+        <Setter Property="HeaderBackground" Value="Transparent" />
+        <Setter Property="HeaderForeground" Value="{ThemeResource ApplicationForegroundThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingSplitView">
