@@ -33,7 +33,7 @@ namespace HTools.Uwp.Controls.Setting {
         protected override void OnApplyTemplate() {
             base.OnApplyTemplate();
 
-            var ts = FindName("ToggleSwitch") as ToggleSwitch;
+            var ts = (ToggleSwitch)GetTemplateChild("ToggleSwitch");
             ts.Toggled += (s, e) => Toggled?.Invoke(s, e);
         }
     }
