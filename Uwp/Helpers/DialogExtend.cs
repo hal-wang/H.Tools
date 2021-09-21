@@ -9,9 +9,10 @@ namespace HTools.Uwp.Helpers
 
     internal class ContentDialogItem
     {
-        public TaskCompletionSource<ContentDialogResult> Awaiter;
+        public TaskCompletionSource<object> Awaiter;
         public ContentDialog Dialog;
         public Task ShowTask = null;
+        public Type ResultType;
     }
 
     public static class DialogExtend
@@ -41,12 +42,22 @@ namespace HTools.Uwp.Helpers
             new Action(async () => { await nextDialog.ShowTask; }).Invoke();
         }
 
-        public static async Task<ContentDialogResult> QueueAsync(this ContentDialog dialog, bool ahead = true)
+        private static async Task<T> QueueAsync<T>(ContentDialog dialog, bool ahead, bool customResult)
         {
+            if (!customResult && typeof(T) != typeof(ContentDialogResult))
+            {
+                throw new ArgumentException();
+            }
+            if (customResult && dialog is not IResultDialog<T>)
+            {
+                throw new ArgumentException();
+            }
+
             ContentDialogItem dialogItem = new()
             {
-                Awaiter = new TaskCompletionSource<ContentDialogResult>(),
+                Awaiter = new TaskCompletionSource<object>(),
                 Dialog = dialog,
+                ResultType = typeof(T),
             };
 
             ContentDialogItem preDialog = null;
@@ -65,13 +76,23 @@ namespace HTools.Uwp.Helpers
                 await ShowDialog(preDialog, dialogItem);
             }
 
-            ContentDialogResult result = await dialogItem.Awaiter.Task;
+            var result = await dialogItem.Awaiter.Task;
             _dialogs.Remove(dialogItem);
             if (_dialogs.Count > 0)
             {
                 await ShowDialog(dialogItem, _dialogs[0]);
             }
-            return result;
+            return (T)result;
+        }
+
+        public static async Task<ContentDialogResult> QueueAsync(this ContentDialog dialog, bool ahead = true)
+        {
+            return await QueueAsync<ContentDialogResult>(dialog, ahead, false);
+        }
+
+        public static async Task<T> QueueAsync<T>(this ContentDialog dialog, bool ahead = true)
+        {
+            return await QueueAsync<T>(dialog, ahead, true);
         }
 
         private static void ActiveDialog_Closed(ContentDialog dialog, ContentDialogClosedEventArgs args)
@@ -81,9 +102,15 @@ namespace HTools.Uwp.Helpers
             ContentDialogItem dialogItem = _dialogs.FirstOrDefault(d => d.Dialog == dialog);
             if (dialogItem != default)
             {
-                dialogItem.Awaiter.SetResult(args.Result);
+                if (dialogItem.ResultType == typeof(ContentDialogResult))
+                {
+                    dialogItem.Awaiter.SetResult(args.Result);
+                }
+                else
+                {
+                    dialogItem.Awaiter.SetResult(dialog.GetType().GetProperty("Result").GetValue(dialog));
+                }
             }
         }
     }
-
 }

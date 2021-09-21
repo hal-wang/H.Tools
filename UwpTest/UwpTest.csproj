@@ -128,11 +128,11 @@
     </Compile>
     <Compile Include="Models\PageMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestDialog.xaml.cs">
-      <DependentUpon>TestDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ColorSelecterPage.xaml.cs">
       <DependentUpon>ColorSelecterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomDialog.xaml.cs">
+      <DependentUpon>CustomDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -181,11 +181,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TestDialog.xaml">
+    <Page Include="Views\ColorSelecterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ColorSelecterPage.xaml">
+    <Page Include="Views\CustomDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
