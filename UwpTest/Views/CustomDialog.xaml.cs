@@ -14,7 +14,8 @@ namespace UwpTest.Views
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Result = true;
+            args.Cancel = true;
+            this.Hide(true);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

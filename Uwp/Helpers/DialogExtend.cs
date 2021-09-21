@@ -6,6 +6,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace HTools.Uwp.Helpers
 {
+    public interface IResultDialog<T>
+    {
+        public T Result { get;  }
+    }
 
     internal class ContentDialogItem
     {
@@ -93,6 +97,12 @@ namespace HTools.Uwp.Helpers
         public static async Task<T> QueueAsync<T>(this ContentDialog dialog, bool ahead = true)
         {
             return await QueueAsync<T>(dialog, ahead, true);
+        }
+
+        public static void Hide<T>(this IResultDialog<T> dialog, T result)
+        {
+            dialog.GetType().GetProperty("Result").SetValue(dialog, result);
+            (dialog as ContentDialog).Hide();
         }
 
         private static void ActiveDialog_Closed(ContentDialog dialog, ContentDialogClosedEventArgs args)
