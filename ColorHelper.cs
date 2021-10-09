@@ -7,14 +7,14 @@ using Windows.UI.Xaml.Media;
 using HTools.Uwp.Helpers;
 #endif
 
-#if NET452
+#if NET462
 using System.Windows.Media;
 using System.Windows;
 #endif
 
 namespace HTools
 {
-#if UAP10_0_18362||NET452
+#if UAP10_0_18362||NET462
     /// <summary>
     /// 
     /// </summary>
@@ -96,7 +96,7 @@ namespace HTools
 #if UAP10_0_18362
                 var resource = Application.Current.Resources[str];
 #endif
-#if NET452
+#if NET462
                 var resource = Application.Current.MainWindow.FindResource(str);
 #endif
                 if (resource is Color color)
@@ -150,7 +150,7 @@ namespace HTools
         {
 #if UAP10_0_18362
             return ThemeHelper.ElementTheme == ElementTheme.Dark ? Colors.Black : Colors.White;
-#elif NET452
+#elif NET462
             return Colors.White;
 #endif
         }

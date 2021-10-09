@@ -1,6 +1,6 @@
 ﻿using System;
 
-#if NET452
+#if NET462
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Globalization;
@@ -18,7 +18,7 @@ namespace HTools.Converters
     internal class BackColorToForeColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
-#if NET452
+#if NET462
             CultureInfo language
 #endif
 #if UAP10_0_18362
@@ -68,7 +68,7 @@ namespace HTools.Converters
 #if UAP10_0_18362
                 isBackDark = ThemeHelper.ElementTheme == Windows.UI.Xaml.ElementTheme.Dark;
 #endif
-#if NET452
+#if NET462
                 isBackDark = false;
 #endif
             }
@@ -79,7 +79,7 @@ namespace HTools.Converters
 #if UAP10_0_18362
                 defaultBackColor = ThemeHelper.ElementTheme == Windows.UI.Xaml.ElementTheme.Dark ? Colors.Black : Colors.White;
 #endif
-#if NET452
+#if NET462
                 defaultBackColor = Colors.White;
 #endif
 
@@ -101,7 +101,7 @@ namespace HTools.Converters
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
-#if NET452
+#if NET462
             CultureInfo language
 #endif
 #if UAP10_0_18362

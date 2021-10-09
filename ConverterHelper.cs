@@ -8,7 +8,7 @@ using HTools.Uwp.Helpers;
 using System.ComponentModel;
 #endif
 
-#if NET452
+#if NET462
 using System.Windows;
 using System.Windows.Media;
 #endif
@@ -66,7 +66,7 @@ namespace HTools
             {
                 return isTrue ? double.Parse(value1) : double.Parse(value2);
             }
-#if NET452
+#if NET462
             else if (targetType == typeof(Color) || targetType == typeof(Brush) || targetType == typeof(SolidColorBrush))
             {
                 if (value1[0] == '#')
@@ -103,7 +103,7 @@ namespace HTools
             }
 #endif
 
-#if UAP10_0_18362 || NET452
+#if UAP10_0_18362 || NET462
             else if (targetType == typeof(Style))
             {
                 return isTrue ? Application.Current.Resources[value1] : Application.Current.Resources[value2];
@@ -137,7 +137,7 @@ namespace HTools
             {
                 return isTrue;
             }
-#if NET452 || UAP10_0_18362
+#if NET462 || UAP10_0_18362
             else if (targetType == typeof(Visibility))
             {
                 return isTrue ? Visibility.Visible : Visibility.Collapsed;

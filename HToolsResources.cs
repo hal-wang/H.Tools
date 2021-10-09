@@ -1,6 +1,6 @@
 ﻿using System;
 
-#if NET452
+#if NET462
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -15,7 +15,7 @@ using System.Collections.Generic;
 
 namespace HTools
 {
-#if NET452 || UAP10_0_18362
+#if NET462 || UAP10_0_18362
     /// <summary>
     /// 
     /// </summary>
@@ -24,7 +24,7 @@ namespace HTools
 #if UAP10_0_18362
         private readonly string _genericPath = "Themes/uap_generic.xaml";
 #endif
-#if NET452
+#if NET462
         private readonly string _genericPath = "Themes/net452_generic.xaml";
 #endif
 
@@ -77,7 +77,7 @@ namespace HTools
 #if UAP10_0_18362
             return $"ms-appx:///HTools/{url}";
 #endif
-#if NET452
+#if NET462
             return $"pack://application:,,,/HTools;component/{url}";
 #endif
         }

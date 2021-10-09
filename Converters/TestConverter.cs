@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-#if NET452
+#if NET462
 using System.Windows.Data;
 using System.Globalization;
 #endif
@@ -18,7 +18,7 @@ namespace HTools.Converters
     class TestConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
-#if NET452
+#if NET462
             CultureInfo language
 #endif
 #if UAP10_0_18362
@@ -36,7 +36,7 @@ namespace HTools.Converters
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
-#if NET452
+#if NET462
             CultureInfo language
 #endif
 #if UAP10_0_18362
