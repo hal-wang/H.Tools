@@ -1,4 +1,5 @@
 ﻿using HTools.Uwp.Helpers;
+using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -19,7 +20,13 @@ namespace UwpTest.Views
 
         private async void ShowTip_Click(object sender, RoutedEventArgs e)
         {
-            await PopupHelper.ShowDialog("test","tip", isExitButtonVisible: true);
+            await PopupHelper.ShowDialog("test", "tip", isExitButtonVisible: true);
+        }
+
+        private async void CustomDialog_Click(object sender, RoutedEventArgs e)
+        {
+            var result = await new CustomDialog().QueueAsync<bool?>();
+            Debug.WriteLine(result);
         }
     }
 }

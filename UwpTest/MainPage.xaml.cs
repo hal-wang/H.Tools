@@ -1,21 +1,15 @@
-﻿using HTools;
-using HTools.Uwp.Helpers;
-using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using UwpTest.Models;
 using UwpTest.Views;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace UwpTest
-{
-    public sealed partial class MainPage : Page
-    {
-        public ObservableCollection<PageMenuItem> Pages
-        {
-            get { return (ObservableCollection<PageMenuItem>)GetValue(PagesProperty); }
-            set { SetValue(PagesProperty, value); }
+namespace UwpTest {
+    public sealed partial class MainPage : Page {
+        public ObservableCollection<PageMenuItem> Pages {
+            get => (ObservableCollection<PageMenuItem>)GetValue(PagesProperty);
+            set => SetValue(PagesProperty, value);
         }
 
         // Using a DependencyProperty as the backing store for Pages.  This enables animation, styling, binding, etc...
@@ -23,21 +17,18 @@ namespace UwpTest
             DependencyProperty.Register("Pages", typeof(ObservableCollection<PageMenuItem>), typeof(MainPage), new PropertyMetadata(null));
 
 
-        public MainPage()
-        {
-            this.InitializeComponent();
+        public MainPage() {
+            InitializeComponent();
 
             InitPages();
             Loaded += MainPage_Loaded;
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
+        private void MainPage_Loaded(object sender, RoutedEventArgs e) {
             contentFrame.Navigate(typeof(HomePage));
         }
 
-        private void InitPages()
-        {
+        private void InitPages() {
             Pages = new ObservableCollection<PageMenuItem>
             {
                 new PageMenuItem()
@@ -75,12 +66,17 @@ namespace UwpTest
                     Name = nameof(TeachingTipPage),
                     PageType = typeof(TeachingTipPage),
                     Glyph = Symbol.SetTile
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(SettingConfigPage),
+                    PageType = typeof(SettingConfigPage),
+                    Glyph = Symbol.Setting
                 }
             };
         }
 
-        private void NavigationView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
-        {
+        private void NavigationView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args) {
             if (args.InvokedItem is not string name) return;
 
             var pageType = Pages.Where(p => p.Name == name).Select(p => p.PageType).FirstOrDefault();

@@ -10,6 +10,12 @@
 
     <Grid>
         <Button Content="Show" Click="Button_Click"/>
-        <setting:SettingSplitView x:Name="SettingSplitView" muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"/>
+        <setting:SettingSplitView x:Name="SettingSplitView" Header="Setting" Visibility="Collapsed">
+            <StackPanel>
+                <Border Style="{ThemeResource SettingSeparator}"/>
+                <setting:SwitchSettingCell Label="Switch"/>
+                <Border Style="{ThemeResource SettingSeparator}"/>
+            </StackPanel>
+        </setting:SettingSplitView>
     </Grid>
 </Page>

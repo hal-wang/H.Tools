@@ -1,22 +1,26 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using HTools.Uwp.Helpers;
+using Windows.UI.Xaml.Controls;
 
-namespace UwpTest
+namespace UwpTest.Views
 {
-    public sealed partial class TestDialog : ContentDialog
+    public sealed partial class CustomDialog : ContentDialog, IResultDialog<bool?>
     {
-        public TestDialog()
+        public CustomDialog()
         {
             this.InitializeComponent();
         }
 
+        public bool? Result { get; private set; } = null;
+
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-
+            args.Cancel = true;
+            this.Hide(true);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-
+            Result = false;
         }
     }
 }

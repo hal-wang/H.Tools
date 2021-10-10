@@ -10,20 +10,17 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 
-namespace HTools.Uwp.Helpers
-{
+namespace HTools.Uwp.Helpers {
     /// <summary>
     /// 
     /// </summary>
-    public static class ImgHelper
-    {
+    public static class ImgHelper {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="base64"></param>
         /// <returns></returns>
-        public static async Task<BitmapImage> GetImg(string base64)
-        {
+        public static async Task<BitmapImage> GetImg(string base64) {
             return await GetImg(System.Convert.FromBase64String(base64).AsBuffer());
         }
 
@@ -32,22 +29,17 @@ namespace HTools.Uwp.Helpers
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static async Task<BitmapImage> GetImg(IBuffer data)
-        {
-            InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream();
+        public static async Task<BitmapImage> GetImg(IBuffer data) {
+            InMemoryRandomAccessStream stream = new();
             await stream.WriteAsync(data);
             stream.Seek(0);
 
             BitmapImage bitmapImage = null;
-            if (Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.HasThreadAccess)
-            {
+            if (Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().Dispatcher.HasThreadAccess) {
                 bitmapImage = new BitmapImage();
                 bitmapImage.SetSource(stream);
-            }
-            else
-            {
-                await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
+            } else {
+                await Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => {
                     bitmapImage = new BitmapImage();
                     bitmapImage.SetSource(stream);
                 });
@@ -61,8 +53,7 @@ namespace HTools.Uwp.Helpers
         /// </summary>
         /// <param name="pathMarkup"></param>
         /// <returns></returns>
-        public static Geometry PathMarkupToGeometry(string pathMarkup)
-        {
+        public static Geometry PathMarkupToGeometry(string pathMarkup) {
             var path = PathMarkupToPath(pathMarkup);
             Geometry geometry = path.Data;
             path.Data = null;
@@ -74,19 +65,14 @@ namespace HTools.Uwp.Helpers
         /// </summary>
         /// <param name="pathMarkup"></param>
         /// <returns></returns>
-        public static Path PathMarkupToPath(string pathMarkup)
-        {
+        public static Path PathMarkupToPath(string pathMarkup) {
             string path;
             var matches = Regex.Matches(pathMarkup, "<path d=\"([ \\S]{1,}?)\"");
-            if (matches.Count == 0)
-            {
+            if (matches.Count == 0) {
                 path = pathMarkup;
-            }
-            else
-            {
+            } else {
                 StringBuilder sb = new StringBuilder();
-                foreach (Match match in matches)
-                {
+                foreach (Match match in matches) {
                     sb.Append(match.Groups[1].Value);
                     sb.Append(" ");
                 }

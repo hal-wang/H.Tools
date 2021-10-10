@@ -1,54 +1,33 @@
 ﻿using System;
-using System.Data;
 using System.IO;
-using System.Runtime.CompilerServices;
+using System.Linq;
 
-namespace HTools.Config
-{
-    public abstract class SqliteConfigBase : IDisposable
-    {
+namespace HTools.Config {
+    public abstract class SqliteConfigBase : ConfigBase<string>, IDisposable {
         private readonly SqliteBase<ConfigItem> _sqliteConnection;
 
-        public SqliteConfigBase(string path = null)
-        {
+        public SqliteConfigBase(string path = null) {
             _sqliteConnection = new SqliteBase<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
         }
 
-        public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
-        {
-            if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+        public override bool ContainsKey(string key) => _sqliteConnection.Table<ConfigItem>().Any(item => item.Key == key);
 
-            var value = _sqliteConnection.Find<ConfigItem>(key);
-            if (value == null)
-            {
-                Set(defaultValue, key);
-                return defaultValue;
-            }
-            else
-            {
-                return (T)Convert.ChangeType(value, typeof(T));
-            }
+        protected override string GetValue(string key = null) {
+            return _sqliteConnection.Find<ConfigItem>(key).Value;
         }
 
-        public void Set(object value, [CallerMemberName] string key = null)
-        {
-            if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
-
-            _sqliteConnection.InsertOrReplace(new ConfigItem()
-            {
+        protected override void SetValue(string value, string key) {
+            _sqliteConnection.InsertOrReplace(new ConfigItem() {
                 Key = key,
-                Value = value.ToString()
+                Value = value
             });
         }
 
-        public string this[string key]
-        {
-            get => Get<string>(null, key);
-            set => Set(value, key);
+        public override void Remove(string key) {
+            _sqliteConnection.Table<ConfigItem>().Where(item => item.Key == key).Delete();
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
             _sqliteConnection.Dispose();
         }
     }
