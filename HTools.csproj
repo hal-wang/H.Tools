@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/hal-wang/HTools.CSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hal-wang/HTools.CSharp</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.6.1</Version>
+    <Version>1.6.3</Version>
     <Description>工具库</Description>
-    <AssemblyVersion>1.6.1.0</AssemblyVersion>
-    <FileVersion>1.6.1.0</FileVersion>
+    <AssemblyVersion>1.6.3.0</AssemblyVersion>
+    <FileVersion>1.6.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -80,9 +80,9 @@
 
 
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.18362'">
-    <Compile Remove="Themes\\net452_generic.xaml" />
-    <EmbeddedResource Remove="Themes\\net452_generic.xaml" />
-    <None Remove="Themes\\net452_generic.xaml" />
+    <Compile Remove="Themes\\net462_generic.xaml" />
+    <EmbeddedResource Remove="Themes\\net462_generic.xaml" />
+    <None Remove="Themes\\net462_generic.xaml" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -182,7 +182,7 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
     <Page Include="Converters\WpfConverters.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-    <Resource Include="Themes\net452_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Resource Include="Themes\net462_generic.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
 
   <ItemGroup>

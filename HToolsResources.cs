@@ -25,7 +25,7 @@ namespace HTools
         private readonly string _genericPath = "Themes/uap_generic.xaml";
 #endif
 #if NET462
-        private readonly string _genericPath = "Themes/net452_generic.xaml";
+        private readonly string _genericPath = "Themes/net462_generic.xaml";
 #endif
 
         /// <summary>
