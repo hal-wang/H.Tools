@@ -15,6 +15,31 @@
                 <Border Style="{ThemeResource SettingSeparator}"/>
                 <setting:SwitchSettingCell Label="Switch"/>
                 <Border Style="{ThemeResource SettingSeparator}"/>
+                <setting:SelectSettingCell Label="Select" ItemsSource="{x:Bind Items}" ItemClick="SelectSettingCell_ItemClick">
+                    <setting:SelectSettingCell.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BorderThickness="0 1 0 0" Height="40">
+                                <Grid.BorderBrush>
+                                    <SolidColorBrush Color="{ThemeResource SystemBaseHighColor}" Opacity="0.2"/>
+                                </Grid.BorderBrush>
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </setting:SelectSettingCell.ItemTemplate>
+                    <setting:SelectSettingCell>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Setter Property="Margin" Value="20 0" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </setting:SelectSettingCell>
+                </setting:SelectSettingCell>
+                <Border Style="{ThemeResource SettingSeparator}"/>
             </StackPanel>
         </setting:SettingSplitView>
     </Grid>

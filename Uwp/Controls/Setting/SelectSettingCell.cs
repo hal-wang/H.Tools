@@ -24,20 +24,48 @@ namespace HTools.Uwp.Controls.Setting
         /// </summary>
         public event TypedEventHandler<SelectSettingCell, object> ItemClick;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ObservableCollection<object> Items
+        public object ItemsSource
         {
-            get { return (ObservableCollection<object>)GetValue(ItemsProperty); }
-            set { SetValue(ItemsProperty, value); }
+            get { return (object)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly DependencyProperty ItemsProperty =
-            DependencyProperty.Register("Items", typeof(ObservableCollection<object>), typeof(SelectSettingCell), new PropertyMetadata(new ObservableCollection<object>()));
+        // Using a DependencyProperty as the backing store for ItemsSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemsSourceProperty =
+            DependencyProperty.Register("ItemsSource", typeof(object), typeof(SelectSettingCell), new PropertyMetadata(null));
+
+
+        public DataTemplate ItemTemplate
+        {
+            get { return (DataTemplate)GetValue(ItemTemplateProperty); }
+            set { SetValue(ItemTemplateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemTemplate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemTemplateProperty =
+            DependencyProperty.Register("ItemTemplate", typeof(DataTemplate), typeof(SelectSettingCell), new PropertyMetadata(null));
+
+
+        public Style ItemContainerStyle
+        {
+            get { return (Style)GetValue(ItemContainerStyleProperty); }
+            set { SetValue(ItemContainerStyleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemContainerStyle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemContainerStyleProperty =
+            DependencyProperty.Register("ItemContainerStyle", typeof(Style), typeof(SelectSettingCell), new PropertyMetadata(null));
+
+
+        public StyleSelector ItemContainerStyleSelector
+        {
+            get { return (StyleSelector)GetValue(ItemContainerStyleSelectorProperty); }
+            set { SetValue(ItemContainerStyleSelectorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemContainerStyleSelector.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemContainerStyleSelectorProperty =
+            DependencyProperty.Register("ItemContainerStyleSelector", typeof(StyleSelector), typeof(SelectSettingCell), new PropertyMetadata(null));
 
 
         internal bool IsOpen
@@ -75,7 +103,7 @@ namespace HTools.Uwp.Controls.Setting
             var listView = (ListView)GetTemplateChild("ListViewElement");
             listView.ItemClick += (ss, ee) =>
             {
-                ItemClick(this, ee.ClickedItem);
+                ItemClick?.Invoke(this, ee.ClickedItem);
                 IsOpen = false;
             };
 
