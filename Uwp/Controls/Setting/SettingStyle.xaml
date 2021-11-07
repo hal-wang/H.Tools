@@ -118,32 +118,11 @@
                             </Grid>
                         </Button>
 
-                        <ListView SelectionMode="None" IsItemClickEnabled="True" x:Name="ListViewElement" ItemsSource="{TemplateBinding Items}"
-                                  Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid BorderThickness="0 1 0 0">
-                                        <Grid.BorderBrush>
-                                            <SolidColorBrush Color="{ThemeResource SystemBaseHighColor}" Opacity="0.2"/>
-                                        </Grid.BorderBrush>
-                                        <ContentControl Content="{Binding}" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="10 0" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                                    <Setter Property="VerticalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                    <Setter Property="BorderThickness" Value="0" />
-                                    <Setter Property="BorderBrush" Value="Transparent" />
-                                    <Setter Property="Margin" Value="20 0" />
-                                    <Setter Property="Padding" Value="0" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
+                        <ListView SelectionMode="None" IsItemClickEnabled="True" x:Name="ListViewElement" ItemsSource="{TemplateBinding ItemsSource}"
+                                  Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsOpen,Mode=OneWay,Converter={StaticResource BooleanConverter}}"
+                                  ItemTemplate="{TemplateBinding ItemTemplate}"
+                                  ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
+                                  ItemContainerStyleSelector="{TemplateBinding ItemContainerStyleSelector}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
