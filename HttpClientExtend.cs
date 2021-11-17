@@ -12,23 +12,23 @@ namespace HTools
     {
         public async static Task<HttpResponseMessage> SendAsync(this HttpClient httpClient, string requestUri, string method, object content = null, object param = null, object query = null)
         {
-            if (query != null)
-            {
-                var properties = query.GetType().GetProperties();
-                foreach (var property in properties)
-                {
-                    requestUri = requestUri.Replace($":{property.Name}", property.GetValue(query)?.ToString());
-                }
-            }
             if (param != null)
             {
                 var properties = param.GetType().GetProperties();
+                foreach (var property in properties)
+                {
+                    requestUri = requestUri.Replace($":{property.Name}", property.GetValue(param)?.ToString());
+                }
+            }
+            if (query != null)
+            {
+                var properties = query.GetType().GetProperties();
                 var paramStr = new StringBuilder();
                 foreach (var property in properties)
                 {
                     paramStr.Append(property.Name);
                     paramStr.Append("=");
-                    paramStr.Append(property.GetValue(param));
+                    paramStr.Append(property.GetValue(query));
                     paramStr.Append("&");
                 }
                 if (paramStr.Length > 0) paramStr.Remove(paramStr.Length - 1, 1);
