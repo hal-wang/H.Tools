@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using Microsoft.Toolkit.Mvvm.Input;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI;
@@ -6,7 +6,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace HTools.Uwp.Controls.Setting {
+namespace HTools.Uwp.Controls.Setting
+{
     /// <summary>
     /// 
     /// </summary>
@@ -18,7 +19,7 @@ namespace HTools.Uwp.Controls.Setting {
             DefaultStyleKey = typeof(SettingSplitView);
             DefaultStyleResourceUri = new System.Uri("ms-appx:///HTools/Themes/uap_generic.xaml");
             CloseCommand = new RelayCommand(() => IsPaneOpen = false);
-            RequestedTheme = !(Window.Current.Content is FrameworkElement element) ? ElementTheme.Light : element.RequestedTheme;
+            RequestedTheme = Window.Current.Content is not FrameworkElement element ? ElementTheme.Light : element.RequestedTheme;
         }
 
         /// <summary>
