@@ -84,7 +84,7 @@
                                                 <TextBlock FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                                            Visibility="{Binding MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Warning}"/>
                                                 <TextBlock FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Danger}"/>
+                                                           Visibility="{Binding MessageType,Mode=OneWay,Converter={StaticResource IsEqualConverter},ConverterParameter=Danger}"/>
                                             </Grid>
                                         </Button>
                                     </Grid>
