@@ -8,7 +8,7 @@ namespace HTools.Uwp.Helpers
 {
     public interface IResultDialog<T>
     {
-        public T Result { get;  }
+        public T Result { get; set; }
     }
 
     internal class ContentDialogItem
@@ -46,17 +46,8 @@ namespace HTools.Uwp.Helpers
             new Action(async () => { await nextDialog.ShowTask; }).Invoke();
         }
 
-        private static async Task<T> QueueAsync<T>(ContentDialog dialog, bool ahead, bool customResult)
+        private static async Task<T> QueueAsync<T>(ContentDialog dialog, bool ahead)
         {
-            if (!customResult && typeof(T) != typeof(ContentDialogResult))
-            {
-                throw new ArgumentException();
-            }
-            if (customResult && dialog is not IResultDialog<T>)
-            {
-                throw new ArgumentException();
-            }
-
             ContentDialogItem dialogItem = new()
             {
                 Awaiter = new TaskCompletionSource<object>(),
@@ -91,17 +82,17 @@ namespace HTools.Uwp.Helpers
 
         public static async Task<ContentDialogResult> QueueAsync(this ContentDialog dialog, bool ahead = true)
         {
-            return await QueueAsync<ContentDialogResult>(dialog, ahead, false);
+            return await QueueAsync<ContentDialogResult>(dialog, ahead);
         }
 
-        public static async Task<T> QueueAsync<T>(this ContentDialog dialog, bool ahead = true)
+        public static async Task<T> QueueAsync<T>(this IResultDialog<T> dialog, bool ahead = true)
         {
-            return await QueueAsync<T>(dialog, ahead, true);
+            return await QueueAsync<T>(dialog as ContentDialog, ahead);
         }
 
         public static void Hide<T>(this IResultDialog<T> dialog, T result)
         {
-            dialog.GetType().GetProperty("Result").SetValue(dialog, result);
+            dialog.Result = result;
             (dialog as ContentDialog).Hide();
         }
 

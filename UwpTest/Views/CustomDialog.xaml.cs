@@ -10,7 +10,7 @@ namespace UwpTest.Views
             this.InitializeComponent();
         }
 
-        public bool? Result { get; private set; } = null;
+        public bool? Result { get; set; } = null;
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
