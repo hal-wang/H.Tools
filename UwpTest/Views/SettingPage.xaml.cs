@@ -19,9 +19,9 @@ namespace UwpTest.Views
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             SettingSplitView.Visibility = Visibility.Visible;
-            await TaskExtend.SleepAsync(200);
+            await TaskExtend.SleepAsync(100);
             await SettingSplitView.ShowAsync();
-            await TaskExtend.SleepAsync(200);
+            await TaskExtend.SleepAsync(100);
             SettingSplitView.Visibility = Visibility.Collapsed;
         }
 
