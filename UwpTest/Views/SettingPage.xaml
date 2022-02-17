@@ -40,6 +40,8 @@
                     </setting:SelectSettingCell>
                 </setting:SelectSettingCell>
                 <Border Style="{ThemeResource SettingSeparator}"/>
+                <setting:ButtonSettingCell Label="Button" Value="Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"/>
+                <Border Style="{ThemeResource SettingSeparator}"/>
             </StackPanel>
         </setting:SettingSplitView>
     </Grid>
