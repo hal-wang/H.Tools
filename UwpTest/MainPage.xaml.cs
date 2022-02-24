@@ -72,6 +72,12 @@ namespace UwpTest {
                     Name = nameof(SettingConfigPage),
                     PageType = typeof(SettingConfigPage),
                     Glyph = Symbol.Setting
+                },
+                new PageMenuItem()
+                {
+                    Name = nameof(FontSizeSelecterPage),
+                    PageType = typeof(FontSizeSelecterPage),
+                    Glyph = Symbol.FontSize
                 }
             };
         }
