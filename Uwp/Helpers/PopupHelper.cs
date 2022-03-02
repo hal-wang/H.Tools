@@ -8,11 +8,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace HTools.Uwp.Helpers {
+namespace HTools.Uwp.Helpers
+{
     /// <summary>
     /// 
     /// </summary>
-    public static class PopupHelper {
+    public static class PopupHelper
+    {
         /// <summary>
         /// 
         /// </summary>
@@ -23,16 +25,20 @@ namespace HTools.Uwp.Helpers {
         /// <param name="clickable"></param>
         /// <param name="backgroundOpacity"></param>
         /// <returns></returns>
-        public static async Task<TeachingTipClosedEventArgs> ShowTeachingTipAsync(FrameworkElement target, string title, object content = null, TeachingTipPlacementMode placement = TeachingTipPlacementMode.Auto, bool clickable = false, double backgroundOpacity = 0.4) {
-            return await new SimpleTeachingTip(title, content) {
+        public static async Task<TeachingTipClosedEventArgs> ShowTeachingTipAsync(FrameworkElement target, string title, object content = null, TeachingTipPlacementMode placement = TeachingTipPlacementMode.Auto, bool clickable = false, double backgroundOpacity = 0.4)
+        {
+            return await new SimpleTeachingTip(title, content)
+            {
                 PreferredPlacement = placement,
                 Clickable = clickable,
                 BackgroundOpacity = backgroundOpacity
             }.ShowAtAsync(target);
         }
 
-        public static async Task<TeachingTipClosedEventArgs> ShowTeachingTipAsync(FrameworkElement target, TeachingTip teachingTip, bool clickable = false, double backgroundOpacity = 0.4) {
-            return await new LayoutTeachingTip(teachingTip) {
+        public static async Task<TeachingTipClosedEventArgs> ShowTeachingTipAsync(FrameworkElement target, TeachingTip teachingTip, bool clickable = false, double backgroundOpacity = 0.4)
+        {
+            return await new LayoutTeachingTip(teachingTip)
+            {
                 Clickable = clickable,
                 BackgroundOpacity = backgroundOpacity
             }.ShowAtAsync(target);
@@ -48,17 +54,25 @@ namespace HTools.Uwp.Helpers {
         /// <param name="isPrimaryDefault"></param>
         /// <param name="closeButtonText"></param>
         /// <returns></returns>
-        public static async Task<ContentDialogResult> ShowDialog(object content, string title, string primaryButtonText = null, string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null, bool ahead = true) {
-            ContentDialog dialog = new();
-            if (primaryButtonText != null) {
+        public static async Task<ContentDialogResult> ShowDialog(object content, string title, string primaryButtonText = null, string secondButtonText = null, bool? isPrimaryDefault = true, bool isExitButtonVisible = false, string closeButtonText = null, bool ahead = true)
+        {
+            ContentDialog dialog = new()
+            {
+                Style = ResourcesHelper.GetResource<Style>("DefaultContentDialogStyle")
+            };
+            if (primaryButtonText != null)
+            {
                 dialog.PrimaryButtonText = primaryButtonText;
             }
-            if (primaryButtonText == null && secondButtonText == null && closeButtonText == null && !isExitButtonVisible) {
+            if (primaryButtonText == null && secondButtonText == null && closeButtonText == null && !isExitButtonVisible)
+            {
                 isExitButtonVisible = true;
             }
 
-            if (content is string str) {
-                content = new TextBlock() {
+            if (content is string str)
+            {
+                content = new TextBlock()
+                {
                     Text = str,
                     TextWrapping = TextWrapping.Wrap
                 };
@@ -66,15 +80,19 @@ namespace HTools.Uwp.Helpers {
             var contentGrid = new Grid();
             contentGrid.Children.Add(content as UIElement);
 
-            var titleGrid = new Grid() {
+            var titleGrid = new Grid()
+            {
                 Width = 200,
             };
-            titleGrid.Children.Add(new TextBlock() {
+            titleGrid.Children.Add(new TextBlock()
+            {
                 VerticalAlignment = VerticalAlignment.Center,
                 Text = title ?? ""
             });
-            if (isExitButtonVisible) {
-                var exitButton = new Button() {
+            if (isExitButtonVisible)
+            {
+                var exitButton = new Button()
+                {
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Style = ResourcesHelper.GetResource<Style>("LightButtonStyle"),
@@ -82,11 +100,13 @@ namespace HTools.Uwp.Helpers {
                     Foreground = new SolidColorBrush(Colors.Red)
                 };
                 titleGrid.Children.Add(exitButton);
-                exitButton.Click += (ss, ee) => {
+                exitButton.Click += (ss, ee) =>
+                {
                     dialog.Hide();
                 };
             }
-            contentGrid.SizeChanged += (ss, ee) => {
+            contentGrid.SizeChanged += (ss, ee) =>
+            {
                 titleGrid.Width = ee.NewSize.Width;
             };
 
@@ -94,16 +114,21 @@ namespace HTools.Uwp.Helpers {
             dialog.Title = titleGrid;
             dialog.Content = contentGrid;
 
-            if (string.IsNullOrEmpty(secondButtonText)) {
+            if (string.IsNullOrEmpty(secondButtonText))
+            {
                 dialog.DefaultButton = ContentDialogButton.Primary;
-            } else {
+            }
+            else
+            {
                 dialog.SecondaryButtonText = secondButtonText;
 
-                if (!string.IsNullOrEmpty(closeButtonText)) {
+                if (!string.IsNullOrEmpty(closeButtonText))
+                {
                     dialog.CloseButtonText = closeButtonText;
                 }
 
-                switch (isPrimaryDefault) {
+                switch (isPrimaryDefault)
+                {
                     case null:
                         dialog.DefaultButton = ContentDialogButton.Close;
                         break;
