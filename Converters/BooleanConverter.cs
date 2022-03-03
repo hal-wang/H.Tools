@@ -22,7 +22,7 @@ namespace HTools.Converters
 #endif
             )
         {
-            return ConverterHelper.BoolTo((bool)value, targetType, parameter as string);
+            return ConverterHelper.BoolTo(value != null && (bool)value, targetType, parameter as string);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
