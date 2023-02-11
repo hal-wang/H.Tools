@@ -22,5 +22,6 @@
     <local:TestConverter x:Key="TestConverter"/>
     <local:ThicknessConverter x:Key="ThicknessConverter"/>
     <local:NoBreakConverter x:Key="NoBreakConverter"/>
+    <local:FormatStringConverter x:Key="FormatStringConverter"/>
 
 </ResourceDictionary>
