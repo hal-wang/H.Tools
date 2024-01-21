@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Http", "src\H.Tools
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Config", "src\H.Tools.Config\H.Tools.Config.csproj", "{88F550EC-733B-4396-83C7-0088909C3773}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Tools.EntityFramework", "src\H.Tools.EntityFramework\H.Tools.EntityFramework.csproj", "{310CAB32-01E1-4D59-9860-070FA236B6F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{88F550EC-733B-4396-83C7-0088909C3773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88F550EC-733B-4396-83C7-0088909C3773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88F550EC-733B-4396-83C7-0088909C3773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
