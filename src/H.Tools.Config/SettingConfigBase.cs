@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace H.Tools.Config;
 
-public abstract class SettingConfigBase : ConfigBase<string>
+public abstract class SettingConfigBase : ConfigBase
 {
     public override bool ContainsKey(string key) => ConfigurationManager.AppSettings.AllKeys.Contains(key);
 

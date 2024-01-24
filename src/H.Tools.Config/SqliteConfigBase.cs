@@ -14,7 +14,7 @@ file class ConfigItem
     public string Value { get; set; }
 }
 
-public abstract class SqliteConfigBase : ConfigBase<string>, IDisposable
+public abstract class SqliteConfigBase : ConfigBase, IDisposable
 {
     private OneOf<SQLiteConnection, Func<SQLiteConnection>> _con;
     private SQLiteConnection Connection => _con.IsT0 ? _con.AsT0 : _con.AsT1();

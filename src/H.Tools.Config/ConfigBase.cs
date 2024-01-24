@@ -4,16 +4,16 @@ using System.Runtime.CompilerServices;
 
 namespace H.Tools.Config;
 
-public abstract class ConfigBase<U>
+public abstract class ConfigBase
 {
-    protected abstract U GetValue(string key);
-    protected abstract void SetValue(U value, string key);
+    protected abstract string GetValue(string key);
+    protected abstract void SetValue(string value, string key);
 
     public abstract bool ContainsKey(string key);
 
     public abstract void Remove(string key);
 
-    public T Find<T>([CallerMemberName] string key = null)
+    public virtual T Find<T>([CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
@@ -27,7 +27,7 @@ public abstract class ConfigBase<U>
         }
     }
 
-    public T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
+    public virtual T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
@@ -41,14 +41,14 @@ public abstract class ConfigBase<U>
         }
     }
 
-    public void Set<T>(T value, [CallerMemberName] string key = null)
+    public virtual void Set<T>(T value, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
-        SetValue((U)(object)value, key);
+        SetValue(value?.ToString() ?? "", key);
     }
 
-    public string this[string key]
+    public virtual string this[string key]
     {
         get => Get<string>(null, key);
         set => Set(value, key);
