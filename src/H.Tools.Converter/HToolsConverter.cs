@@ -6,7 +6,7 @@ public class HToolsConverter : ResourceDictionary
 {
     public HToolsConverter()
     {
-        var url = $"pack://application:,,,/H.Tools.Converters;component/ConverterDictionary.xaml";
+        var url = $"pack://application:,,,/H.Tools.Converter;component/Converters.xaml";
         MergedDictionaries.Add(new() { Source = new Uri(url, UriKind.Absolute) });
     }
 }

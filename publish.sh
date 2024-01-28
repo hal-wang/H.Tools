@@ -3,7 +3,16 @@ set -e
 version=$1
 key=$2
 
+if [ -z "$2" ]; then
+  echo "error params"
+  exit 1
+fi
+
+single=$3
 projects=("Task" "Data" "Http" "Config" "EntityFramework" "Converter")
+if [ "$single" != "" ]; then
+	projects=("$single")
+fi
 
 for project in ${projects[@]}
 do
