@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Version>0.0.6</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -11,7 +14,7 @@
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
 		<Company>hal-wang</Company>
-		<Description>Extend Http</Description>
+		<Description>Extend Wpf Converters</Description>
 		<LangVersion>12.0</LangVersion>
 	</PropertyGroup>
 
@@ -21,9 +24,4 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="System.Text.Json" Version="8.0.1" />
-	</ItemGroup>
-
 </Project>

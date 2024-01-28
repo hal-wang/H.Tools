@@ -3,7 +3,7 @@ set -e
 version=$1
 key=$2
 
-projects=("Task" "Data" "Http" "Config" "EntityFramework")
+projects=("Task" "Data" "Http" "Config" "EntityFramework" "Converter")
 
 for project in ${projects[@]}
 do

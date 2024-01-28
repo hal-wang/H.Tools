@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:H.Tools.Converter.Converters">
+
+    <local:BooleanConverter x:Key="BooleanConverter"/>
+    <local:BooleanToValueConverter x:Key="BooleanToValueConverter"/>
+    <local:FormatStringConverter x:Key="FormatStringConverter"/>
+    <local:IsDarkColorToValueConverter x:Key="IsDarkColorToValueConverter"/>
+    <local:IsEqualConverter x:Key="IsEqualConverter" />
+    <local:IsNullConverter x:Key="IsNullConverter"/>
+    <local:IsNullToValueConverter x:Key="IsNullToValueConverter"/>
+    <local:IsStrEmptyConverter x:Key="IsStrEmptyConverter"/>
+    <local:IsStrEmptyToValueConverter x:Key="IsStrEmptyToValueConverter"/>
+    <local:IsTypeEqualConverter x:Key="IsTypeEqualConverter"/>
+    <local:MathConverter x:Key="MathConverter"/>
+    <local:NoBreakConverter x:Key="NoBreakConverter"/>
+    <local:NumCompareConverter x:Key="NumCompareConverter"/>
+    <local:ThicknessConverter x:Key="ThicknessConverter"/>
+    <local:TimeFormatConverter x:Key="TimeFormatConverter"/>
+
+</ResourceDictionary>
