@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
@@ -40,13 +39,14 @@ public static class StoreProcedureExtend
         new (SqlDbType.Image, typeof(byte[])),
     };
 
-    private static async Task<SqlCommand> CreateCommand(this SqlConnection dbConnection, string name, object args)
+    #region Microsoft.Data.SqlClient
+    private static async Task<Microsoft.Data.SqlClient.SqlCommand> CreateCommand(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args)
     {
         if (dbConnection.State != ConnectionState.Open)
         {
             await dbConnection.OpenAsync();
         }
-        var cmd = new SqlCommand(name, dbConnection)
+        var cmd = new Microsoft.Data.SqlClient.SqlCommand(name, dbConnection)
         {
             CommandType = CommandType.StoredProcedure
         };
@@ -56,21 +56,21 @@ public static class StoreProcedureExtend
             var properties = args.GetType().GetProperties();
             foreach (var property in properties)
             {
-                cmd.Parameters.Add(new SqlParameter(property.Name, property.GetValue(args)));
+                cmd.Parameters.Add(new Microsoft.Data.SqlClient.SqlParameter(property.Name, property.GetValue(args)));
             }
         }
         return cmd;
     }
 
-    private static List<SqlParameter> InitOutput(this SqlCommand cmd, ExpandoObject output)
+    private static List<Microsoft.Data.SqlClient.SqlParameter> InitOutput(this Microsoft.Data.SqlClient.SqlCommand cmd, ExpandoObject output)
     {
-        var resultParameters = new List<SqlParameter>();
+        var resultParameters = new List<Microsoft.Data.SqlClient.SqlParameter>();
         if (output != null)
         {
             KeyValuePair<string, object>[] kvps = [.. output];
             foreach (var kvp in output.ToArray())
             {
-                var param = new SqlParameter(kvp.Key, SqlDbTypeMapping.First(item => item.Item2 == kvp.Value?.GetType()).Item1)
+                var param = new Microsoft.Data.SqlClient.SqlParameter(kvp.Key, SqlDbTypeMapping.First(item => item.Item2 == kvp.Value?.GetType()).Item1)
                 {
                     Direction = ParameterDirection.Output,
                     Size = int.MaxValue,
@@ -82,7 +82,7 @@ public static class StoreProcedureExtend
         return resultParameters;
     }
 
-    private static void SetOutput(List<SqlParameter> resultParameters, ExpandoObject output)
+    private static void SetOutput(List<Microsoft.Data.SqlClient.SqlParameter> resultParameters, ExpandoObject output)
     {
         if (output == null) return;
 
@@ -93,7 +93,7 @@ public static class StoreProcedureExtend
         });
     }
 
-    public async static Task ExecuteNonQueryProcAsync(this SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task ExecuteNonQueryProcAsync(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -101,7 +101,7 @@ public static class StoreProcedureExtend
         SetOutput(resultParameters, output);
     }
 
-    public async static Task<DataTable> ExecuteProcAsync(this SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<DataTable> ExecuteProcAsync(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -113,13 +113,13 @@ public static class StoreProcedureExtend
         return dt;
     }
 
-    public async static Task<List<T>> ExecuteProcAsync<T>(this SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null) where T : class, new()
+    public async static Task<List<T>> ExecuteProcAsync<T>(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null) where T : class, new()
     {
         using var dt = await dbConnection.ExecuteProcAsync(name, args, output);
         return dt.ToList<T>();
     }
 
-    public async static Task<T> ExecuteScalarProcAsync<T>(this SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<T> ExecuteScalarProcAsync<T>(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -128,8 +128,104 @@ public static class StoreProcedureExtend
         return obj;
     }
 
-    public async static Task<object> ExecuteScalarProcAsync(this SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<object> ExecuteScalarProcAsync(this Microsoft.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
     {
         return await dbConnection.ExecuteScalarProcAsync<object>(name, args, output);
     }
+    #endregion
+
+    #region System.Data.SqlClient
+    private static async Task<System.Data.SqlClient.SqlCommand> CreateCommand(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args)
+    {
+        if (dbConnection.State != ConnectionState.Open)
+        {
+            await dbConnection.OpenAsync();
+        }
+        var cmd = new System.Data.SqlClient.SqlCommand(name, dbConnection)
+        {
+            CommandType = CommandType.StoredProcedure
+        };
+
+        if (args != null)
+        {
+            var properties = args.GetType().GetProperties();
+            foreach (var property in properties)
+            {
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter(property.Name, property.GetValue(args)));
+            }
+        }
+        return cmd;
+    }
+
+    private static List<System.Data.SqlClient.SqlParameter> InitOutput(this System.Data.SqlClient.SqlCommand cmd, ExpandoObject output)
+    {
+        var resultParameters = new List<System.Data.SqlClient.SqlParameter>();
+        if (output != null)
+        {
+            KeyValuePair<string, object>[] kvps = [.. output];
+            foreach (var kvp in output.ToArray())
+            {
+                var param = new System.Data.SqlClient.SqlParameter(kvp.Key, SqlDbTypeMapping.First(item => item.Item2 == kvp.Value?.GetType()).Item1)
+                {
+                    Direction = ParameterDirection.Output,
+                    Size = int.MaxValue,
+                };
+                cmd.Parameters.Add(param);
+                resultParameters.Add(param);
+            }
+        }
+        return resultParameters;
+    }
+
+    private static void SetOutput(List<System.Data.SqlClient.SqlParameter> resultParameters, ExpandoObject output)
+    {
+        if (output == null) return;
+
+        IDictionary<string, object> op = output;
+        resultParameters.ForEach(param =>
+        {
+            op[param.ParameterName] = param.Value;
+        });
+    }
+
+    public async static Task ExecuteNonQueryProcAsync(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    {
+        using var cmd = await dbConnection.CreateCommand(name, args);
+        var resultParameters = cmd.InitOutput(output);
+        await cmd.ExecuteNonQueryAsync();
+        SetOutput(resultParameters, output);
+    }
+
+    public async static Task<DataTable> ExecuteProcAsync(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    {
+        using var cmd = await dbConnection.CreateCommand(name, args);
+        var resultParameters = cmd.InitOutput(output);
+        using var reader = await cmd.ExecuteReaderAsync();
+
+        var dt = new DataTable();
+        dt.Load(reader);
+        SetOutput(resultParameters, output);
+        return dt;
+    }
+
+    public async static Task<List<T>> ExecuteProcAsync<T>(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null) where T : class, new()
+    {
+        using var dt = await dbConnection.ExecuteProcAsync(name, args, output);
+        return dt.ToList<T>();
+    }
+
+    public async static Task<T> ExecuteScalarProcAsync<T>(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    {
+        using var cmd = await dbConnection.CreateCommand(name, args);
+        var resultParameters = cmd.InitOutput(output);
+        var obj = (T)await cmd.ExecuteScalarAsync();
+        SetOutput(resultParameters, output);
+        return obj;
+    }
+
+    public async static Task<object> ExecuteScalarProcAsync(this System.Data.SqlClient.SqlConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    {
+        return await dbConnection.ExecuteScalarProcAsync<object>(name, args, output);
+    }
+    #endregion
 }
