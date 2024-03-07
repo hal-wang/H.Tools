@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace H.Tools;
+namespace H.Tools.Sqlite;
 
 public class SqliteBase<T> : SQLiteConnection
 {

@@ -1,10 +1,11 @@
-﻿using OneOf;
+﻿using H.Tools.Config;
+using OneOf;
 using SQLite;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace H.Tools.Config;
+namespace H.Tools.Sqlite;
 
 [Table("Config")]
 file class ConfigItem

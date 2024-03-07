@@ -11,7 +11,7 @@
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
 		<Company>hal-wang</Company>
-		<Description>Extend Config</Description>
+		<Description>Extend Sqlite</Description>
 		<LangVersion>12.0</LangVersion>
 	</PropertyGroup>
 
@@ -23,7 +23,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+		<PackageReference Include="OneOf" Version="3.0.263" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\H.Tools.Config\H.Tools.Config.csproj" />
 	</ItemGroup>
 
 </Project>
