@@ -6,10 +6,10 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.0.7</Version>
+		<Version>0.0.8</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<AssemblyVersion>0.0.7</AssemblyVersion>
+		<AssemblyVersion>0.0.8</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/hal-wang/H.Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
