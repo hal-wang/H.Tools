@@ -49,11 +49,16 @@ public static class SqlDataTable
 
     private static string GetName(this DataColumnCollection columns, string name, Func<string, OneOf<string, string[]>> nameReplace)
     {
+        if (nameReplace == null)
+        {
+            return columns.GetName(name);
+        }
+
         var replaceNames = nameReplace(name);
         if (replaceNames.IsT0)
         {
             var result = columns.GetName(replaceNames.AsT0);
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(result))
             {
                 return result;
             }
@@ -63,7 +68,7 @@ public static class SqlDataTable
             foreach (var replaceName in replaceNames.AsT1)
             {
                 var result = columns.GetName(replaceName);
-                if (!string.IsNullOrEmpty(name))
+                if (!string.IsNullOrEmpty(result))
                 {
                     return result;
                 }
