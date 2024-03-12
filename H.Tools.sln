@@ -24,9 +24,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Config", "src\H.Too
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.EntityFramework", "src\H.Tools.EntityFramework\H.Tools.EntityFramework.csproj", "{310CAB32-01E1-4D59-9860-070FA236B6F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Converter", "src\H.Tools.Converter\H.Tools.Converter.csproj", "{6DAB1AB0-422A-421F-B00F-857B31025ECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Sqlite", "src\H.Tools.Sqlite\H.Tools.Sqlite.csproj", "{709F8C3B-E136-4B19-950D-4814403BD851}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Tools.Sqlite", "src\H.Tools.Sqlite\H.Tools.Sqlite.csproj", "{709F8C3B-E136-4B19-950D-4814403BD851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Wpf", "src\H.Tools.Wpf\H.Tools.Wpf.csproj", "{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,14 +54,14 @@ Global
 		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{310CAB32-01E1-4D59-9860-070FA236B6F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DAB1AB0-422A-421F-B00F-857B31025ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DAB1AB0-422A-421F-B00F-857B31025ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DAB1AB0-422A-421F-B00F-857B31025ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DAB1AB0-422A-421F-B00F-857B31025ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{709F8C3B-E136-4B19-950D-4814403BD851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{709F8C3B-E136-4B19-950D-4814403BD851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709F8C3B-E136-4B19-950D-4814403BD851}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709F8C3B-E136-4B19-950D-4814403BD851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

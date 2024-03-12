@@ -9,7 +9,7 @@ if [ -z "$2" ]; then
 fi
 
 single=$3
-projects=("Task" "Data" "Http" "Config" "EntityFramework" "Converter" "Sqlite")
+projects=("Wpf" "Task" "Data" "Http" "Config" "EntityFramework" "Sqlite")
 if [ "$single" != "" ]; then
 	projects=("$single")
 fi
