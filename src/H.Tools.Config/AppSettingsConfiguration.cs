@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace H.Tools.Config;
 
-public abstract class SettingConfigBase : ConfigBase
+public class AppSettingsConfiguration : Configuration
 {
     public override bool ContainsKey(string key) => ConfigurationManager.AppSettings.AllKeys.Contains(key);
 
@@ -11,7 +11,7 @@ public abstract class SettingConfigBase : ConfigBase
 
     protected override void SetValue(string value, string key)
     {
-        Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        System.Configuration.Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
         cfa.AppSettings.Settings.Remove(key);
         cfa.AppSettings.Settings.Add(key, value);
         cfa.Save(ConfigurationSaveMode.Modified);
@@ -20,7 +20,7 @@ public abstract class SettingConfigBase : ConfigBase
 
     public override void Remove(string key)
     {
-        Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        System.Configuration.Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
         cfa.AppSettings.Settings.Remove(key);
         cfa.Save(ConfigurationSaveMode.Modified);
         ConfigurationManager.RefreshSection("appSettings");

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace H.Tools.Config;
 
-public abstract class ConfigBase
+public abstract class Configuration : IConfiguration
 {
     protected abstract string GetValue(string key);
     protected abstract void SetValue(string value, string key);

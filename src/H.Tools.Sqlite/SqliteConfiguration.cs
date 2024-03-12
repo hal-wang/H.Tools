@@ -1,5 +1,4 @@
 ﻿using H.Tools.Config;
-using OneOf;
 using SQLite;
 using System;
 using System.IO;
@@ -7,7 +6,7 @@ using System.Linq;
 
 namespace H.Tools.Sqlite;
 
-[Table("Config")]
+[Table("Configuration")]
 file class ConfigItem
 {
     [PrimaryKey]
@@ -15,27 +14,27 @@ file class ConfigItem
     public string Value { get; set; }
 }
 
-public abstract class SqliteConfigBase : ConfigBase, IDisposable
+public class SqliteConfiguration : Configuration, IDisposable
 {
-    private OneOf<SQLiteConnection, Func<SQLiteConnection>> _con;
-    private SQLiteConnection Connection => _con.IsT0 ? _con.AsT0 : _con.AsT1();
+    private SQLiteConnection Connection => _initCon ?? _cbCon();
 
-    public SqliteConfigBase() { }
+    public SqliteConfiguration() { }
 
-    public SqliteConfigBase(OneOf<SQLiteConnection, Func<SQLiteConnection>> con)
+    private readonly SQLiteConnection _initCon;
+    public SqliteConfiguration(SQLiteConnection con)
     {
-        _con = con;
+        _initCon = con;
     }
 
-    public SqliteConfigBase(string path)
+    private readonly Func<SQLiteConnection> _cbCon;
+    public SqliteConfiguration(Func<SQLiteConnection> con)
     {
-        Connect(path);
+        _cbCon = con;
     }
 
-    public void Connect(string path)
+    public SqliteConfiguration(string path)
     {
-        Connection?.Dispose();
-        _con = new SqliteBase<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
+        _cbCon = () => new SingleSqlite<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
     }
 
     public override bool ContainsKey(string key) => Connection.Table<ConfigItem>().Any(item => item.Key == key);
