@@ -33,6 +33,10 @@ public abstract class Configuration : IConfiguration
 
         if (!ContainsKey(key))
         {
+            if (!Equals(defaultValue, default(T)))
+            {
+                Set(defaultValue, key);
+            }
             return defaultValue;
         }
         else
