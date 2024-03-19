@@ -9,7 +9,7 @@ if [ -z "$2" ]; then
 fi
 
 single=$3
-projects=("Task" "Data" "Http" "Config" "EntityFramework" "Sqlite" "Wpf")
+projects=("Task" "Data" "Http" "Config" "EntityFramework" "Sqlite" "Wpf" "Asp")
 if [ "$single" != "" ]; then
 	projects=("$single")
 fi
@@ -26,3 +26,6 @@ for project in ${projects[@]}
 do
 	dotnet nuget push "src\H.Tools.$project\bin\Release\H.Tools.$project.$version.nupkg" --api-key $key --source https://api.nuget.org/v3/index.json
 done
+
+git add -A
+git commit -m "chore v$version"

@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Sqlite", "src\H.Too
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Tools.Wpf", "src\H.Tools.Wpf\H.Tools.Wpf.csproj", "{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Tools.Asp", "src\H.Tools.Asp\H.Tools.Asp.csproj", "{C43E59FB-8BB0-4C5A-9814-C440828A7435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BCFA26A-D09C-432E-A01F-D83A8A7943F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C43E59FB-8BB0-4C5A-9814-C440828A7435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43E59FB-8BB0-4C5A-9814-C440828A7435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43E59FB-8BB0-4C5A-9814-C440828A7435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43E59FB-8BB0-4C5A-9814-C440828A7435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
