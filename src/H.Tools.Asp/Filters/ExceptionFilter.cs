@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using H.Tools.Asp.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace H.Tools.Asp.Filters;
@@ -14,15 +15,33 @@ public class ExceptionFilter : IExceptionFilter
 
         context.ExceptionHandled = true;
 
-        context.HttpContext.Response.Headers.TryAdd("source-exception", exception.GetType().ToString());
-        var message = context.Exception.Message;
-        var objectResult = new ObjectResult(new
+        var status = exception.StatusCode == null ? 500 : (int)exception.StatusCode;
+        if (context.Exception is IMessageException messageException)
         {
-            message = string.IsNullOrEmpty(message) ? "Unknown Error" : message,
-        })
+            var objectResult = new ObjectResult(new
+            {
+                Message = string.IsNullOrEmpty(messageException.Message) ? "Unknown Error" : messageException.Message,
+                messageException.MessageTitle,
+                messageException.MessageType,
+                messageException.MessageButtonText,
+                messageException.Next,
+            })
+            {
+                StatusCode = status,
+            };
+            context.Result = objectResult;
+        }
+        else
         {
-            StatusCode = exception.StatusCode == null ? 500 : (int)exception.StatusCode,
-        };
-        context.Result = objectResult;
+            var message = context.Exception.Message;
+            var objectResult = new ObjectResult(new
+            {
+                Message = string.IsNullOrEmpty(message) ? "Unknown Error" : message,
+            })
+            {
+                StatusCode = status,
+            };
+            context.Result = objectResult;
+        }
     }
 }

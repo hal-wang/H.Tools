@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace H.Tools.Asp.Filters;
 
-public class ErrorFilter : IActionFilter
+public class FormatMessageFilter : IActionFilter
 {
     public void OnActionExecuted(ActionExecutedContext context)
     {

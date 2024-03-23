@@ -29,3 +29,4 @@ done
 
 git add -A
 git commit -m "chore v$version"
+git tag "v$version"
