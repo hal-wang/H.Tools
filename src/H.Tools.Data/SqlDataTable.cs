@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
 
@@ -82,7 +83,7 @@ public static class SqlDataTable
         var result = new T();
         foreach (var pi in properties)
         {
-            var name = row.Table.Columns.GetName(pi.Name, nameReplace);
+            var name = row.Table.Columns.GetName(pi.GetCustomAttributes<FieldName>().FirstOrDefault()?.Name ?? pi.Name, nameReplace);
             if (string.IsNullOrEmpty(name)) continue;
 
             var value = row[name];

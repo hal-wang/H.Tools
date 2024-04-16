@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "H.Tools.Asp": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59536;http://localhost:59537"
+    }
+  }
+}
