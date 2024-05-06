@@ -118,8 +118,9 @@ public static class SqlDataTable
     }
 
     #region ConvertValue
-    private static object ConvertValue(object value, Type type)
+    private static object ConvertValueToObject<T>(object value)
     {
+        var type = typeof(T);
         if (value == null || value is DBNull || (value is string emptyStr && emptyStr == string.Empty))
         {
             return default!;
@@ -128,7 +129,7 @@ public static class SqlDataTable
         {
             return value;
         }
-        else if (value is string str && type == typeof(bool))
+        else if (value is string str && (type == typeof(bool) || type == typeof(bool?)))
         {
             if (string.Equals(str, "y", StringComparison.InvariantCultureIgnoreCase)
                 || string.Equals(str, "yes", StringComparison.InvariantCultureIgnoreCase)
@@ -144,13 +145,20 @@ public static class SqlDataTable
         }
         else
         {
-            return Convert.ChangeType(value, type);
+            try
+            {
+                return (T)value;
+            }
+            catch
+            {
+                return Convert.ChangeType(value, type);
+            }
         }
     }
 
     private static T ConvertValue<T>(object value)
     {
-        return (T)ConvertValue(value, typeof(T));
+        return (T)ConvertValueToObject<T>(value);
     }
 
     public static T GetValue<T>(this IDataReader dataReader, string fieldName)
