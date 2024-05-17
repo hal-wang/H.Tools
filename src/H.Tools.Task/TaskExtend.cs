@@ -55,6 +55,7 @@ public static class TaskExtend
     /// </summary>
     /// <param name="action"></param>
     /// <returns></returns>
+    [Obsolete]
     public static async System.Threading.Tasks.Task Run(Action action)
     {
         Exception exception = null;
@@ -73,5 +74,27 @@ public static class TaskExtend
         {
             throw exception;
         }
+    }
+
+    /// <summary>
+    /// Run and return exception
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    public static async Task<Exception> SafeRun(Action action)
+    {
+        Exception exception = null;
+        await System.Threading.Tasks.Task.Run(() =>
+        {
+            try
+            {
+                action.Invoke();
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+        });
+        return exception;
     }
 }
