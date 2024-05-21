@@ -55,7 +55,6 @@ public static class TaskExtend
     /// </summary>
     /// <param name="action"></param>
     /// <returns></returns>
-    [Obsolete]
     public static async System.Threading.Tasks.Task Run(Action action)
     {
         Exception exception = null;
