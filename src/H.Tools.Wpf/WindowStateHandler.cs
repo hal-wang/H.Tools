@@ -5,11 +5,13 @@ namespace H.Tools.Wpf;
 
 internal class WindowStateHandler
 {
-    private static readonly AppSettingsConfiguration _configuration = new();
+    private readonly AppSettingsConfiguration _configuration;
     private readonly Window _window;
-    public WindowStateHandler(Window window)
+    public WindowStateHandler(Window window, AppSettingsConfiguration? configuration)
     {
         _window = window;
+        _configuration = configuration ?? new();
+
         window.Loaded += Window_Loaded;
     }
 

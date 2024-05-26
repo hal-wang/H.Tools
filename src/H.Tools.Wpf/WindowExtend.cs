@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using H.Tools.Config;
+using System.Windows;
 
 namespace H.Tools.Wpf;
 
 public static class WindowExtend
 {
-    public static T StoreWindowState<T>(this T window) where T : Window
+    public static T StoreWindowState<T>(this T window, AppSettingsConfiguration? configuration = null) where T : Window
     {
-        _ = new WindowStateHandler(window);
+        _ = new WindowStateHandler(window, configuration);
         return window;
     }
 }
