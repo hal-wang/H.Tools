@@ -24,6 +24,8 @@ internal class WindowStateHandler
         var left = _configuration.Get<double>(0, $"{WindowName}_Left");
         var top = _configuration.Get<double>(0, $"{WindowName}_Top");
 
+        if (width == 0 || height == 0) return;
+
         width = Math.Max(width, 140);
         width = Math.Min(width, SystemParameters.VirtualScreenWidth);
         height = Math.Max(height, 100);
