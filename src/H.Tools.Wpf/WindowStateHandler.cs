@@ -24,13 +24,20 @@ internal class WindowStateHandler
         var left = _configuration.Get<double>(0, $"{WindowName}_Left");
         var top = _configuration.Get<double>(0, $"{WindowName}_Top");
 
-        if (width != 0 && height != 0)
-        {
-            _window.Left = Math.Max(left, 0);
-            _window.Top = Math.Max(top, 0);
-            _window.Width = Math.Max(width, 200);
-            _window.Height = Math.Max(height, 140);
-        }
+        width = Math.Max(width, 140);
+        width = Math.Min(width, SystemParameters.VirtualScreenWidth);
+        height = Math.Max(height, 100);
+        height = Math.Min(height, SystemParameters.VirtualScreenHeight);
+
+        left = Math.Max(left, 0);
+        left = Math.Min(left, SystemParameters.VirtualScreenWidth - width);
+        top = Math.Max(top, 0);
+        top = Math.Min(top, SystemParameters.VirtualScreenHeight - height);
+
+        _window.Left = left;
+        _window.Top = top;
+        _window.Width = width;
+        _window.Height = height;
     }
 
     private void RestoreIsMaxSizeConfig()
