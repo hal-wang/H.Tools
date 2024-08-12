@@ -7,9 +7,45 @@ public class AppSettingsConfiguration : Configuration
 {
     public override bool ContainsKey(string key) => GetSection(GetConfiguration()).Settings.AllKeys.Contains(key);
 
-    protected override string GetValue(string key) => GetSection(GetConfiguration()).Settings[key]?.Value;
+    protected virtual bool UseLock => false;
+    private static readonly object _lock = new();
 
+    #region GetValue
+    protected override string GetValue(string key)
+    {
+        if (UseLock)
+        {
+            lock (_lock)
+            {
+                return GetValueInternal(key);
+            }
+        }
+        else
+        {
+            return GetValueInternal(key);
+        }
+    }
+
+    private string GetValueInternal(string key) => GetSection(GetConfiguration()).Settings[key]?.Value;
+    #endregion
+
+    #region SetValue
     protected override void SetValue(string value, string key)
+    {
+        if (UseLock)
+        {
+            lock (_lock)
+            {
+                SetValueInternal(value, key);
+            }
+        }
+        else
+        {
+            SetValueInternal(value, key);
+        }
+    }
+
+    private void SetValueInternal(string value, string key)
     {
         var config = GetConfiguration();
         var section = GetSection(config);
@@ -18,8 +54,25 @@ public class AppSettingsConfiguration : Configuration
         config.Save(ConfigurationSaveMode.Modified);
         ConfigurationManager.RefreshSection(SectionName);
     }
+    #endregion
 
+    #region Remove
     public override void Remove(string key)
+    {
+        if (UseLock)
+        {
+            lock (_lock)
+            {
+                RmoveInternal(key);
+            }
+        }
+        else
+        {
+            RmoveInternal(key);
+        }
+    }
+
+    private void RmoveInternal(string key)
     {
         var config = GetConfiguration();
         var section = GetSection(config);
@@ -27,6 +80,7 @@ public class AppSettingsConfiguration : Configuration
         config.Save(ConfigurationSaveMode.Modified);
         ConfigurationManager.RefreshSection(SectionName);
     }
+    #endregion
 
     private AppSettingsSection GetSection(System.Configuration.Configuration config)
     {
