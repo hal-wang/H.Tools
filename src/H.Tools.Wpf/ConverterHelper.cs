@@ -97,7 +97,7 @@ public static class ConverterHelper
         }
         else
         {
-            throw new NotSupportedException();
+            return isTrue;
         }
     }
 
