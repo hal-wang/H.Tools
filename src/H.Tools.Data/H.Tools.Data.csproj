@@ -3,10 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.0.26</Version>
+		<Version>0.0.27</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<AssemblyVersion>0.0.26</AssemblyVersion>
+		<AssemblyVersion>0.0.27</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/hal-wang/H.Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
@@ -23,8 +23,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-	  <PackageReference Include="OneOf" Version="3.0.263" />
+	  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+	  <PackageReference Include="OneOf" Version="3.0.271" />
 	  <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	</ItemGroup>
 
