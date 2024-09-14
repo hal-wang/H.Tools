@@ -1,5 +1,4 @@
-﻿using OneOf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
@@ -11,22 +10,22 @@ namespace H.Tools.Data;
 
 public static class SqlDataTable
 {
-    public static List<T> ToList<T>(this DataTable table, Func<string, OneOf<string, string[]>> nameReplace = null) where T : class, new()
+    public static List<T> ToList<T>(this DataTable table) where T : class, new()
     {
         var result = new List<T>();
         var properties = typeof(T).GetProperties();
         foreach (DataRow dr in table.Rows)
         {
-            var item = dr.ToObject<T>(properties, nameReplace);
+            var item = dr.ToObject<T>(properties);
             result.Add(item);
         }
         return result;
     }
 
-    public static T ToObject<T>(this DataRow row, Func<string, OneOf<string, string[]>> nameReplace = null) where T : class, new()
+    public static T ToObject<T>(this DataRow row) where T : class, new()
     {
         var properties = typeof(T).GetProperties();
-        return row.ToObject<T>(properties, nameReplace);
+        return row.ToObject<T>(properties);
     }
 
     private static string GetName(this DataColumnCollection columns, string name)
@@ -48,42 +47,12 @@ public static class SqlDataTable
         return null;
     }
 
-    private static string GetName(this DataColumnCollection columns, string name, Func<string, OneOf<string, string[]>> nameReplace)
-    {
-        if (nameReplace == null)
-        {
-            return columns.GetName(name);
-        }
-
-        var replaceNames = nameReplace(name);
-        if (replaceNames.IsT0)
-        {
-            var result = columns.GetName(replaceNames.AsT0);
-            if (!string.IsNullOrEmpty(result))
-            {
-                return result;
-            }
-        }
-        else
-        {
-            foreach (var replaceName in replaceNames.AsT1)
-            {
-                var result = columns.GetName(replaceName);
-                if (!string.IsNullOrEmpty(result))
-                {
-                    return result;
-                }
-            }
-        }
-        return columns.GetName(name);
-    }
-
-    private static T ToObject<T>(this DataRow row, PropertyInfo[] properties, Func<string, OneOf<string, string[]>> nameReplace = null) where T : class, new()
+    private static T ToObject<T>(this DataRow row, PropertyInfo[] properties) where T : class, new()
     {
         var result = new T();
         foreach (var pi in properties)
         {
-            var name = row.Table.Columns.GetName(pi.GetCustomAttributes<FieldName>().FirstOrDefault()?.Name ?? pi.Name, nameReplace);
+            var name = row.Table.Columns.GetName(pi.GetCustomAttributes<FieldName>().FirstOrDefault()?.Name ?? pi.Name);
             if (string.IsNullOrEmpty(name)) continue;
 
             var value = row[name];
@@ -93,23 +62,23 @@ public static class SqlDataTable
         return result;
     }
 
-    public static List<dynamic> ToList(this DataTable table, Func<string, OneOf<string, string[]>> nameReplace = null)
+    public static List<dynamic> ToList(this DataTable table)
     {
         var result = new List<dynamic>();
         foreach (DataRow dr in table.Rows)
         {
-            dynamic item = dr.ToObject(nameReplace);
+            dynamic item = dr.ToObject();
             result.Add(item);
         }
         return result;
     }
 
-    public static dynamic ToObject(this DataRow row, Func<string, OneOf<string, string[]>> nameReplace = null)
+    public static dynamic ToObject(this DataRow row)
     {
         dynamic result = new ExpandoObject();
         for (var i = 0; i < row.Table.Columns.Count; i++)
         {
-            var name = row.Table.Columns.GetName(row.Table.Columns[i].ColumnName, nameReplace);
+            var name = row.Table.Columns.GetName(row.Table.Columns[i].ColumnName);
             if (string.IsNullOrEmpty(name)) continue;
 
             ((IDictionary<string, object>)result).Add(name, row[i] == DBNull.Value ? null : row[i]);

@@ -24,7 +24,6 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-	  <PackageReference Include="OneOf" Version="3.0.271" />
 	</ItemGroup>
 
 </Project>
