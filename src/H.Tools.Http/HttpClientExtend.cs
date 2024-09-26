@@ -59,7 +59,8 @@ public static class HttpClientExtend
 
             if (content is not HttpContent httpContent)
             {
-                httpContent = new StringContent(System.Text.Json.JsonSerializer.Serialize(content), Encoding.UTF8, "application/json");
+                httpContent = new StringContent(System.Text.Json.JsonSerializer.Serialize(content));
+                httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
             }
             request = new HttpRequestMessage(new HttpMethod(method), requestUri)
             {
