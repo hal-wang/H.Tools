@@ -20,7 +20,7 @@ public class ValidateFilter : IActionFilter
 
         var state = modelState
             .Select(item => item.Value)
-            .FirstOrDefault(item => item != null && item.Errors.Count > 0);
+            .LastOrDefault(item => item != null && item.Errors.Count > 0);
         if (state == default)
         {
             return;
@@ -28,7 +28,7 @@ public class ValidateFilter : IActionFilter
 
         context.Result = new BadRequestObjectResult(new
         {
-            message = state.Errors[0].ErrorMessage
+            message = state.Errors.LastOrDefault()?.ErrorMessage ?? ""
         });
     }
 }
