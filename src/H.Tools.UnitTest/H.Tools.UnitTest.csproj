@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.Tools.Asp\H.Tools.Asp.csproj" />
+    <ProjectReference Include="..\H.Tools.Config\H.Tools.Config.csproj" />
+    <ProjectReference Include="..\H.Tools.Data\H.Tools.Data.csproj" />
+    <ProjectReference Include="..\H.Tools.EntityFramework\H.Tools.EntityFramework.csproj" />
+    <ProjectReference Include="..\H.Tools.Http\H.Tools.Http.csproj" />
+    <ProjectReference Include="..\H.Tools.Sqlite\H.Tools.Sqlite.csproj" />
+    <ProjectReference Include="..\H.Tools.Task\H.Tools.Task.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+  </ItemGroup>
+
+</Project>
