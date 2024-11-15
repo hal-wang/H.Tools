@@ -56,6 +56,7 @@ public class SqliteConfiguration : Configuration, IDisposable
     public override void Remove(string key)
     {
         Connection.Table<ConfigItem>().Where(item => item.Key == key).Delete();
+        base.Remove(key);
     }
 
     public void Dispose()

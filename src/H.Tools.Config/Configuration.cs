@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
 
@@ -11,25 +12,42 @@ public abstract class Configuration : IConfiguration
 
     public abstract bool ContainsKey(string key);
 
-    public abstract void Remove(string key);
+    private readonly Dictionary<string, object> _cache = [];
 
-    public virtual T Find<T>([CallerMemberName] string key = null)
+    public virtual T Find<T>(bool force, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
-        if (!ContainsKey(key))
+        if (!force && _cache.TryGetValue(key, out var obj))
         {
-            return default;
+            return (T)obj;
+        }
+
+        if (ContainsKey(key))
+        {
+            var val = Convert.ChangeType(GetValue(key), typeof(T));
+            _cache[key] = val;
+            return (T)val;
         }
         else
         {
-            return (T)Convert.ChangeType(GetValue(key), typeof(T));
+            return default;
         }
     }
 
-    public virtual T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
+    public virtual T Find<T>([CallerMemberName] string key = null)
+    {
+        return Find<T>(false, key);
+    }
+
+    public virtual T Get<T>(bool force, T defaultValue = default, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+
+        if (!force && _cache.TryGetValue(key, out var obj))
+        {
+            return (T)obj;
+        }
 
         if (!ContainsKey(key))
         {
@@ -45,11 +63,23 @@ public abstract class Configuration : IConfiguration
         }
     }
 
+    public virtual T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
+    {
+        return Get(false, defaultValue, key);
+    }
+
     public virtual void Set<T>(T value, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
-        SetValue(value?.ToString() ?? "", key);
+        var val = value?.ToString() ?? "";
+        _cache[key] = val;
+        SetValue(val, key);
+    }
+
+    public virtual void Remove(string key)
+    {
+        _cache.Remove(key);
     }
 
     public virtual string this[string key]

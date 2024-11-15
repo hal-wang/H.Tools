@@ -64,11 +64,13 @@ public class AppSettingsConfiguration : Configuration
             lock (_lock)
             {
                 RmoveInternal(key);
+                base.Remove(key);
             }
         }
         else
         {
             RmoveInternal(key);
+            base.Remove(key);
         }
     }
 
