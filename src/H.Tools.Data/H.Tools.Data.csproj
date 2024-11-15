@@ -3,10 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.1.2</Version>
+		<Version>0.1.3</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<AssemblyVersion>0.1.2</AssemblyVersion>
+		<AssemblyVersion>0.1.3</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/hal-wang/H.Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
