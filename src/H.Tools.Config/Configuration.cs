@@ -25,9 +25,9 @@ public abstract class Configuration : IConfiguration
 
         if (ContainsKey(key))
         {
-            var val = Convert.ChangeType(GetValue(key), typeof(T));
+            var val = (T)Convert.ChangeType(GetValue(key), typeof(T));
             _cache[key] = val;
-            return (T)val;
+            return val;
         }
         else
         {
@@ -55,6 +55,10 @@ public abstract class Configuration : IConfiguration
             {
                 Set(defaultValue, key);
             }
+            else
+            {
+                _cache[key] = defaultValue;
+            }
             return defaultValue;
         }
         else
@@ -72,8 +76,8 @@ public abstract class Configuration : IConfiguration
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
+        _cache[key] = value;
         var val = value?.ToString() ?? "";
-        _cache[key] = val;
         SetValue(val, key);
     }
 

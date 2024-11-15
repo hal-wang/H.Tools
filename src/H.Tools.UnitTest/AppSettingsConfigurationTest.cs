@@ -27,42 +27,64 @@ public class AppSettingsConfigurationTest
     [TestMethod]
     public void FindWithCache()
     {
-        var guid1 = Guid.NewGuid().ToString();
         var config1 = new AppSettingsConfiguration();
-        config1.Set(guid1, nameof(FindWithCache));
-        var val1 = config1.Find<string>(nameof(FindWithCache));
-        Assert.AreEqual(val1, guid1);
+        config1.Set(1, nameof(FindWithCache));
+        var val1 = config1.Find<int>(nameof(FindWithCache));
+        Assert.AreEqual(val1, 1);
 
-        var guid2 = Guid.NewGuid().ToString();
         var config2 = new AppSettingsConfiguration();
-        config2.Set(guid2, nameof(FindWithCache));
-        var val2 = config2.Find<string>(nameof(FindWithCache));
-        Assert.AreEqual(val2, guid2);
+        config2.Set(2, nameof(FindWithCache));
+        var val2 = config2.Find<int>(nameof(FindWithCache));
+        Assert.AreEqual(val2, 2);
 
-        var val31 = config1.Find<string>(nameof(FindWithCache));
-        var val32 = config1.Get("", nameof(FindWithCache));
-        Assert.AreEqual(val31, guid1);
-        Assert.AreEqual(val32, guid1);
+        var val31 = config1.Find<int>(nameof(FindWithCache));
+        var val32 = config1.Get(0, nameof(FindWithCache));
+        Assert.AreEqual(val31, 1);
+        Assert.AreEqual(val32, 1);
     }
 
     [TestMethod]
     public void FindWithoutCache()
     {
-        var guid1 = Guid.NewGuid().ToString();
         var config1 = new AppSettingsConfiguration();
-        config1.Set(guid1, nameof(FindWithoutCache));
-        var val1 = config1.Find<string>(nameof(FindWithoutCache));
-        Assert.AreEqual(val1, guid1);
+        config1.Set(1, nameof(FindWithoutCache));
+        var val1 = config1.Find<int>(nameof(FindWithoutCache));
+        Assert.AreEqual(val1, 1);
 
-        var guid2 = Guid.NewGuid().ToString();
         var config2 = new AppSettingsConfiguration();
-        config2.Set(guid2, nameof(FindWithoutCache));
-        var val2 = config2.Find<string>(nameof(FindWithoutCache));
-        Assert.AreEqual(val2, guid2);
+        config2.Set(2, nameof(FindWithoutCache));
+        var val2 = config2.Find<int>(nameof(FindWithoutCache));
+        Assert.AreEqual(val2, 2);
 
-        var val31 = config1.Find<string>(true, nameof(FindWithoutCache));
-        var val32 = config1.Get(true, "", nameof(FindWithoutCache));
-        Assert.AreEqual(val31, guid2);
-        Assert.AreEqual(val32, guid2);
+        var val31 = config1.Find<int>(true, nameof(FindWithoutCache));
+        var val32 = config1.Get(true, 0, nameof(FindWithoutCache));
+        Assert.AreEqual(val31, 2);
+        Assert.AreEqual(val32, 2);
+    }
+
+    [TestMethod]
+    public void Remove()
+    {
+        var config1 = new AppSettingsConfiguration();
+        config1.Set(1, nameof(Remove));
+        var val1 = config1.Find<int>(nameof(Remove));
+        Assert.AreEqual(val1, 1);
+
+        var config2 = new AppSettingsConfiguration();
+        config2.Set(2, nameof(Remove));
+        var val2 = config2.Find<int>(nameof(Remove));
+        Assert.AreEqual(val2, 2);
+
+        config2.Remove(nameof(Remove));
+
+        var val31 = config1.Find<int>(nameof(Remove));
+        var val32 = config1.Get(-1, nameof(Remove));
+        Assert.AreEqual(val31, 1);
+        Assert.AreEqual(val32, 1);
+
+        var val41 = config1.Find<int>(true, nameof(Remove));
+        var val42 = config1.Get(true, -1, nameof(Remove));
+        Assert.AreEqual(val41, 0);
+        Assert.AreEqual(val42, -1);
     }
 }
