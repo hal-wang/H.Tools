@@ -12,7 +12,14 @@ internal class WindowStateHandler
         _window = window;
         _configuration = configuration ?? new();
 
-        window.Loaded += Window_Loaded;
+        if (window.IsLoaded)
+        {
+            Window_Loaded(window, new RoutedEventArgs());
+        }
+        else
+        {
+            window.Loaded += Window_Loaded;
+        }
     }
 
     private string WindowName => string.IsNullOrEmpty(_window.Name) ? _window.GetType().ToString() : _window.Name;
