@@ -28,7 +28,7 @@ public static class SqlDataTable
         return row.ToObject<T>(properties);
     }
 
-    private static string GetName(this DataColumnCollection columns, string name)
+    private static string? GetName(this DataColumnCollection columns, string name)
     {
         if (columns.Contains(name))
         {
@@ -78,10 +78,10 @@ public static class SqlDataTable
         dynamic result = new ExpandoObject();
         for (var i = 0; i < row.Table.Columns.Count; i++)
         {
-            var name = row.Table.Columns.GetName(row.Table.Columns[i].ColumnName);
+            var name = row.Table.Columns.GetName(row.Table.Columns[i].ColumnName)!;
             if (string.IsNullOrEmpty(name)) continue;
 
-            ((IDictionary<string, object>)result).Add(name, row[i] == DBNull.Value ? null : row[i]);
+            ((IDictionary<string, object?>)result).Add(name, row[i] == DBNull.Value ? null : row[i]);
         }
         return result;
     }

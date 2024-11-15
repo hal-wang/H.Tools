@@ -13,6 +13,7 @@
 		<Company>hal-wang</Company>
 		<Description>Extend Data</Description>
 		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>

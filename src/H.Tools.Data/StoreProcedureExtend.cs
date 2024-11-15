@@ -40,7 +40,7 @@ public static class StoreProcedureExtend
         new (SqlDbType.Image, typeof(byte[])),
     ];
 
-    private static async Task<DbCommand> CreateCommand(this DbConnection dbConnection, string name, object args)
+    private static async Task<DbCommand> CreateCommand(this DbConnection dbConnection, string name, object? args)
     {
         if (dbConnection.State != ConnectionState.Open)
         {
@@ -65,7 +65,7 @@ public static class StoreProcedureExtend
         return cmd;
     }
 
-    private static List<DbParameter> InitOutput(this DbCommand cmd, ExpandoObject output)
+    private static List<DbParameter> InitOutput(this DbCommand cmd, ExpandoObject? output)
     {
         var resultParameters = new List<DbParameter>();
         if (output != null)
@@ -86,7 +86,7 @@ public static class StoreProcedureExtend
         return resultParameters;
     }
 
-    private static void SetOutput(List<DbParameter> resultParameters, ExpandoObject output)
+    private static void SetOutput(List<DbParameter> resultParameters, ExpandoObject? output)
     {
         if (output == null) return;
 
@@ -97,7 +97,7 @@ public static class StoreProcedureExtend
         });
     }
 
-    public async static Task ExecuteNonQueryProcAsync(this DbConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task ExecuteNonQueryProcAsync(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -105,7 +105,7 @@ public static class StoreProcedureExtend
         SetOutput(resultParameters, output);
     }
 
-    public async static Task<DataTable> ExecuteProcAsync(this DbConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<DataTable> ExecuteProcAsync(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -117,13 +117,13 @@ public static class StoreProcedureExtend
         return dt;
     }
 
-    public async static Task<List<T>> ExecuteProcAsync<T>(this DbConnection dbConnection, string name, object args = null, ExpandoObject output = null) where T : class, new()
+    public async static Task<List<T>> ExecuteProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null) where T : class, new()
     {
         using var dt = await dbConnection.ExecuteProcAsync(name, args, output);
         return dt.ToList<T>();
     }
 
-    public async static Task<T> ExecuteScalarProcAsync<T>(this DbConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<T> ExecuteScalarProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
@@ -132,7 +132,7 @@ public static class StoreProcedureExtend
         return obj;
     }
 
-    public async static Task<object> ExecuteScalarProcAsync(this DbConnection dbConnection, string name, object args = null, ExpandoObject output = null)
+    public async static Task<object> ExecuteScalarProcAsync(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         return await dbConnection.ExecuteScalarProcAsync<object>(name, args, output);
     }
