@@ -37,6 +37,8 @@ public static class DbQueryExtend
         using var cmd = dbConnection.CreateCommand();
         cmd.CommandText = sql;
         var obj = await cmd.ExecuteScalarAsync();
+        if (obj == DBNull.Value) return default;
+
         try
         {
             return (T)obj!;
