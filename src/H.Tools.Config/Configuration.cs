@@ -51,14 +51,8 @@ public abstract class Configuration : IConfiguration
 
         if (!ContainsKey(key))
         {
-            if (!Equals(defaultValue, default(T)))
-            {
-                Set(defaultValue, key);
-            }
-            else
-            {
-                _cache[key] = defaultValue;
-            }
+            Set(defaultValue, key);
+            _cache[key] = defaultValue;
             return defaultValue;
         }
         else
