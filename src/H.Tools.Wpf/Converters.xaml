@@ -3,20 +3,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:H.Tools.Wpf.Converters">
 
-    <local:BooleanConverter x:Key="BooleanConverter"/>
-    <local:BooleanToValueConverter x:Key="BooleanToValueConverter"/>
-    <local:FormatStringConverter x:Key="FormatStringConverter"/>
-    <local:IsDarkColorToValueConverter x:Key="IsDarkColorToValueConverter"/>
+    <local:BooleanConverter x:Key="BooleanConverter" />
+    <local:BooleanToValueConverter x:Key="BooleanToValueConverter" />
+    <local:FormatStringConverter x:Key="FormatStringConverter" />
+    <local:IsDarkColorToValueConverter x:Key="IsDarkColorToValueConverter" />
     <local:IsEqualConverter x:Key="IsEqualConverter" />
-    <local:IsNullConverter x:Key="IsNullConverter"/>
-    <local:IsNullToValueConverter x:Key="IsNullToValueConverter"/>
-    <local:IsStrEmptyConverter x:Key="IsStrEmptyConverter"/>
-    <local:IsStrEmptyToValueConverter x:Key="IsStrEmptyToValueConverter"/>
-    <local:IsTypeEqualConverter x:Key="IsTypeEqualConverter"/>
-    <local:MathConverter x:Key="MathConverter"/>
-    <local:NoBreakConverter x:Key="NoBreakConverter"/>
-    <local:NumCompareConverter x:Key="NumCompareConverter"/>
-    <local:ThicknessConverter x:Key="ThicknessConverter"/>
-    <local:TimeFormatConverter x:Key="TimeFormatConverter"/>
+    <local:IsToStringEqualConverter x:Key="IsToStringEqualConverter" />
+    <local:IsMultiEqualConverter x:Key="IsMultiEqualConverter" />
+    <local:IsMultiEqualWithoutParamConverter x:Key="IsMultiEqualWithoutParamConverter" />
+    <local:IsMultiToStringEqualConverter x:Key="IsMultiToStringEqualConverter" />
+    <local:IsMultiToStringEqualWithoutParamConverter x:Key="IsMultiToStringEqualWithoutParamConverter" />
+    <local:IsNullConverter x:Key="IsNullConverter" />
+    <local:IsNullToValueConverter x:Key="IsNullToValueConverter" />
+    <local:IsStringEmptyConverter x:Key="IsStrEmptyConverter" />
+    <local:IsStringEmptyConverter x:Key="IsStringEmptyConverter" />
+    <local:IsStringEmptyToValueConverter x:Key="IsStrEmptyToValueConverter" />
+    <local:IsStringEmptyToValueConverter x:Key="IsStringEmptyToValueConverter" />
+    <local:IsTypeEqualConverter x:Key="IsTypeEqualConverter" />
+    <local:MathConverter x:Key="MathConverter" />
+    <local:NoBreakConverter x:Key="NoBreakConverter" />
+    <local:NumCompareConverter x:Key="NumCompareConverter" />
+    <local:ThicknessConverter x:Key="ThicknessConverter" />
+    <local:TimeFormatConverter x:Key="TimeFormatConverter" />
 
 </ResourceDictionary>
