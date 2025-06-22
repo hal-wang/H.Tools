@@ -15,3 +15,16 @@ internal class IsNullConverter : IValueConverter
         throw new NotImplementedException();
     }
 }
+
+internal class IsNullToValueConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        return ConverterHelper.BoolToValue(value, value == null, targetType, (parameter as string)!);
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        throw new NotImplementedException();
+    }
+}

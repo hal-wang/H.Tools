@@ -5,38 +5,8 @@ using System.Windows.Media;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class IsDarkColorToValueConverter : IValueConverter
+internal abstract class IsDarkColorConverterBase
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo language)
-    {
-        Color color;
-        if (value is Color mc)
-        {
-            color = mc;
-        }
-        else if (value is SolidColorBrush scb)
-        {
-            var c = scb.Color;
-            c.A = (byte)(c.A * scb.Opacity);
-            color = c;
-        }
-        else if (value is string str)
-        {
-            color = GetColor(str);
-        }
-        else
-        {
-            throw new NotSupportedException();
-        }
-
-        return ConverterHelper.BoolToValue(value, IsDarkColor(color), targetType, (parameter as string)!);
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
-    {
-        throw new NotImplementedException();
-    }
-
     private static Color GetColor(string str)
     {
         if (str[0] == '#')
@@ -68,6 +38,19 @@ internal class IsDarkColorToValueConverter : IValueConverter
         }
     }
 
+    private static Color MergeAlpha(Color alphaColor, Color? backColor = null)
+    {
+        double percent = (double)alphaColor.A / 0xff;
+        backColor ??= Colors.White;
+
+        alphaColor.R = (byte)(alphaColor.R * percent + backColor.Value.R * (1 - percent));
+        alphaColor.G = (byte)(alphaColor.G * percent + backColor.Value.G * (1 - percent));
+        alphaColor.B = (byte)(alphaColor.B * percent + backColor.Value.B * (1 - percent));
+        alphaColor.A = 0xff;
+
+        return alphaColor;
+    }
+
     private static bool IsDarkColor(Color color, int sensory = 192, Color? backColor = null)
     {
         if (color.A < 255)
@@ -85,16 +68,54 @@ internal class IsDarkColorToValueConverter : IValueConverter
         }
     }
 
-    private static Color MergeAlpha(Color alphaColor, Color? backColor = null)
+    public static bool IsDarkColor(object value)
     {
-        double percent = (double)alphaColor.A / 0xff;
-        backColor ??= Colors.White;
+        Color color;
+        if (value is Color mc)
+        {
+            color = mc;
+        }
+        else if (value is SolidColorBrush scb)
+        {
+            var c = scb.Color;
+            c.A = (byte)(c.A * scb.Opacity);
+            color = c;
+        }
+        else if (value is string str)
+        {
+            color = GetColor(str);
+        }
+        else
+        {
+            throw new NotSupportedException();
+        }
+        return IsDarkColor(color, 192);
+    }
+}
 
-        alphaColor.R = (byte)(alphaColor.R * percent + backColor.Value.R * (1 - percent));
-        alphaColor.G = (byte)(alphaColor.G * percent + backColor.Value.G * (1 - percent));
-        alphaColor.B = (byte)(alphaColor.B * percent + backColor.Value.B * (1 - percent));
-        alphaColor.A = 0xff;
+internal class IsDarkColorConverter : IsDarkColorConverterBase, IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        return ConverterHelper.BoolTo(IsDarkColor(value), targetType, (parameter as string)!);
+    }
 
-        return alphaColor;
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+
+internal class IsDarkColorToValueConverter : IsDarkColorConverterBase, IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        return ConverterHelper.BoolToValue(value, IsDarkColor(value), targetType, (parameter as string)!);
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
+    {
+        throw new NotImplementedException();
     }
 }
