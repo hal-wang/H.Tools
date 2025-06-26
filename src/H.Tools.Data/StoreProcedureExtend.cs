@@ -50,9 +50,9 @@ public static class StoreProcedureExtend
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = name;
 
-        if (args != null && args is Dictionary<string, object> objDictArgs)
+        if (args != null && args is IDictionary<string, string> strDictArgs)
         {
-            foreach (var kvp in objDictArgs)
+            foreach (var kvp in strDictArgs)
             {
                 var param = cmd.CreateParameter();
                 param.ParameterName = kvp.Key;
@@ -60,9 +60,9 @@ public static class StoreProcedureExtend
                 cmd.Parameters.Add(param);
             }
         }
-        if (args != null && args is Dictionary<string, string> strDictArgs)
+        else if (args != null && args is IDictionary<string, object> objDictArgs)
         {
-            foreach (var kvp in strDictArgs)
+            foreach (var kvp in objDictArgs)
             {
                 var param = cmd.CreateParameter();
                 param.ParameterName = kvp.Key;
@@ -78,7 +78,6 @@ public static class StoreProcedureExtend
                 var param = cmd.CreateParameter();
                 param.ParameterName = property.Name;
                 param.Value = property.GetValue(args);
-
                 cmd.Parameters.Add(param);
             }
         }
