@@ -18,8 +18,6 @@ public class SqliteConfiguration : Configuration, IDisposable
 {
     private SQLiteConnection Connection => _initCon ?? _cbCon();
 
-    public SqliteConfiguration() { }
-
     private readonly SQLiteConnection _initCon;
     public SqliteConfiguration(SQLiteConnection con)
     {
@@ -32,9 +30,8 @@ public class SqliteConfiguration : Configuration, IDisposable
         _cbCon = con;
     }
 
-    public SqliteConfiguration(string path)
+    public SqliteConfiguration(string path = null) : this(() => new SingleSqlite<ConfigItem>(path ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.db")))
     {
-        _cbCon = () => new SingleSqlite<ConfigItem>(path ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.db"));
     }
 
     public override bool ContainsKey(string key) => Connection.Table<ConfigItem>().Any(item => item.Key == key);
