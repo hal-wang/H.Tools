@@ -14,3 +14,6 @@ dotnet_diagnostic.IDE0022.severity = none
 
 # IDE0011: Add braces
 dotnet_diagnostic.IDE0011.severity = none
+
+# IDE0305: Simplify collection initialization
+dotnet_diagnostic.IDE0305.severity = none

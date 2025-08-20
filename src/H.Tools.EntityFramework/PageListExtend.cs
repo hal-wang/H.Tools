@@ -4,7 +4,7 @@ namespace H.Tools.EntityFramework;
 
 public static class PageListExtend
 {
-    public static async Task<TOut> ToPageListAsync<TEntity, TOut>(this IQueryable<TEntity> query, PageListQuery dto) where TOut : PageListResult<TEntity>, new()
+    public static async Task<TOut> ToPageListAsync<TEntity, TOut>(this IQueryable<TEntity> query, PageListQuery dto, bool useTotal = true) where TOut : PageListResult<TEntity>, new()
     {
         TEntity[] list;
         if (dto.All)
@@ -15,7 +15,7 @@ public static class PageListExtend
         {
             list = await query.Skip(dto.Limit * (dto.Page - 1)).Take(dto.Limit).ToArrayAsync();
         }
-        var total = await query.CountAsync();
+        var total = useTotal ? await query.CountAsync() : 0;
 
         return new TOut()
         {
@@ -26,12 +26,12 @@ public static class PageListExtend
         };
     }
 
-    public static async Task<PageListResult<TEntity>> ToPageListAsync<TEntity>(this IQueryable<TEntity> query, PageListQuery dto)
+    public static async Task<PageListResult<TEntity>> ToPageListAsync<TEntity>(this IQueryable<TEntity> query, PageListQuery dto, bool useTotal = true)
     {
-        return await query.ToPageListAsync<TEntity, PageListResult<TEntity>>(dto);
+        return await query.ToPageListAsync<TEntity, PageListResult<TEntity>>(dto, useTotal);
     }
 
-    public static async Task<TOut> ToPageListAsync<TEntity, TOutType, TOut>(this IQueryable<TEntity> query, PageListQuery dto, Func<TEntity, TOutType> selector) where TOut : PageListResult<TOutType>, new()
+    public static async Task<TOut> ToPageListAsync<TEntity, TOutType, TOut>(this IQueryable<TEntity> query, PageListQuery dto, Func<TEntity, TOutType> selector, bool useTotal = true) where TOut : PageListResult<TOutType>, new()
     {
         TEntity[] list;
         if (dto.All)
@@ -42,7 +42,7 @@ public static class PageListExtend
         {
             list = await query.Skip(dto.Limit * (dto.Page - 1)).Take(dto.Limit).ToArrayAsync();
         }
-        var total = await query.CountAsync();
+        var total = useTotal ? await query.CountAsync() : 0;
 
         return new TOut()
         {
@@ -53,8 +53,8 @@ public static class PageListExtend
         };
     }
 
-    public static async Task<PageListResult<TOutType>> ToPageListAsync<TEntity, TOutType>(this IQueryable<TEntity> query, PageListQuery dto, Func<TEntity, TOutType> selector)
+    public static async Task<PageListResult<TOutType>> ToPageListAsync<TEntity, TOutType>(this IQueryable<TEntity> query, PageListQuery dto, Func<TEntity, TOutType> selector, bool useTotal = true)
     {
-        return await query.ToPageListAsync<TEntity, TOutType, PageListResult<TOutType>>(dto, selector);
+        return await query.ToPageListAsync<TEntity, TOutType, PageListResult<TOutType>>(dto, selector, useTotal);
     }
 }
