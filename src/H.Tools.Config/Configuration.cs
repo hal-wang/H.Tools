@@ -57,7 +57,9 @@ public abstract class Configuration : IConfiguration
         }
         else
         {
-            return (T)Convert.ChangeType(GetValue(key), typeof(T));
+            var val = (T)Convert.ChangeType(GetValue(key), typeof(T));
+            _cache[key] = val;
+            return val;
         }
     }
 
