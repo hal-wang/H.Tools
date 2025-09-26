@@ -86,6 +86,16 @@ public static class SqlDataTable
         return result;
     }
 
+    public static string[] GetColumns(this DataTable dt)
+    {
+        var result = new string[dt.Columns.Count];
+        for (var i = 0; i < dt.Columns.Count; i++)
+        {
+            result[i] = dt.Columns[i].ColumnName;
+        }
+        return result;
+    }
+
     #region ConvertValue
     private static object ConvertValueToObject<T>(object value)
     {
