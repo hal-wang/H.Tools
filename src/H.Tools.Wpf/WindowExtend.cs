@@ -10,4 +10,11 @@ public static class WindowExtend
         _ = new WindowStateHandler(window, configuration);
         return window;
     }
+
+    public static Window[] ToArray(this WindowCollection collection)
+    {
+        var windows = new Window[collection.Count];
+        collection.CopyTo(windows, 0);
+        return windows;
+    }
 }
