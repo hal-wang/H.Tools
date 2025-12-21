@@ -56,21 +56,19 @@ public class AppSettingsConfiguration : Configuration
     }
     #endregion
 
-    #region Remove
-    public override void Remove(string key)
+    #region RemoveKey
+    protected override void RemoveKey(string key)
     {
         if (UseLock)
         {
             lock (_lock)
             {
                 RmoveInternal(key);
-                base.Remove(key);
             }
         }
         else
         {
             RmoveInternal(key);
-            base.Remove(key);
         }
     }
 

@@ -9,6 +9,7 @@ public abstract class Configuration : IConfiguration
 {
     protected abstract string GetValue(string key);
     protected abstract void SetValue(string value, string key);
+    protected abstract void RemoveKey(string key);
 
     public abstract bool ContainsKey(string key);
 
@@ -79,6 +80,7 @@ public abstract class Configuration : IConfiguration
 
     public virtual void Remove(string key)
     {
+        RemoveKey(key);
         _cache.Remove(key);
     }
 
