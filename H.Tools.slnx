@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="logo.png" />
+    <File Path="publish.sh" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="src/H.Tools.Asp/H.Tools.Asp.csproj" />
+  <Project Path="src/H.Tools.Config/H.Tools.Config.csproj" />
+  <Project Path="src/H.Tools.Data/H.Tools.Data.csproj" />
+  <Project Path="src/H.Tools.EntityFramework/H.Tools.EntityFramework.csproj" />
+  <Project Path="src/H.Tools.Http/H.Tools.Http.csproj" />
+  <Project Path="src/H.Tools.Sqlite/H.Tools.Sqlite.csproj" />
+  <Project Path="src/H.Tools.Task/H.Tools.Task.csproj" />
+  <Project Path="src/H.Tools.UnitTest/H.Tools.UnitTest.csproj" />
+  <Project Path="src/H.Tools.Wpf/H.Tools.Wpf.csproj" />
+</Solution>
