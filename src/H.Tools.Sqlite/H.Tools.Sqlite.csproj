@@ -23,11 +23,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\H.Tools.Config\H.Tools.Config.csproj" />
+	  <ProjectReference Include="..\H.Tools.Data\H.Tools.Data.csproj" />
 	</ItemGroup>
 
 </Project>
