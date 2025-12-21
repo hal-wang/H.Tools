@@ -5,10 +5,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.3.0</Version>
+		<Version>0.3.2</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<AssemblyVersion>0.3.0</AssemblyVersion>
+		<AssemblyVersion>0.3.2</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/hal-wang/H.Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
