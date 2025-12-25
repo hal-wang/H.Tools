@@ -56,7 +56,7 @@ public static class StoreProcedureExtend
             {
                 var param = cmd.CreateParameter();
                 param.ParameterName = kvp.Key;
-                param.Value = kvp.Value;
+                param.Value = kvp.Value == null ? DBNull.Value : kvp.Value;
                 cmd.Parameters.Add(param);
             }
         }
@@ -66,7 +66,7 @@ public static class StoreProcedureExtend
             {
                 var param = cmd.CreateParameter();
                 param.ParameterName = kvp.Key;
-                param.Value = kvp.Value;
+                param.Value = kvp.Value ?? DBNull.Value;
                 cmd.Parameters.Add(param);
             }
         }
@@ -77,7 +77,7 @@ public static class StoreProcedureExtend
             {
                 var param = cmd.CreateParameter();
                 param.ParameterName = property.Name;
-                param.Value = property.GetValue(args);
+                param.Value = property.GetValue(args) ?? DBNull.Value;
                 cmd.Parameters.Add(param);
             }
         }
