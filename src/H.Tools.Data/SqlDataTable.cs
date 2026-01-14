@@ -10,7 +10,7 @@ namespace H.Tools.Data;
 
 public static class SqlDataTable
 {
-    public static List<T> ToList<T>(this DataTable table) where T : class, new()
+    public static IReadOnlyList<T> ToList<T>(this DataTable table) where T : class, new()
     {
         var result = new List<T>();
         var properties = typeof(T).GetProperties();
@@ -62,7 +62,7 @@ public static class SqlDataTable
         return result;
     }
 
-    public static List<dynamic> ToList(this DataTable table)
+    public static IReadOnlyList<dynamic> ToList(this DataTable table)
     {
         var result = new List<dynamic>();
         foreach (DataRow dr in table.Rows)

@@ -136,7 +136,7 @@ public static class StoreProcedureExtend
         return dt;
     }
 
-    public async static Task<List<T>> ExecuteProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null) where T : class, new()
+    public async static Task<IReadOnlyList<T>> ExecuteProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null) where T : class, new()
     {
         using var dt = await dbConnection.ExecuteProcAsync(name, args, output);
         return dt.ToList<T>();

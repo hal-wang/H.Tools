@@ -26,7 +26,7 @@ public static class DbQueryExtend
         return dt;
     }
 
-    public static async Task<List<T>> ExecuteQueryAsync<T>(this DbConnection dbConnection, string sql) where T : class, new()
+    public static async Task<IReadOnlyList<T>> ExecuteQueryAsync<T>(this DbConnection dbConnection, string sql) where T : class, new()
     {
         using var dt = await dbConnection.ExecuteQueryAsync(sql);
         return dt.ToList<T>();
