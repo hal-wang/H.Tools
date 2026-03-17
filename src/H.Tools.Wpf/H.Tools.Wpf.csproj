@@ -6,10 +6,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.3.5</Version>
+		<Version>0.3.6</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<AssemblyVersion>0.3.5</AssemblyVersion>
+		<AssemblyVersion>0.3.6</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/hal-wang/H.Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/hal-wang/H.Tools</RepositoryUrl>
 		<Authors>hal-wang</Authors>
@@ -30,6 +30,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.142" />
 	</ItemGroup>
 </Project>

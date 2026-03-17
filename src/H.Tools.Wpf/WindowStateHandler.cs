@@ -113,14 +113,6 @@ internal class WindowStateHandler
 
     private void Window_StateChanged(object? sender, EventArgs e)
     {
-        if (_window.WindowState == WindowState.Maximized)
-        {
-            SaveSizeConfig();
-        }
-        else
-        {
-            RestoreSizeConfig();
-        }
         SaveIsMaxSizeConfig();
     }
 
