@@ -131,7 +131,7 @@ public static class StoreProcedureExtend
         using var reader = await cmd.ExecuteReaderAsync();
 
         var dt = new DataTable();
-        dt.Load(reader);
+        await Task.Run(() => dt.Load(reader));
         SetOutput(resultParameters, output);
         return dt;
     }

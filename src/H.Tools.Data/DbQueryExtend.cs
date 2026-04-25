@@ -22,7 +22,7 @@ public static class DbQueryExtend
 
         using var reader = await cmd.ExecuteReaderAsync();
         var dt = new DataTable();
-        dt.Load(reader);
+        await Task.Run(() => dt.Load(reader));
         return dt;
     }
 

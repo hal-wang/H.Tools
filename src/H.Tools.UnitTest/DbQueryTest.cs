@@ -15,6 +15,15 @@ public class DbQueryTest
     }
 
     [TestMethod]
+    public async System.Threading.Tasks.Task ExecuteQueryAsync()
+    {
+        using var con = new SqliteConnection($"Data Source=./test.db;Cache=2");
+        await con.OpenAsync();
+        var dt = await con.ExecuteQueryAsync("SELECT * FROM sqlite_master");
+        Assert.IsNotNull(dt);
+    }
+
+    [TestMethod]
     public async System.Threading.Tasks.Task ExecuteScalarAsync()
     {
         using var con = new SqliteConnection($"Data Source=./test.db;Cache=2");
