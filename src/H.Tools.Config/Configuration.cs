@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Data;
 using System.Runtime.CompilerServices;
 
@@ -13,27 +13,25 @@ public abstract class Configuration : IConfiguration
 
     public abstract bool ContainsKey(string key);
 
-    private readonly Dictionary<string, object> _cache = [];
+    private readonly ConcurrentDictionary<string, object> _cache = [];
 
     public virtual T Find<T>(bool force, [CallerMemberName] string key = null)
     {
         if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
 
-        if (!force && _cache.TryGetValue(key, out var obj))
+        if (!force && _cache.TryGetValue(key, out var cached))
         {
-            return (T)obj;
+            return (T)cached;
         }
 
-        if (ContainsKey(key))
-        {
-            var val = (T)Convert.ChangeType(GetValue(key), typeof(T));
-            _cache[key] = val;
-            return val;
-        }
-        else
+        if (!ContainsKey(key))
         {
             return default;
         }
+
+        var typed = (T)Convert.ChangeType(GetValue(key), typeof(T));
+        _cache.TryAdd(key, typed);
+        return typed;
     }
 
     public virtual T Find<T>([CallerMemberName] string key = null)
@@ -43,25 +41,22 @@ public abstract class Configuration : IConfiguration
 
     public virtual T Get<T>(bool force, T defaultValue = default, [CallerMemberName] string key = null)
     {
-        if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+        if (string.IsNullOrEmpty(key)) throw new ArgumentNullException();
 
-        if (!force && _cache.TryGetValue(key, out var obj))
+        if (!force && _cache.TryGetValue(key, out var cached))
         {
-            return (T)obj;
+            return (T)cached;
         }
 
         if (!ContainsKey(key))
         {
             Set(defaultValue, key);
-            _cache[key] = defaultValue;
             return defaultValue;
         }
-        else
-        {
-            var val = (T)Convert.ChangeType(GetValue(key), typeof(T));
-            _cache[key] = val;
-            return val;
-        }
+
+        var typed = (T)Convert.ChangeType(GetValue(key), typeof(T));
+        _cache.TryAdd(key, typed);
+        return typed;
     }
 
     public virtual T Get<T>(T defaultValue = default, [CallerMemberName] string key = null)
@@ -71,17 +66,16 @@ public abstract class Configuration : IConfiguration
 
     public virtual void Set<T>(T value, [CallerMemberName] string key = null)
     {
-        if (string.IsNullOrEmpty(key)) throw new NoNullAllowedException();
+        if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
 
-        _cache[key] = value;
-        var val = value?.ToString() ?? "";
-        SetValue(val, key);
+        _cache.AddOrUpdate(key, value, (_, _) => value);
+        SetValue(value?.ToString(), key);
     }
 
     public virtual void Remove(string key)
     {
         RemoveKey(key);
-        _cache.Remove(key);
+        _cache.TryRemove(key, out _);
     }
 
     public virtual string this[string key]
