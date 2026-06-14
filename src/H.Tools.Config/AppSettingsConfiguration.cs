@@ -1,55 +1,103 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Linq;
 
 namespace H.Tools.Config;
 
 public class AppSettingsConfiguration : Configuration
 {
-    private readonly object _configLock = new();
+    protected virtual bool UseLock => false;
+    private static readonly object _configLock = new();
 
+    #region ContainsKey
     public override bool ContainsKey(string key)
     {
-        lock (_configLock)
+        if (UseLock)
         {
-            return GetSection(GetConfiguration()).Settings.AllKeys.Contains(key);
+            lock (_configLock)
+            {
+                return ContainsKeyInternal(key);
+            }
+        }
+        else
+        {
+            return ContainsKeyInternal(key);
         }
     }
 
+    public bool ContainsKeyInternal(string key) => GetSection(GetConfiguration()).Settings.AllKeys.Contains(key);
+    #endregion
+
+    #region GetValue
     protected override string GetValue(string key)
     {
-        lock (_configLock)
+        if (UseLock)
         {
-            return GetSection(GetConfiguration())
-               .Settings[key]?.Value
-               ?? string.Empty;
+            lock (_configLock)
+            {
+                return GetValueInternal(key);
+            }
+        }
+        else
+        {
+            return GetValueInternal(key);
         }
     }
 
+    private string GetValueInternal(string key) => GetSection(GetConfiguration()).Settings[key]?.Value ?? string.Empty;
+    #endregion
+
+    #region SetValue
     protected override void SetValue(string value, string key)
     {
-        lock (_configLock)
+        if (UseLock)
         {
-            var config = GetConfiguration();
-            var section = GetSection(config);
-            section.Settings.Remove(key);
-            section.Settings.Add(key, value);
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(SectionName);
+            lock (_configLock)
+            {
+                SetValueInternal(value, key);
+            }
+        }
+        else
+        {
+            SetValueInternal(value, key);
         }
     }
 
+    private void SetValueInternal(string value, string key)
+    {
+        var config = GetConfiguration();
+        var section = GetSection(config);
+        section.Settings.Remove(key);
+        section.Settings.Add(key, value);
+        config.Save(ConfigurationSaveMode.Modified);
+        ConfigurationManager.RefreshSection(SectionName);
+    }
+    #endregion
+
+    #region RemoveKey
     protected override void RemoveKey(string key)
     {
-        lock (_configLock)
+        if (UseLock)
         {
-            var config = GetConfiguration();
-            var section = GetSection(config);
-            section.Settings.Remove(key);
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(SectionName);
+            lock (_configLock)
+            {
+                RmoveInternal(key);
+            }
+        }
+        else
+        {
+            RmoveInternal(key);
         }
     }
+
+    private void RmoveInternal(string key)
+    {
+        var config = GetConfiguration();
+        var section = GetSection(config);
+        section.Settings.Remove(key);
+        config.Save(ConfigurationSaveMode.Modified);
+        ConfigurationManager.RefreshSection(SectionName);
+    }
+    #endregion
 
     private AppSettingsSection GetSection(System.Configuration.Configuration config)
     {
