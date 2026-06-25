@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class TimeFormatConverter : IValueConverter
+public class TimeFormatConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

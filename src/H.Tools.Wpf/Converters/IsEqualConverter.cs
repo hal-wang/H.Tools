@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class IsEqualConverter : IValueConverter
+public class IsEqualConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
@@ -16,7 +16,7 @@ internal class IsEqualConverter : IValueConverter
     }
 }
 
-internal class IsToStringEqualConverter : IValueConverter
+public class IsToStringEqualConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
@@ -29,7 +29,7 @@ internal class IsToStringEqualConverter : IValueConverter
     }
 }
 
-internal class IsMultiEqualConverter : IMultiValueConverter
+public class IsMultiEqualConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
@@ -50,7 +50,7 @@ internal class IsMultiEqualConverter : IMultiValueConverter
     }
 }
 
-internal class IsMultiEqualWithoutParamConverter : IMultiValueConverter
+public class IsMultiEqualWithoutParamConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
@@ -71,7 +71,7 @@ internal class IsMultiEqualWithoutParamConverter : IMultiValueConverter
     }
 }
 
-internal class IsMultiToStringEqualConverter : IMultiValueConverter
+public class IsMultiToStringEqualConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
@@ -93,7 +93,7 @@ internal class IsMultiToStringEqualConverter : IMultiValueConverter
 }
 
 
-internal class IsMultiToStringEqualWithoutParamConverter : IMultiValueConverter
+public class IsMultiToStringEqualWithoutParamConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {

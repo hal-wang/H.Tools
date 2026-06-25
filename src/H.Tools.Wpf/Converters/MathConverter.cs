@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class MathConverter : IValueConverter
+public class MathConverter : IValueConverter
 {
     private static readonly char[] _allOperators = ['+', '-', '*', '/', '%', '(', ')'];
 

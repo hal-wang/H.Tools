@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class BooleanToValueConverter : IValueConverter
+public class BooleanToValueConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class ThicknessConverter : IValueConverter
+public class ThicknessConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo language)
     {

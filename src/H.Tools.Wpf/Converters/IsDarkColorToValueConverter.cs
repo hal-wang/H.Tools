@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace H.Tools.Wpf.Converters;
 
-internal abstract class IsDarkColorConverterBase
+public abstract class IsDarkColorConverterBase
 {
     private static Color GetColor(string str)
     {
@@ -93,7 +93,7 @@ internal abstract class IsDarkColorConverterBase
     }
 }
 
-internal class IsDarkColorConverter : IsDarkColorConverterBase, IValueConverter
+public class IsDarkColorConverter : IsDarkColorConverterBase, IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo language)
     {
@@ -107,7 +107,7 @@ internal class IsDarkColorConverter : IsDarkColorConverterBase, IValueConverter
 }
 
 
-internal class IsDarkColorToValueConverter : IsDarkColorConverterBase, IValueConverter
+public class IsDarkColorToValueConverter : IsDarkColorConverterBase, IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo language)
     {

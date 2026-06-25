@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class BackgroundToForegroundConverter : IsDarkColorConverterBase, IValueConverter
+public class BackgroundToForegroundConverter : IsDarkColorConverterBase, IValueConverter
 {
     public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

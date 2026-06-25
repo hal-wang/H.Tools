@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace H.Tools.Wpf.Converters;
 
-internal class IsNullConverter : IValueConverter
+public class IsNullConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
@@ -16,7 +16,7 @@ internal class IsNullConverter : IValueConverter
     }
 }
 
-internal class IsNullToValueConverter : IValueConverter
+public class IsNullToValueConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo language)
     {
