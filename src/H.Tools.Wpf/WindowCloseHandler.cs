@@ -39,10 +39,10 @@ public class WindowCloseHandler
         }
 
         var afterFuncs = AfterClosing?.GetInvocationList()?.Reverse() ?? [];
-        foreach (var func in afterFuncs.Cast<Func<Task>>())
+        await Task.WhenAll(afterFuncs.Cast<Func<Task>>().Select(async x =>
         {
-            await func();
-        }
+            try { await x(); } catch { }
+        }));
 
         _closed = true;
         _window.Close();
@@ -69,10 +69,7 @@ public class WindowCloseHandler
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
         var afterFuncs = AfterOpening?.GetInvocationList()?.Reverse() ?? [];
-        foreach (var func in afterFuncs.Cast<Func<Task>>())
-        {
-            await func();
-        }
+        await Task.WhenAll(afterFuncs.Cast<Func<Task>>().Select(x => x()));
     }
 
     public event Func<Task>? AfterOpening;
