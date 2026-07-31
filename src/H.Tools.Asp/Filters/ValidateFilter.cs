@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace H.Tools.Asp.Filters;
 
-public class ValidateFilter : IActionFilter
+public class ValidateFilter : IAlwaysRunResultFilter
 {
-    public void OnActionExecuted(ActionExecutedContext context)
+    public void OnResultExecuted(ResultExecutedContext context)
     {
-
     }
 
-    public void OnActionExecuting(ActionExecutingContext context)
+    public void OnResultExecuting(ResultExecutingContext context)
     {
         var modelState = context.ModelState;
         if (modelState.IsValid)
