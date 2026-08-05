@@ -16,7 +16,16 @@ public class WindowCloseHandler
         }
 
         window.Closing += MainWindow_Closing;
-        window.Loaded += MainWindow_Loaded;
+
+        if (window.IsLoaded)
+        {
+            await InvokeLoadedFuncs();
+        }
+        else
+        {
+            window.Loaded += MainWindow_Loaded;
+        }
+
         return true;
     }
 
@@ -67,6 +76,11 @@ public class WindowCloseHandler
     }
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+        await InvokeLoadedFuncs();
+    }
+
+    private async Task InvokeLoadedFuncs()
     {
         var afterFuncs = AfterOpening?.GetInvocationList()?.Reverse() ?? [];
         await Task.WhenAll(afterFuncs.Cast<Func<Task>>().Select(x => x()));
