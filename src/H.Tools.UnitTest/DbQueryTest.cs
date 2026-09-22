@@ -28,7 +28,14 @@ public class DbQueryTest
     {
         using var con = new SqliteConnection($"Data Source=./test.db;Cache=2");
         await con.OpenAsync();
-        var str = await con.ExecuteScalarAsync<string?>("SELECT * FROM sqlite_master");
+
+        var str = await con.ExecuteScalarAsync<string?>("SELECT 'abc'");
+        Assert.AreEqual("abc", str);
+
+        str = await con.ExecuteScalarAsync<string?>("SELECT * FROM sqlite_master");
+        Assert.IsNull(str);
+
+        str = await con.ExecuteScalarAsync<string?>("SELECT NULL");
         Assert.IsNull(str);
     }
 }

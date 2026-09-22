@@ -142,16 +142,23 @@ public static class StoreProcedureExtend
         return dt.ToList<T>();
     }
 
-    public async static Task<T> ExecuteScalarProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
+    public async static Task<T?> ExecuteScalarProcAsync<T>(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         using var cmd = await dbConnection.CreateCommand(name, args);
         var resultParameters = cmd.InitOutput(output);
-        var obj = (T)await cmd.ExecuteScalarAsync();
+        var obj = await cmd.ExecuteScalarAsync();
         SetOutput(resultParameters, output);
-        return obj;
+
+        if (obj == DBNull.Value || obj == null)
+            return default;
+
+        if (obj is T t)
+            return t;
+
+        return (T)Convert.ChangeType(obj, typeof(T));
     }
 
-    public async static Task<object> ExecuteScalarProcAsync(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
+    public async static Task<object?> ExecuteScalarProcAsync(this DbConnection dbConnection, string name, object? args = null, ExpandoObject? output = null)
     {
         return await dbConnection.ExecuteScalarProcAsync<object>(name, args, output);
     }
