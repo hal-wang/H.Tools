@@ -24,34 +24,57 @@ public class SqliteConfiguration : Configuration, IDisposable
         Init();
     }
 
-    public SqliteConfiguration(string path = "./config.db") : this(() => new SqliteConnection($"Data Source={path};Cache=2"))
+    public SqliteConfiguration(string path = "./config.db") : this(() => new SqliteConnection($"Data Source={path};Pooling=true"))
     {
     }
+
+    protected virtual string SectionName { get; } = "Configuration";
 
     private void Init()
     {
         if (Connection.State != System.Data.ConnectionState.Open)
         {
-            Connection.OpenAsync().Wait();
+            Connection.OpenAsync().GetAwaiter().GetResult();
         }
-        Connection.ExecuteNonQueryAsync("CREATE TABLE IF NOT EXISTS Configuration (Key TEXT PRIMARY KEY, Value TEXT);").Wait();
+        Connection.ExecuteNonQueryAsync($"CREATE TABLE IF NOT EXISTS \"{SectionName}\" (Key TEXT PRIMARY KEY, Value TEXT);").GetAwaiter().GetResult();
     }
 
-    public override bool ContainsKey(string key) => Connection.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Configuration WHERE Key = '{key.Replace("'", "''")}';").Result > 0;
+    public override bool ContainsKey(string key) => Connection.ExecuteScalarAsync<int>(
+        $"SELECT COUNT(*) FROM \"{SectionName}\" WHERE Key = @Key;",
+        new
+        {
+            Key = key,
+        }).GetAwaiter().GetResult() > 0;
 
-    protected override string GetValue(string key = null)
+    protected override string GetValue(string key)
     {
-        return Connection.ExecuteScalarAsync<string>($"SELECT Value FROM Configuration WHERE Key = '{key.Replace("'", "''")}';").Result ?? "";
+        return Connection.ExecuteScalarAsync<string>(
+            $"SELECT Value FROM \"{SectionName}\" WHERE Key = @Key;",
+            new
+            {
+                Key = key,
+            }).GetAwaiter().GetResult() ?? "";
     }
 
     protected override void SetValue(string value, string key)
     {
-        Connection.ExecuteNonQueryAsync($"INSERT OR REPLACE INTO Configuration (Key, Value) VALUES ('{key.Replace("'", "''")}', '{value.Replace("'", "''")}');").Wait();
+        Connection.ExecuteNonQueryAsync(
+            $"INSERT OR REPLACE INTO \"{SectionName}\" (Key, Value) VALUES (@Key, @Value);",
+            new
+            {
+                Key = key,
+                Value = value,
+            }).GetAwaiter().GetResult();
     }
 
     protected override void RemoveKey(string key)
     {
-        Connection.ExecuteNonQueryAsync($"DELETE FROM Configuration WHERE Key = '{key.Replace("'", "''")}';").Wait();
+        Connection.ExecuteNonQueryAsync(
+            $"DELETE FROM \"{SectionName}\" WHERE Key = @Key;",
+            new
+            {
+                Key = key,
+            }).GetAwaiter().GetResult();
     }
 
     public void Dispose()

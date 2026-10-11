@@ -38,4 +38,17 @@ public class DbQueryTest
         str = await con.ExecuteScalarAsync<string?>("SELECT NULL");
         Assert.IsNull(str);
     }
+
+    [TestMethod]
+    public async System.Threading.Tasks.Task ExecuteScalarWithArgsAsync()
+    {
+        using var con = new SqliteConnection($"Data Source=./test.db;Cache=2");
+        await con.OpenAsync();
+
+        var count = await con.ExecuteScalarAsync<int>("SELECT @TestCount", new
+        {
+            @TestCount = 2
+        });
+        Assert.AreEqual(2, count);
+    }
 }
