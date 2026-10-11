@@ -7,6 +7,7 @@ namespace H.Tools.Sqlite;
 
 public class SqliteConfiguration : Configuration, IDisposable
 {
+    private readonly bool _ownsConnection = false;
     private SqliteConnection Connection => _initCon ?? (_cbCon ??= _conCb());
 
     private readonly SqliteConnection _initCon;
@@ -26,6 +27,7 @@ public class SqliteConfiguration : Configuration, IDisposable
 
     public SqliteConfiguration(string path = "./config.db") : this(() => new SqliteConnection($"Data Source={path};Pooling=true"))
     {
+        _ownsConnection = true;
     }
 
     protected virtual string SectionName { get; } = "Configuration";
@@ -79,6 +81,9 @@ public class SqliteConfiguration : Configuration, IDisposable
 
     public void Dispose()
     {
-        Connection.Dispose();
+        if (_ownsConnection)
+        {
+            Connection.Dispose();
+        }
     }
 }
