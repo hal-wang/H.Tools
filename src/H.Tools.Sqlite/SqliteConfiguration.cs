@@ -30,7 +30,7 @@ public class SqliteConfiguration : Configuration, IDisposable
         _ownsConnection = true;
     }
 
-    protected virtual string SectionName { get; } = "Configuration";
+    protected virtual string TableName { get; } = "Configuration";
 
     private void Init()
     {
@@ -38,11 +38,11 @@ public class SqliteConfiguration : Configuration, IDisposable
         {
             Connection.OpenAsync().GetAwaiter().GetResult();
         }
-        Connection.ExecuteNonQueryAsync($"CREATE TABLE IF NOT EXISTS \"{SectionName}\" (Key TEXT PRIMARY KEY, Value TEXT);").GetAwaiter().GetResult();
+        Connection.ExecuteNonQueryAsync($"CREATE TABLE IF NOT EXISTS \"{TableName}\" (Key TEXT PRIMARY KEY, Value TEXT);").GetAwaiter().GetResult();
     }
 
     public override bool ContainsKey(string key) => Connection.ExecuteScalarAsync<int>(
-        $"SELECT COUNT(*) FROM \"{SectionName}\" WHERE Key = @Key;",
+        $"SELECT COUNT(*) FROM \"{TableName}\" WHERE Key = @Key;",
         new
         {
             Key = key,
@@ -51,7 +51,7 @@ public class SqliteConfiguration : Configuration, IDisposable
     protected override string GetValue(string key)
     {
         return Connection.ExecuteScalarAsync<string>(
-            $"SELECT Value FROM \"{SectionName}\" WHERE Key = @Key;",
+            $"SELECT Value FROM \"{TableName}\" WHERE Key = @Key;",
             new
             {
                 Key = key,
@@ -61,7 +61,7 @@ public class SqliteConfiguration : Configuration, IDisposable
     protected override void SetValue(string value, string key)
     {
         Connection.ExecuteNonQueryAsync(
-            $"INSERT OR REPLACE INTO \"{SectionName}\" (Key, Value) VALUES (@Key, @Value);",
+            $"INSERT OR REPLACE INTO \"{TableName}\" (Key, Value) VALUES (@Key, @Value);",
             new
             {
                 Key = key,
@@ -72,7 +72,7 @@ public class SqliteConfiguration : Configuration, IDisposable
     protected override void RemoveKey(string key)
     {
         Connection.ExecuteNonQueryAsync(
-            $"DELETE FROM \"{SectionName}\" WHERE Key = @Key;",
+            $"DELETE FROM \"{TableName}\" WHERE Key = @Key;",
             new
             {
                 Key = key,

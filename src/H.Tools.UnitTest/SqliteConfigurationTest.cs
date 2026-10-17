@@ -95,7 +95,7 @@ public class SqliteConfigurationTestWithSection
 {
     private class SqliteConfigurationWithSection : SqliteConfiguration
     {
-        protected override string SectionName => "Custom";
+        protected override string TableName => "Custom";
     }
 
 
